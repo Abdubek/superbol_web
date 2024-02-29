@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Involve, sans-serif;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    color: #020202;
+    min-width: 1280px;
+}
+.body::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        min-width: 1280px;
+        width: 1280px;
+    }
+}
+
+
+@layer base {
+    @font-face {
+        font-family: 'Involve';
+        src: url('/fonts/Involve/Involve-Regular.ttf') format('truetype');
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'Involve';
+        src: url('/fonts/Involve/Involve-Medium.ttf') format('truetype');
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: 'Involve';
+        src: url('/fonts/Involve/Involve-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+    }
+
+    @font-face {
+        font-family: 'Involve';
+        src: url('/fonts/Involve/Involve-Bold.ttf') format('truetype');
+        font-weight: 700;
+    }
+}
