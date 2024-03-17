@@ -3,9 +3,9 @@ import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 import PrimaryLogo from "@/shared/icons/primary_logo.svg";
 import {Typography} from "@/shared/ui/Typography";
 import Link from "next/link";
-import {SignInForm} from "@/features/SignInForm";
+import {SignUpForm} from "@/features/SignUpForm";
 
-export default function SignInPage() {
+export default function SignUpPage() {
   return (
     <main className="container min-h-screen flex py-8">
       <div className="flex-1 relative w-full rounded-3xl overflow-hidden">
@@ -26,7 +26,7 @@ export default function SignInPage() {
       <div className="flex-1 flex flex-col gap-5 justify-between items-center">
         <PrimaryLogo width={48} height={48} />
 
-        <SignInForm />
+        <SignUpForm />
 
         <div className="flex flex-col items-center text-center">
           <Image src="/partners/freedom.png" alt="Freedom" width={111} height={58} />
