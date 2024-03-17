@@ -3,6 +3,7 @@ import ChevronDownIcon from "@/shared/icons/chevron-down.svg";
 import Link from "next/link";
 import {Typography} from "@/shared/ui/Typography";
 import {Button} from "@/shared/ui/Button";
+import {Routes} from "@/routes";
 
 export const Header = () => {
   return (
@@ -22,8 +23,10 @@ export const Header = () => {
           RU
           <ChevronDownIcon />
         </Button>
-        <Button size="sm" radius="md" weight="bold">
-          Войти
+        <Button asChild size="sm" radius="md" weight="bold">
+          <Link href={Routes.SIGN_IN}>
+            Войти
+          </Link>
         </Button>
       </div>
     </header>

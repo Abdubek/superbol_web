@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import clsx from "clsx";
 import {FC, HTMLAttributes} from "react";
+import {Slot} from "@radix-ui/react-slot";
 
 const style = cva("", {
   variants: {
@@ -8,7 +9,8 @@ const style = cva("", {
       primary: "text-text-primary",
       secondary: "text-text-secondary",
       grey: "text-text-grey",
-      darkBlue: "text-text-darkblue"
+      darkBlue: "text-text-darkblue",
+      red: "text-text-red"
     },
     size: {
       h1: "font-bold text-5xl leading-[133%]",
@@ -28,17 +30,17 @@ const style = cva("", {
 export interface TypographyProps
   extends HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof style> {
-  as?: keyof JSX.IntrinsicElements;
+  asChild?: boolean
 }
 
 export const Typography: FC<TypographyProps> = ({
   variant,
   size,
-  as,
+  asChild,
   children,
   className,
 }) => {
-  const Component = as || "div";
+  const Component = asChild ? Slot : "div"
 
   return (
     <Component className={clsx(className, style({ variant, size }))}>

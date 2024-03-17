@@ -23,10 +23,12 @@ const config: Config = {
         yellow: "#FCE531",
         grey: "#7E7E7E",
         white: "#FFFFFF",
+        red: "#EA4335",
       },
       border: {
         primary: "#47A3C4",
         secondary: "#FCE531",
+        grey: "#7E7E7E",
       },
     },
     extend: {
@@ -52,6 +54,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      borderRadius: {
+        '3xl': '20px'
+      }
     },
   },
   plugins: [],

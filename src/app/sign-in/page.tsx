@@ -1,0 +1,44 @@
+import Image from "next/image";
+import PrimaryPattern from "@/shared/images/primary_pattern.svg";
+import PrimaryLogo from "@/shared/icons/primary_logo.svg";
+import {Typography} from "@/shared/ui/Typography";
+import Link from "next/link";
+import {SignIn} from "@/features/SignIn";
+
+export default function LoginPage() {
+  return (
+    <main className="container min-h-screen flex py-8">
+      <div className="flex-1 relative w-full rounded-3xl overflow-hidden">
+        <Image src={"/players2.png"}
+               alt={"Players"}
+               fill
+               quality={100}
+               style={{
+                 objectFit: 'cover',
+               }} />
+        <PrimaryPattern
+          className="absolute top-0 left-0 right-0 bottom-0"
+          style={{
+            opacity: "0.1",
+          }}
+        />
+      </div>
+      <div className="flex-1 flex flex-col gap-5 justify-between items-center">
+        <PrimaryLogo width={48} height={48} />
+
+        <SignIn />
+
+        <div className="flex flex-col items-center text-center">
+          <Image src="/partners/freedom.png" alt="Freedom" width={111} height={58} />
+          <Typography variant="grey">
+            Создавая аккаунт, я принимаю
+            <Typography variant="darkBlue" asChild>
+              <Link href="/"> Условия пользования и <br/> Политику конфиденциальности </Link>
+            </Typography>
+            Компании.
+          </Typography>
+        </div>
+      </div>
+    </main>
+  )
+}

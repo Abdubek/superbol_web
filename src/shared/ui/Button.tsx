@@ -1,8 +1,9 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import clsx from "clsx";
-import {FC, HTMLAttributes} from "react";
+import {ButtonHTMLAttributes, FC} from "react";
+import {Slot} from "@radix-ui/react-slot";
 
-const style = cva("flex items-center gap-2 border border-border-primary", {
+const style = cva("flex items-center justify-center gap-2 border border-border-primary", {
   variants: {
     size: {
       sm: "p-2",
@@ -29,9 +30,9 @@ const style = cva("flex items-center gap-2 border border-border-primary", {
 });
 
 export interface ButtonProps
-  extends HTMLAttributes<HTMLButtonElement>,
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof style> {
-  as?: keyof JSX.IntrinsicElements;
+  asChild?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -39,11 +40,11 @@ export const Button: FC<ButtonProps> = ({
   radius,
   weight,
   variant,
-  as,
+  asChild,
   children,
   className,
 }) => {
-  const Component = as || "button";
+  const Component = asChild ? Slot : "button"
 
   return (
     <Component className={clsx(className, style({ size, radius, weight, variant }))}>
