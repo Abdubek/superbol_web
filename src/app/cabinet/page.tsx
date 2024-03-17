@@ -2,7 +2,9 @@
 export default function CabinetPage() {
   return (
     <main className="container">
-      Cabinet
+      <div>
+
+      </div>
     </main>
   )
 }
