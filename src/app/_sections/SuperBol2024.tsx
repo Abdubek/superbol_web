@@ -5,7 +5,7 @@ import {Button} from "@/shared/ui/Button";
 export const SuperBol2024 = () => {
   return (
     <section className="container grid grid-cols-2 gap-10 py-15">
-      <Typography as="h1" size="h1" variant="primary" className="col-span-2">Super Bol 2024 </Typography>
+      <Typography asChild size="h1" variant="primary" className="col-span-2"><h1>Super Bol 2024</h1></Typography>
       <div className="col-span-1 px-6 py-8 bg-bg-primary/20 rounded-2xl overflow-hidden relative">
         <PrimaryPattern
           className="absolute top-0 left-0 right-0 bottom-0"
@@ -14,16 +14,16 @@ export const SuperBol2024 = () => {
           }}
         />
 
-        <Typography as="h3" size="h3" className="mb-2">
-          Формат проекта
+        <Typography asChild size="h3" className="mb-2">
+          <h3>Формат проекта</h3>
         </Typography>
         <Typography size="body1">
           Футбольные отборы будут проводиться по уникальной системе и методике выбывания, разработанной командой организатора проекта. Спортивное реалити-шоу состоит из кастинга, в который включен второй отборный матч и финал.
         </Typography>
       </div>
       <div className="col-span-1 px-6 py-8 bg-bg-yellow/20 rounded-2xl">
-        <Typography as="h3" size="h3" className="mb-2">
-          Даты проведения
+        <Typography asChild size="h3" className="mb-2">
+          <h3>Даты проведения</h3>
         </Typography>
 
         <div className="grid grid-rows-4 grid-flow-col gap-1">

@@ -33,20 +33,20 @@ export const Main = () => {
           Наши выпуски на YouTube
         </Button>
         <Link href="#" className="flex items-center justify-between gap-12 w-full">
-          <Typography as="span" size="body1">
-            Финал. Матч жизни для &quot;Super Bol&quot; / Скауты на Астана-Арена!
+          <Typography asChild size="body1">
+            <span>Финал. Матч жизни для &quot;Super Bol&quot; / Скауты на Астана-Арена!</span>
           </Typography>
           <ArrowRightIcon />
         </Link>
         <Link href="#" className="flex items-center justify-between gap-12 w-full">
-          <Typography as="span" size="body1">
-            Выгнали с команды 3-их игроков после игры с &quot;Jas-Qyran&quot; / Super Bol
+          <Typography asChild size="body1">
+            <span>Выгнали с команды 3-их игроков после игры с &quot;Jas-Qyran&quot; / Super Bol</span>
           </Typography>
           <ArrowRightIcon />
         </Link>
         <Link href="#" className="flex items-center justify-between gap-12 w-full">
-          <Typography as="span" size="body1">
-            &quot;Казахстан богат не нефтью, он богат людьми&quot; - Тимур Турлов
+          <Typography asChild size="body1">
+            <span>&quot;Казахстан богат не нефтью, он богат людьми&quot; - Тимур Турлов</span>
           </Typography>
           <ArrowRightIcon />
         </Link>
