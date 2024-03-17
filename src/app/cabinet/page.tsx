@@ -1,6 +1,13 @@
 import Pattern from "@/shared/images/secondary_pattern.svg";
 import {CastingTimer} from "@/entities/casting/CastingTimer";
 import {Typography} from "@/shared/ui/Typography";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/shared/ui/Tabs";
+
+enum TabTypes {
+  ABOUT_US = "about_us",
+  CASTING_PROCESS = "casting_process",
+  ADVICES = "advices"
+}
 
 export default function CabinetPage() {
   return (
@@ -20,7 +27,29 @@ export default function CabinetPage() {
         <CastingTimer city="Ташкент" date={new Date()} />
       </div>
 
-      <Typography size="h3">Инструкция пользователя</Typography>
+      <Typography size="h3" className="mb-3">Инструкция пользователя</Typography>
+      <Tabs defaultValue={TabTypes.ABOUT_US}>
+        <TabsList className="mb-6">
+          <TabsTrigger value={TabTypes.ABOUT_US} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
+            <Typography size="caption1">О проекте</Typography>
+          </TabsTrigger>
+          <TabsTrigger value={TabTypes.CASTING_PROCESS} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
+            <Typography size="caption1">Процесс кастинга</Typography>
+          </TabsTrigger>
+          <TabsTrigger value={TabTypes.ADVICES} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
+            <Typography size="caption1">Советы</Typography>
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value={TabTypes.ABOUT_US}>
+          about
+        </TabsContent>
+        <TabsContent value={TabTypes.CASTING_PROCESS}>
+          casting
+        </TabsContent>
+        <TabsContent value={TabTypes.ADVICES}>
+          advices
+        </TabsContent>
+      </Tabs>
     </main>
   )
 }
