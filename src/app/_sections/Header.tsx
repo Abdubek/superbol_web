@@ -6,7 +6,7 @@ import {Button} from "@/shared/ui/Button";
 
 export const Header = () => {
   return (
-    <header className='container mx-auto py-2.5 flex items-center justify-between'>
+    <header className='container py-2.5 flex items-center justify-between'>
       <PrimaryLogo width={48} height={48} />
       <Link href={"/#"}>
         <Typography size="caption2" className="hover:text-text-primary">Главная</Typography>

@@ -4,7 +4,7 @@ import {Button} from "@/shared/ui/Button";
 
 export const SuperBol2024 = () => {
   return (
-    <section className="container mx-auto grid grid-cols-2 gap-10 py-15">
+    <section className="container grid grid-cols-2 gap-10 py-15">
       <Typography as="h1" size="h1" variant="primary" className="col-span-2">Super Bol 2024 </Typography>
       <div className="col-span-1 px-6 py-8 bg-bg-primary/20 rounded-2xl overflow-hidden relative">
         <PrimaryPattern

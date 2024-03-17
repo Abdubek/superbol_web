@@ -13,13 +13,16 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 1280px) {
+@layer components {
     .container {
         min-width: 1280px;
         width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: theme('padding.4');
+        padding-right: theme('padding.4');
     }
 }
-
 
 @layer base {
     @font-face {

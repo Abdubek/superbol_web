@@ -12,7 +12,7 @@ const ttlinks = [
 
 export const TiktokVideos = () => {
   return (
-    <section className="container mx-auto pb-48">
+    <section className="container pb-48">
       <Typography size="h2" variant="primary" className="mb-10">Смотрите нас в TikTok</Typography>
       <div className="flex overflow-x-scroll gap-9">
         {ttlinks.map((id, index) => (

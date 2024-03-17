@@ -8,7 +8,7 @@ import {Typography} from "@/shared/ui/Typography";
 export const Footer = () => {
   return (
     <footer className="bg-bg-platinum">
-      <div className="container mx-auto pt-10 pb-14 flex justify-between">
+      <div className="container pt-10 pb-14 flex justify-between">
         <div className="flex flex-col gap-3">
           <PrimaryLogo width={48} height={48} />
           <Image src="/partners/freedom.png" alt="Freedom" width={137} height={72} />

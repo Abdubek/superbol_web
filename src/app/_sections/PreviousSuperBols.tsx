@@ -12,7 +12,7 @@ export const PreviousSuperBols = () => {
       <Accordion type="single" collapsible>
         <AccordionItem value="superbol-2023">
           <AccordionTrigger className="bg-bg-platinum">
-            <div className="container mx-auto flex items-center justify-between">
+            <div className="container flex items-center justify-between">
               <Typography size="h3" variant="darkBlue">⚽ Superbol 2023</Typography>
               <ChevronDownIcon className="shrink-0 text-muted-foreground transition-transform duration-200" />
             </div>
@@ -24,7 +24,7 @@ export const PreviousSuperBols = () => {
 
         <AccordionItem value="superbol-2022">
           <AccordionTrigger className="bg-bg-platinum">
-            <div className="container mx-auto flex items-center justify-between">
+            <div className="container flex items-center justify-between">
               <Typography size="h3" variant="darkBlue">⚽ Superbol 2022</Typography>
               <ChevronDownIcon className="shrink-0 text-muted-foreground transition-transform duration-200" />
             </div>

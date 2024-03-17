@@ -6,7 +6,7 @@ import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 
 export const Main = () => {
   return (
-    <section className="relative container mx-auto grid grid-cols-7 items-center gap-20 py-36">
+    <section className="relative container grid grid-cols-7 items-center gap-20 py-36">
       <PrimaryPattern
         className="absolute left-[120px] w-[600px] h-[600px]"
         style={{

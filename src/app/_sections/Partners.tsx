@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Partners = () => {
   return (
-    <section className="container mx-auto pt-20 pb-8">
+    <section className="container pt-20 pb-8">
       <Typography size="h1" variant="primary">Наши партнеры</Typography>
       <Typography size="body3" variant="grey" className="mb-5">Свяжитесь с нами, чтобы стать партнером проекта</Typography>
       <div className="flex items-center gap-14">

@@ -12,7 +12,7 @@ enum TabTypes {
 
 export const Info = () => {
   return (
-    <section className="container mx-auto pb-9 min-h-[535px]">
+    <section className="container pb-9 min-h-[535px]">
       <Tabs defaultValue={TabTypes.RULES}>
         <TabsList className="mb-10">
           <TabsTrigger value={TabTypes.RULES} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
