@@ -10,7 +10,8 @@ const style = cva("", {
       secondary: "text-text-secondary",
       grey: "text-text-grey",
       darkBlue: "text-text-darkblue",
-      red: "text-text-red"
+      red: "text-text-red",
+      white: "text-text-white"
     },
     size: {
       h1: "font-bold text-5xl leading-[133%]",

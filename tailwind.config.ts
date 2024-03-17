@@ -10,6 +10,7 @@ const config: Config = {
         platinum: "#F8F8F8",
         darkblue: "#023474",
         yellow: "#FCE531",
+        red: "#EA4335",
       },
       button: {
         primary: "#47A3C4",
@@ -49,13 +50,11 @@ const config: Config = {
       padding: {
         15: "60px"
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       borderRadius: {
         '3xl': '20px'
+      },
+      gap: {
+        15: "60px"
       }
     },
   },

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import {ButtonHTMLAttributes, FC} from "react";
 import {Slot} from "@radix-ui/react-slot";
 
-const style = cva("flex items-center justify-center gap-2 border border-border-primary", {
+const style = cva("flex items-center justify-center gap-2 border", {
   variants: {
     size: {
       sm: "p-2",
@@ -18,8 +18,9 @@ const style = cva("flex items-center justify-center gap-2 border border-border-p
       bold: "font-bold"
     },
     variant: {
-      primary: "bg-button-primary text-text-white",
-      ghost: "bg-transparent"
+      primary: "border-border-primary bg-button-primary text-text-white",
+      ghost: "border-border-primary bg-transparent",
+      foreground: "border-border-secondary text-text-white"
     }
   },
   defaultVariants: {

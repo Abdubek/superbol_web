@@ -1,4 +1,5 @@
 export const Routes = {
+  HOME: '/',
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
   SIGN_UP_SUCCESS: '/sign-up/success',
@@ -6,4 +7,9 @@ export const Routes = {
   FORGOT_PASSWORD_SUCCESS: '/forgot-password/success',
   RESET_PASSWORD_SUCCESS: '/reset-password/success',
   SET_PASSWORD_SUCCESS: '/set-password/success',
+  CABINET: '/cabinet',
+  PROFILE: '/cabinet/profile',
+  PROFILE_APPLICATION: '/cabinet/application',
+  PROFILE_PARTICIPANTS: '/cabinet/participants',
+  PROFILE_NOTIFICATIONS: '/cabinet/notifications',
 }
