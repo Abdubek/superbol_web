@@ -3,7 +3,7 @@ import {Input} from "@/shared/ui/Input";
 import {HTMLInputTypeAttribute} from "react";
 
 type Props = {
-  label: string
+  label?: string
   name: string
   error?: string
   type?: HTMLInputTypeAttribute
@@ -13,9 +13,9 @@ type Props = {
 export const FormInput = ({ label, name, type = "text", error, placeholder }: Props) => {
   return (
     <div className="w-full text-left">
-      <Typography asChild size="caption2" className="mb-2 block">
+      {label ? <Typography asChild size="caption2" className="mb-2 block">
         <label htmlFor={name}>{label}</label>
-      </Typography>
+      </Typography> : null}
       <Input id={name}
              type={type}
              name={name}

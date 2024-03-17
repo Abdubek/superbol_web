@@ -3,7 +3,6 @@
 import { useFormState } from 'react-dom'
 import {actions} from "@/actions";
 import {Typography} from "@/shared/ui/Typography";
-import {Input} from "@/shared/ui/Input";
 import {Button} from "@/shared/ui/Button";
 import Link from "next/link";
 import {Routes} from "@/routes";
@@ -14,10 +13,8 @@ const initialState = {
   password: ''
 }
 
-export const SignIn = () => {
+export const SignInForm = () => {
   const [state, formAction] = useFormState(actions.signIn, initialState)
-
-  console.log("Sign In state: ", state)
 
   return (
     <form className='flex flex-col items-center text-center gap-5 max-w-[350px]'
@@ -53,7 +50,7 @@ export const SignIn = () => {
         </Typography>
         <Typography size="body3">
           Забыли пароль? <Typography asChild variant="primary">
-          <Link href={Routes.SIGN_UP}>Восстановить</Link>
+          <Link href={Routes.FORGOT_PASSWORD}>Восстановить</Link>
         </Typography>
         </Typography>
       </div>

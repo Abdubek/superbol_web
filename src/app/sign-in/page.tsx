@@ -3,7 +3,7 @@ import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 import PrimaryLogo from "@/shared/icons/primary_logo.svg";
 import {Typography} from "@/shared/ui/Typography";
 import Link from "next/link";
-import {SignIn} from "@/features/SignIn";
+import {SignInForm} from "@/features/SignInForm";
 
 export default function LoginPage() {
   return (
@@ -26,7 +26,7 @@ export default function LoginPage() {
       <div className="flex-1 flex flex-col gap-5 justify-between items-center">
         <PrimaryLogo width={48} height={48} />
 
-        <SignIn />
+        <SignInForm />
 
         <div className="flex flex-col items-center text-center">
           <Image src="/partners/freedom.png" alt="Freedom" width={111} height={58} />
