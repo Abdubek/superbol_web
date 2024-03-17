@@ -43,11 +43,12 @@ export const Button: FC<ButtonProps> = ({
   asChild,
   children,
   className,
+  ...props
 }) => {
   const Component = asChild ? Slot : "button"
 
   return (
-    <Component className={clsx(className, style({ size, radius, weight, variant }))}>
+    <Component className={clsx(className, style({ size, radius, weight, variant }))} {...props}>
       {children}
     </Component>
   );

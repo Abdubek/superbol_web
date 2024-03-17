@@ -4,8 +4,6 @@ import { useFormState } from 'react-dom'
 import {actions} from "@/actions";
 import {Typography} from "@/shared/ui/Typography";
 import {Button} from "@/shared/ui/Button";
-import Link from "next/link";
-import {Routes} from "@/routes";
 import {FormInput} from "@/shared/ui/FormInput";
 
 const initialState = {

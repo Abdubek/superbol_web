@@ -8,9 +8,11 @@ type Props = {
   error?: string
   type?: HTMLInputTypeAttribute
   placeholder?: string
+  value?: string
+  onChange?: (value: string) => void
 }
 
-export const FormInput = ({ label, name, type = "text", error, placeholder }: Props) => {
+export const FormInput = ({ label, name, type = "text", error, placeholder, value, onChange }: Props) => {
   return (
     <div className="w-full text-left">
       {label ? <Typography asChild size="caption2" className="mb-2 block">
@@ -19,6 +21,8 @@ export const FormInput = ({ label, name, type = "text", error, placeholder }: Pr
       <Input id={name}
              type={type}
              name={name}
+             value={value}
+             onChange={e => onChange?.(e.target.value)}
              className="mb-1.5"
              placeholder={placeholder}/>
       {error ? <Typography size="body3" variant="red">{error}</Typography> : null}
