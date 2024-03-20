@@ -31,8 +31,8 @@ export const SignUpForm = () => {
         error={state.email}
       />
 
-      <Button asChild type="submit" variant="primary" className="w-full">
-        <Link href={Routes.SIGN_UP_SUCCESS}>Далее</Link>
+      <Button type="submit" variant="primary" className="w-full">
+        Далее
       </Button>
     </form>
   )

@@ -1,5 +1,7 @@
 'use server'
 
+import {userApi} from "@/shared/api/user";
+
 type SignInErrors = {
   email?: string
   password?: string
@@ -19,6 +21,9 @@ export async function signIn(prevState: any, formData: FormData) {
   if (!rawFormData.password) {
     errors.password = 'Введите пароль'
   }
+
+  const res = await userApi.authenticate(rawFormData)
+  console.log("authenticate res", res)
 
   return errors
 }
