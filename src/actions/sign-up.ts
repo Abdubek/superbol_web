@@ -3,9 +3,11 @@
 import {participantApi} from "@/shared/api/participant";
 import {redirect} from "next/navigation";
 import {Routes} from "@/routes";
+import {isEmpty} from "@/shared/utils/common";
 
 type SignUpErrors = {
   email?: string
+  api?: string
 }
 
 export async function signUp(prevState: any, formData: FormData) {
@@ -19,10 +21,12 @@ export async function signUp(prevState: any, formData: FormData) {
     errors.email = 'Введите почту'
   }
 
-  const res = await participantApi.register(rawFormData)
-  console.log("register res", res)
-  // TODO: redirect to success page
-  // redirect(Routes.SIGN_UP_SUCCESS)
+  if (!isEmpty(errors)) {
+    return errors
+  }
 
-  return errors
+  const res = await participantApi.register(rawFormData)
+  if (res === null) {
+    redirect(Routes.SIGN_UP_SUCCESS)
+  }
 }

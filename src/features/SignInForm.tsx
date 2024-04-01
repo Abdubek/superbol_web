@@ -29,7 +29,7 @@ export const SignInForm = () => {
         name="email"
         type="email"
         placeholder="Введите почту"
-        error={state.email}
+        error={state?.email}
       />
 
       <FormInput
@@ -37,7 +37,7 @@ export const SignInForm = () => {
         name="password"
         type="password"
         placeholder="Введите пароль"
-        error={state.password}
+        error={state?.password}
       />
 
       <Button type="submit" variant="primary" className="w-full">Войти</Button>

@@ -29,7 +29,7 @@ export const ForgotPasswordForm = () => {
         name="email"
         type="email"
         placeholder="Введите почту"
-        error={state.email}
+        error={state?.email}
       />
 
       <Button type="submit" variant="primary" className="w-full">Далее</Button>

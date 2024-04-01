@@ -3,6 +3,8 @@
 import {isEmpty} from "@/shared/utils/common";
 import {redirect} from "next/navigation";
 import {Routes} from "@/routes";
+import {participantApi} from "@/shared/api/participant";
+import {userApi} from "@/shared/api/user";
 
 type ResetPasswordErrors = {
   password?: string
@@ -14,11 +16,15 @@ export async function resetPassword(formData: FormData) {
 
   const rawFormData = {
     password: formData.get("password") as string,
+    token: formData.get("token") as string,
   };
 
+  if (!isEmpty(errors)) {
+    return errors
+  }
 
-
-  if (isEmpty(errors)) {
+  const res = await userApi.updatePassword(rawFormData)
+  if (res === null) {
     redirect(Routes.RESET_PASSWORD_SUCCESS)
   }
 

@@ -12,9 +12,10 @@ const passwordSymbolsRegex = /^(?=.*(\d|[^\w\s])).+$/
 
 type Props = {
   email?: string
+  token?: string
 }
 
-export const SetPasswordForm = ({ email }: Props) => {
+export const SetPasswordForm = ({ email, token }: Props) => {
   const [password, setPassword] = useState('')
   const [repeatedPassword, setRepeatedPassword] = useState('')
   const [isMinimumSymbolValid, setMinimumSymbolValid] = useState(password.length >= 8)
@@ -45,6 +46,12 @@ export const SetPasswordForm = ({ email }: Props) => {
       <Typography size="body2" variant="grey">
         Для аккаунта <Typography asChild variant="primary"><span>{email}</span></Typography>
       </Typography>
+
+      <FormInput
+        value={token}
+        name="token"
+        type="hidden"
+      />
 
       <FormInput
         value={password}

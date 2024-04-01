@@ -1,6 +1,10 @@
 'use server'
 
 import {userApi} from "@/shared/api/user";
+import {isEmpty} from "@/shared/utils/common";
+import {redirect} from "next/navigation";
+import {Routes} from "@/routes";
+import {cookies} from "next/headers";
 
 type SignInErrors = {
   email?: string
@@ -22,8 +26,13 @@ export async function signIn(prevState: any, formData: FormData) {
     errors.password = 'Введите пароль'
   }
 
-  const res = await userApi.authenticate(rawFormData)
-  console.log("authenticate res", res)
+  if (!isEmpty(errors)) {
+    return errors
+  }
 
-  return errors
+  const res = await userApi.authenticate(rawFormData)
+  if (res.token) {
+    cookies().set('access_token', res.toString())
+    redirect(Routes.CABINET)
+  }
 }

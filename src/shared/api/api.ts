@@ -5,7 +5,6 @@ const API_URL = 'http://46.101.124.209:8082/api/v1'
 
 export const request = (module: string, init?: RequestInit) => {
   const token = cookies().get('access_token')
-  console.log("request token", token)
   if (token) {
     init = {
       ...init,

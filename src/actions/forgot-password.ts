@@ -3,10 +3,10 @@
 import {isEmpty} from "@/shared/utils/common";
 import {redirect} from "next/navigation";
 import {Routes} from "@/routes";
+import {userApi} from "@/shared/api/user";
 
 type ForgotPasswordErrors = {
   email?: string
-  password?: string
 }
 
 export async function forgotPassword(prevState: any, formData: FormData) {
@@ -20,9 +20,12 @@ export async function forgotPassword(prevState: any, formData: FormData) {
     errors.email = 'Введите почту'
   }
 
-  if (isEmpty(errors)) {
-    redirect(Routes.FORGOT_PASSWORD_SUCCESS)
+  if (!isEmpty(errors)) {
+    return errors
   }
 
-  return errors
+  const res = await userApi.resetPassword(rawFormData)
+  if (res === null) {
+    redirect(Routes.FORGOT_PASSWORD_SUCCESS)
+  }
 }

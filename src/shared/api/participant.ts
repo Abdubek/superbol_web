@@ -11,6 +11,20 @@ const register = (data: RegisterDTO) => {
   })
 }
 
+type ActivateDTO = {
+  password: string,
+  token: string
+}
+
+const activate = (data: ActivateDTO) => {
+  return request('/participants/activate', {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+
+}
+
 export const participantApi = {
-  register
+  register,
+  activate
 }
