@@ -9,6 +9,7 @@ const config: Config = {
         white: "#FFFFFF",
         platinum: "#F8F8F8",
         darkblue: "#023474",
+        lightblue: "#47A3C440",
         yellow: "#FCE531",
         red: "#EA4335",
       },
@@ -30,6 +31,7 @@ const config: Config = {
         primary: "#47A3C4",
         secondary: "#FCE531",
         grey: "#7E7E7E",
+        lightgray: "#EAEAEA",
       },
     },
     extend: {

@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import {Routes} from "@/routes";
 import Pattern from "@/shared/images/pattern.svg";
+import {userApi} from "@/shared/api/user";
 
-export const ParticipantCard = () => {
+export const ParticipantCard = async () => {
+  const profileData = await userApi.profile()
+
   return (
     <Link href={Routes.CABINET} className="relative bg-gradient-to-tl from-bg-primary p-5 rounded-2xl py-8 flex flex-col items-center gap-2">
       <Pattern
@@ -19,12 +22,12 @@ export const ParticipantCard = () => {
         <DefaultAvatar width={120} height={120} />
       </div>
 
-      <div className="flex flex-col items-center gap-1 z-10">
-        <Typography size="h3" variant="white" className="text-center">
-          Алимжан Касимов
+      <div className="flex flex-col items-center gap-1 z-10 w-full">
+        <Typography size="h3" variant="white" className="text-center w-full line-clamp-2">
+          {profileData.full_name || profileData.email}
         </Typography>
         <Typography size="body3" variant="grey">
-          AS0025
+          ID{profileData.id}
         </Typography>
       </div>
 

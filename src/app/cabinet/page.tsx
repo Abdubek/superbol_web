@@ -2,6 +2,7 @@ import Pattern from "@/shared/images/secondary_pattern.svg";
 import {CastingTimer} from "@/entities/casting/CastingTimer";
 import {Typography} from "@/shared/ui/Typography";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/shared/ui/Tabs";
+import {userApi} from "@/shared/api/user";
 
 enum TabTypes {
   ABOUT_US = "about_us",
@@ -9,7 +10,10 @@ enum TabTypes {
   ADVICES = "advices"
 }
 
-export default function CabinetPage() {
+export default async function CabinetPage() {
+  const profileData = await userApi.profile()
+  console.log("profileData", profileData)
+
   return (
     <main className="">
       <div className="relative bg-gradient-to-tl from-bg-primary px-12 py-5 rounded-2xl overflow-hidden grid grid-cols-3 gap-4 mb-6">
@@ -41,7 +45,7 @@ export default function CabinetPage() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value={TabTypes.ABOUT_US}>
-          about
+          <AboutUs />
         </TabsContent>
         <TabsContent value={TabTypes.CASTING_PROCESS}>
           casting
@@ -51,5 +55,19 @@ export default function CabinetPage() {
         </TabsContent>
       </Tabs>
     </main>
+  )
+}
+
+const AboutUs = () => {
+  return (
+    <div>
+      <Typography size="caption1" className="mb-2">
+        Super Bol 2024
+      </Typography>
+      <Typography>
+        Футбольные отборы будут проводиться по уникальной системе и методике выбывания, разработанной командой организатора проекта. Спортивное реалити-шоу состоит из кастинга, в который включен второй отборный матч и финал. Финальный этап, включающий в себя профессиональные футбольные тренировки под руководством тренерского состава и проведением регулярных еженедельных матчей с целью выявления и просмотра потенциальными скаутами подписание профессионального контракта с участниками.<br/><br/>
+        Проект проводится на основании следующих принципов: равенства и общедоступности для всех физических лиц, желающих участвовать в проекте, оздоровительной направленности, запрета на дискриминацию и недопущения пропаганды культа жестокости, насилия и унижения человеческого достоинства, содействия развитию "инновационной ментальности" в футболе, повышение интереса молодежи к футболу, развития юношеского спорта в Казахстане"
+      </Typography>
+    </div>
   )
 }

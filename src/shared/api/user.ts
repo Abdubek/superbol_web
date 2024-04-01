@@ -35,8 +35,20 @@ const updatePassword = (data: UpdatePasswordDTO) => {
     })
 }
 
+type ProfileResponse = {
+  id: number
+  email: string
+  full_name: string
+  image_key: string
+}
+
+const profile = (): Promise<ProfileResponse> => {
+  return request('/users/profile')
+}
+
 export const userApi = {
   authenticate,
   resetPassword,
-  updatePassword
+  updatePassword,
+  profile
 }
