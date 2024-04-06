@@ -32,6 +32,7 @@ export async function signIn(prevState: any, formData: FormData) {
 
   const res = await userApi.authenticate(rawFormData)
   if (res.token) {
+    console.log(res.token.toString())
     cookies().set('access_token', res.token.toString())
     redirect(Routes.CABINET)
   }

@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import clsx from "clsx";
 import {FC, HTMLAttributes} from "react";
 import {Slot} from "@radix-ui/react-slot";
+import {cn} from "@/shared/utils/common";
 
 const style = cva("", {
   variants: {
@@ -45,7 +45,7 @@ export const Typography: FC<TypographyProps> = ({
   const Component = asChild ? Slot : "div"
 
   return (
-    <Component className={clsx(className, style({ variant, size }))}>
+    <Component className={cn(style({ variant, size }), className)}>
       {children}
     </Component>
   );

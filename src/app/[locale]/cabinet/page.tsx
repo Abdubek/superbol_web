@@ -16,7 +16,7 @@ export default async function CabinetPage() {
 
   return (
     <main className="">
-      {citiesData.length ? <div className="relative bg-gradient-to-tl from-bg-primary px-12 py-5 rounded-2xl overflow-hidden grid grid-cols-3 gap-4 mb-6">
+      {citiesData.length ? <div className="relative bg-gradient-to-tl from-bg-primary lg:px-12 px-4 py-5 rounded-2xl overflow-hidden grid xl:grid-cols-3 grid-cols-2 gap-4 mb-6">
         <Pattern
           className="absolute top-0 left-0 right-0 bottom-0 h-full"
           style={{
@@ -35,12 +35,12 @@ export default async function CabinetPage() {
           <TabsTrigger value={TabTypes.ABOUT_US} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
             <Typography size="caption1">О проекте</Typography>
           </TabsTrigger>
-          <TabsTrigger value={TabTypes.CASTING_PROCESS} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
-            <Typography size="caption1">Процесс кастинга</Typography>
-          </TabsTrigger>
-          <TabsTrigger value={TabTypes.ADVICES} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
-            <Typography size="caption1">Советы</Typography>
-          </TabsTrigger>
+          {/*<TabsTrigger value={TabTypes.CASTING_PROCESS} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">*/}
+          {/*  <Typography size="caption1">Процесс кастинга</Typography>*/}
+          {/*</TabsTrigger>*/}
+          {/*<TabsTrigger value={TabTypes.ADVICES} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">*/}
+          {/*  <Typography size="caption1">Советы</Typography>*/}
+          {/*</TabsTrigger>*/}
         </TabsList>
         <TabsContent value={TabTypes.ABOUT_US}>
           <AboutUs />

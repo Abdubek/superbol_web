@@ -10,7 +10,7 @@ export const ScoutCard = async () => {
   const profileData = await userApi.profile()
 
   return (
-    <Link href={Routes.CABINET} className="relative scout-card-gradient p-5 rounded-2xl py-8 flex flex-col items-center gap-2">
+    <Link href={Routes.CABINET} className="relative scout-card-gradient p-5 rounded-2xl sm:py-8 py-6 flex flex-col items-center gap-2">
       <Pattern
         className="absolute top-0 left-0 right-0 bottom-0 h-full w-full"
         style={{

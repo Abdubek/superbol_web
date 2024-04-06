@@ -29,13 +29,13 @@ export default async function CabinetLayout({
         </div>
       </header>
 
-      <div className="container grid grid-cols-4 gap-15 pt-15 mb-48">
-        <div className="col-span-1 flex flex-col gap-6">
+      <div className="container grid xl:grid-cols-4 grid-cols-6 lg:gap-15 gap-4 pt-15 mb-48">
+        <div className="xl:col-span-1 lg:col-span-2 md:col-span-3 col-span-6 flex flex-col gap-6">
           {profileData?.role === "participant" && <ParticipantCard />}
           {profileData?.role === "scout" && <ScoutCard />}
           <ProfileMenu />
         </div>
-        <div className="col-span-3">
+        <div className="xl:col-span-3 lg:col-span-4 md:col-span-3 col-span-6">
           {children}
         </div>
       </div>

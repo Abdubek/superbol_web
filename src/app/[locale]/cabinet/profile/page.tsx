@@ -5,6 +5,7 @@ import {ChangePasswordButton} from "@/features/ChangePasswordButton";
 
 export default async function CabinetProfilePage() {
   const profileData = await userApi.profile()
+  console.log(profileData)
 
   return (
     <main>

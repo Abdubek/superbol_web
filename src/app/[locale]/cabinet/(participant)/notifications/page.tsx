@@ -10,7 +10,7 @@ export default async function CabinetNotificationsPage() {
 
   return (
     <main>
-      <Typography size="h3" className="mb-10">Уведомления</Typography>
+      <Typography size="h3" className="sm:mb-10 mb-4">Уведомления</Typography>
       <div className="flex flex-col gap-4">
         {notifications.map((item, index) =>
           <Notification

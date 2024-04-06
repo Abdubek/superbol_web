@@ -25,14 +25,14 @@ export const ProfileMenu = async () => {
           для участия в кастинге
         </Typography>
       }
-      <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg">
+      <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs">
         <Link href={Routes.PROFILE}>
           <ProfileIcon />
           Профиль
         </Link>
       </Typography>
       {profileData?.role === "participant" &&
-        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg">
+        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs">
           <Link href={Routes.PROFILE_APPLICATION}>
             <StarIcon />
             Анкета
@@ -40,7 +40,7 @@ export const ProfileMenu = async () => {
         </Typography>
       }
       {profileData?.role === "participant" &&
-        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg">
+        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs">
           <Link href={Routes.PROFILE_PARTICIPANTS}>
             <PeopleIcon />
             Список участников
@@ -48,7 +48,7 @@ export const ProfileMenu = async () => {
         </Typography>
       }
       {profileData?.role === "participant" &&
-        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg">
+        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs">
           <Link href={Routes.PROFILE_NOTIFICATIONS}>
             <NotificationIcon />
             Уведомления
@@ -56,7 +56,7 @@ export const ProfileMenu = async () => {
         </Typography>
       }
       {profileData?.role === "scout" &&
-        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg">
+        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs">
           <Link href={Routes.PROFILE_PARTICIPANTS_PROFILES}>
             <NotificationIcon />
             Анкеты участников
