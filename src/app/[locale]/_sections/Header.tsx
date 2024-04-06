@@ -4,6 +4,7 @@ import Link from "next/link";
 import {Typography} from "@/shared/ui/Typography";
 import {Button} from "@/shared/ui/Button";
 import {Routes} from "@/routes";
+import {LocaleSwitcherButton} from "@/features/LocaleSwitcher/LocaleSwitcherButton";
 
 export const Header = () => {
   return (
@@ -16,10 +17,7 @@ export const Header = () => {
         <Typography size="caption2" className="hover:text-text-primary sm:block hidden">Стать участником</Typography>
       </Link>
       <div className="flex gap-10">
-        <Button size="sm" radius="md" weight="bold" variant="ghost">
-          RU
-          <ChevronDownIcon />
-        </Button>
+        <LocaleSwitcherButton />
         <Button asChild size="sm" radius="md" weight="bold" variant="ghost">
           <Link href={Routes.SIGN_IN}>
             Войти

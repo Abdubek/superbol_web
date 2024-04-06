@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import {LocaleSwitcher} from "@/features/LocaleSwitcher";
+import {ReactNode} from "react";
 
 export const metadata: Metadata = {
   title: "SuperBol 2024",
@@ -8,14 +10,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: {locale}
+  params: {locale},
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
   params: {locale: string};
 }>) {
   return (
     <html lang={locale}>
-      <body>{children}</body>
+      <body>
+        <LocaleSwitcher>
+          {children}
+        </LocaleSwitcher>
+      </body>
     </html>
   );
 }
