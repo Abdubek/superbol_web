@@ -17,7 +17,7 @@ export const SignInForm = () => {
   const [state, formAction] = useFormState(actions.signIn, initialState)
 
   return (
-    <form className='flex flex-col items-center text-center gap-5 max-w-[350px]'
+    <form className='flex flex-col items-center text-center gap-5 md:max-w-[350px] max-w-full w-full'
           action={formAction}>
 
       <Typography size="h3" variant="primary">

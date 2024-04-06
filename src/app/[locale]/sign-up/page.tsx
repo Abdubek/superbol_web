@@ -8,8 +8,8 @@ import {Routes} from "@/routes";
 
 export default function SignUpPage() {
   return (
-    <main className="container min-h-screen flex py-8">
-      <div className="flex-1 relative w-full rounded-3xl overflow-hidden">
+    <main className="container min-h-screen flex py-8 md:flex-row flex-col gap-6">
+      <div className="flex-1 relative w-full rounded-3xl overflow-hidden min-h-[250px]">
         <Image src={"/players2.png"}
                alt={"Players"}
                fill
@@ -25,7 +25,7 @@ export default function SignUpPage() {
         />
       </div>
       <div className="flex-1 flex flex-col gap-5 justify-between items-center">
-        <Link href={Routes.HOME}>
+        <Link href={Routes.HOME} className="md:block hidden">
           <PrimaryLogo width={48} height={48} />
         </Link>
 

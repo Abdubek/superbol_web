@@ -17,6 +17,7 @@ export const request = (module: string, init?: RequestInit) => {
 
   return fetch(API_URL + module, init).then(
     async (res) => {
+      console.log("request", module, res.status)
       if (res.status === 401) {
         redirect('/sign-in')
         // window.location.href = '/sign-in'

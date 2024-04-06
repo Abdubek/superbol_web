@@ -6,12 +6,13 @@ import {Button} from "@/shared/ui/Button";
 import {usePathname, useRouter} from "@/navigation";
 import {useSearchParams} from "next/navigation";
 
+export const CHANGE_LANG_KEY = "change-lang"
+
 export const LocaleSwitcher = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const changeLang = searchParams.get("change-lang") === "true"
-  console.log(changeLang)
+  const changeLang = searchParams.get(CHANGE_LANG_KEY) === "true"
 
   return (
     <div className="relative">
