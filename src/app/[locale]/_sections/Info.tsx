@@ -111,7 +111,7 @@ const GoalsContent = () => {
         <Typography asChild size="h4" className="mb-6 lg:hidden block text-left w-full">
           <h4>Популяризация спорта</h4>
         </Typography>
-        <div className="relative w-[522px] h-[442px] px-10 mb-6">
+        <div className="relative sm:w-[522px] w-[320px] sm:h-[442px] px-10 mb-6 sm:pt-0 pt-8">
           <Image alt="Player picture"
                  src={PlayersPicture}
                  sizes="100vw"
@@ -119,7 +119,7 @@ const GoalsContent = () => {
                    width: '100%',
                    height: 'auto',
                  }}/>
-          <Typography className="absolute top-0 left-1/2 -translate-x-1/2 p-2.5 bg-bg-primary text-text-white rounded-lg text-lg font-bold text-center">
+          <Typography className="absolute top-0 left-1/2 -translate-x-1/2 p-2.5 bg-bg-primary text-text-white rounded-lg sm:text-lg text-sm font-bold text-center">
             Всегда стремитесь <br/>
             к исполнению свой мечты
           </Typography>
