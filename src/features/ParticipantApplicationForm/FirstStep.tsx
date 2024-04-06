@@ -142,14 +142,14 @@ export const FirstStep = ({ initialData }: Props) => {
       />
       <FormSelect<FirstStepForm>
         label="Ваши сильные качества"
-        placeholder="Необходимо выбрать 3 варианта:"
+        placeholder="Выберите сильные качества"
         control={control}
         name="specified_skills"
         required
         options={specifiedSkillOptions}
         error={formErrorText(errors.specified_skills)}
       />
-      {!initialData && <Button type="submit" variant="secondary" size="lg">Далее</Button>}
+      {initialData?.status === "activated" && <Button type="submit" variant="secondary" size="lg">Далее</Button>}
     </form>
   )
 }
