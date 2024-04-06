@@ -22,9 +22,21 @@ export const Footer = () => {
           <Typography size="body3" variant="grey">+ 7 7ХХ ХХХ ХХХХ</Typography>
           <Typography size="body3" variant="grey" className="mb-3">email@gmail.com</Typography>
           <div className="flex items-center gap-6">
-            <InstagramIcon />
-            <YoutubeIcon/>
-            <TiktokIcon />
+            <a href="https://www.youtube.com/@SuperBolKz"
+               target="_blank"
+               rel="noreferrer noopener">
+              <YoutubeIcon/>
+            </a>
+            <a href="https://www.instagram.com/superbol.kz?igsh=MXQwdjlkcWhpeHNvbQ=="
+               target="_blank"
+               rel="noreferrer noopener">
+              <InstagramIcon />
+            </a>
+            <a href="https://www.tiktok.com/@superbol.kz"
+               target="_blank"
+               rel="noreferrer noopener">
+              <TiktokIcon />
+            </a>
           </div>
         </div>
       </div>

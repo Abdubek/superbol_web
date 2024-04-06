@@ -52,6 +52,14 @@ export const ProfileMenu = async () => {
           </Link>
         </Typography>
       }
+      {profileData?.role === "scout" &&
+        <Typography asChild size="caption1" className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg">
+          <Link href={Routes.PROFILE_PARTICIPANTS_PROFILES}>
+            <NotificationIcon />
+            Анкеты участников
+          </Link>
+        </Typography>
+      }
     </div>
   )
 }

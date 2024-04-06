@@ -40,8 +40,8 @@ export const PreviousSuperBols = () => {
 
 const SuperBol2023 = () => {
   return (
-    <div className="container mx-auto p-12 grid grid-cols-5 gap-24">
-      <div className="col-span-2">
+    <div className="container mx-auto xl:p-12 p-6 grid grid-cols-5 gap-24">
+      <div className="lg:col-span-2 col-span-5">
         <Typography size="h3" className="mb-9">Финалисты 2023</Typography>
         <div className="grid grid-cols-5 gap-5">
           <div className="flex flex-col items-center text-center">
@@ -94,8 +94,8 @@ const SuperBol2023 = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-3">
-        <div className="flex gap-12 pl-32 mb-2">
+      <div className="lg:col-span-3 col-span-5 lg:order-1 -order-1">
+        <div className="flex gap-12 mb-2 justify-center">
           <div className="flex flex-col items-center text-center">
             <Typography size="h1" variant="primary">16520</Typography>
             <Typography size="body1">участников</Typography>
@@ -129,8 +129,8 @@ const SuperBol2023 = () => {
 
 const SuperBol2022 = () => {
   return (
-    <div className="container mx-auto p-12 grid grid-cols-5 gap-24">
-      <div className="col-span-2">
+    <div className="container mx-auto xl:p-12 p-6 grid grid-cols-5 gap-24">
+      <div className="lg:col-span-2 col-span-5">
         <Typography size="h3" className="mb-9">Финалисты 2022</Typography>
         <div className="grid grid-cols-5 gap-5">
           <div className="flex flex-col items-center text-center">
@@ -195,20 +195,20 @@ const SuperBol2022 = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-3">
-        <div className="flex gap-12 pl-32 mb-2">
+      <div className="lg:col-span-3 col-span-5 lg:order-1 -order-1">
+        <div className="flex gap-12 justify-center mb-2">
           <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">16520</Typography>
+            <Typography size="h1" variant="primary">6590</Typography>
             <Typography size="body1">участников</Typography>
-            <Typography size="body3" variant="grey">по 14 городам</Typography>
+            <Typography size="body3" variant="grey">по 8 городам</Typography>
           </div>
           <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">186</Typography>
+            <Typography size="h1" variant="primary">50</Typography>
             <Typography size="body1">финалистов</Typography>
             <Typography size="body3" variant="grey">на первой<br/> тренировке</Typography>
           </div>
           <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">25</Typography>
+            <Typography size="h1" variant="primary">22</Typography>
             <Typography size="body1">финалистов</Typography>
             <Typography size="body3" variant="grey">по контрольным матчам</Typography>
           </div>

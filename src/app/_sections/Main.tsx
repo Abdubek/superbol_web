@@ -8,48 +8,59 @@ export const Main = () => {
   return (
     <section className="relative container grid grid-cols-7 items-center gap-20 py-36">
       <PrimaryPattern
-        className="absolute left-[120px] w-[600px] h-[600px]"
+        className="absolute left-[10px] w-[600px] h-[600px]"
         style={{
           clipPath: "circle(50% at center)",
           opacity: "0.1",
         }}
       />
-      <div className="col-span-4 flex flex-col gap-5 items-start">
+      <div className="col-span-7 lg:col-span-4 flex flex-col gap-5 items-start">
         <Typography size="h1" variant="primary" className="uppercase">
           ТВОЙ ШАНС<br/> ОСУЩЕСТВЛЕНИЯ МЕЧТЫ
         </Typography>
         <Typography size="body1" className="max-w-[480px]">
-          Социальный футбольный проект{" "}
-          <span className="text-text-primary font-bold">«SUPER BOL»</span> –
-          уникальное и самое масштабное спортивное реалити-шоу в отечественной
-          истории Казахстана.
+          <span className="text-text-primary font-bold">«SUPER BOL»</span> - первый социальный футбольный проект в
+          формате реалити-шоу в Казахстане
         </Typography>
         <Button variant="primary">
           Стать участником
         </Button>
       </div>
-      <div className="col-span-3 flex flex-col items-start gap-14 pr-14">
-        <Button>
-          Наши выпуски на YouTube
-        </Button>
-        <Link href="#" className="flex items-center justify-between gap-12 w-full">
+      <div className="col-span-3 hidden lg:flex flex-col items-start gap-14 pr-14">
+        <a href="https://www.youtube.com/@SuperBolKz"
+           target="_blank"
+           rel="noreferrer noopener">
+          <Button variant="ghost" className="text-text-primary">
+            Наши выпуски на YouTube
+          </Button>
+        </a>
+        <a href="https://www.youtube.com/watch?v=gd0EHzrj6o4&t=4s&ab_channel=SuperBol"
+           target="_blank"
+           rel="noreferrer noopener"
+           className="flex items-center justify-between gap-12 w-full">
           <Typography asChild size="body1">
             <span>Финал. Матч жизни для &quot;Super Bol&quot; / Скауты на Астана-Арена!</span>
           </Typography>
           <ArrowRightIcon />
-        </Link>
-        <Link href="#" className="flex items-center justify-between gap-12 w-full">
+        </a>
+        <a href="https://www.youtube.com/watch?v=5t-dbNVisR4&ab_channel=SuperBol"
+           target="_blank"
+           rel="noreferrer noopener"
+           className="flex items-center justify-between gap-12 w-full">
           <Typography asChild size="body1">
             <span>Выгнали с команды 3-их игроков после игры с &quot;Jas-Qyran&quot; / Super Bol</span>
           </Typography>
           <ArrowRightIcon />
-        </Link>
-        <Link href="#" className="flex items-center justify-between gap-12 w-full">
+        </a>
+        <a href="https://www.youtube.com/watch?v=qb5BvjfDZFk&t=1408s&ab_channel=SuperBol"
+           target="_blank"
+           rel="noreferrer noopener"
+           className="flex items-center justify-between gap-12 w-full">
           <Typography asChild size="body1">
             <span>&quot;Казахстан богат не нефтью, он богат людьми&quot; - Тимур Турлов</span>
           </Typography>
           <ArrowRightIcon />
-        </Link>
+        </a>
       </div>
     </section>
   )

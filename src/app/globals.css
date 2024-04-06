@@ -7,7 +7,6 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     color: #020202;
-    min-width: 1280px;
 }
 .body::-webkit-scrollbar {
     display: none;
@@ -15,8 +14,6 @@ body {
 
 @layer components {
     .container {
-        min-width: 1280px;
-        width: 1280px;
         margin-left: auto;
         margin-right: auto;
         padding-left: theme('padding.4');

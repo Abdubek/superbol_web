@@ -4,6 +4,7 @@ import PrimaryLogo from "@/shared/icons/primary_logo.svg";
 import {Typography} from "@/shared/ui/Typography";
 import Link from "next/link";
 import {SignInForm} from "@/features/SignInForm";
+import {Routes} from "@/routes";
 
 export default function SignInPage() {
   return (
@@ -24,7 +25,9 @@ export default function SignInPage() {
         />
       </div>
       <div className="flex-1 flex flex-col gap-5 justify-between items-center">
-        <PrimaryLogo width={48} height={48} />
+        <Link href={Routes.HOME}>
+          <PrimaryLogo width={48} height={48} />
+        </Link>
 
         <SignInForm />
 
