@@ -29,7 +29,7 @@ export const SuperBol2024 = async () => {
           <h3>Даты проведения</h3>
         </Typography>
 
-        <div className="grid grid-rows-4 grid-flow-col gap-1">
+        <div className="grid sm:grid-rows-4  grid-rows-6 grid-flow-col gap-1">
           {citiesData.map((city, index) =>
             <Typography key={index} size="body1">
                <CountryIcon country={city.country} /> {city.name_ru}: {new Intl.DateTimeFormat('ru-RU').format(new Date(city.start_at)).substring(0, 2)}-{new Intl.DateTimeFormat('ru-RU').format(new Date(city.end_at)).substring(0, 2)} {new Intl.DateTimeFormat('ru-RU', { month: 'long' }).format(new Date(city.end_at))}
