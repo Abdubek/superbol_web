@@ -7,7 +7,7 @@ export const mainLegOptions = [{
   value: "left"
 }, {
   label: "Правая и левая",
-  value: "right"
+  value: "left and right"
 }]
 
 export const gamingPositionOptions = [{
@@ -15,43 +15,43 @@ export const gamingPositionOptions = [{
   value: "goalkeeper"
 }, {
   label: "Центральный Защитник (ЦЗ)",
-  value: "defender"
+  value: "central defender"
 }, {
   label: "Правый Центральный Защитник (ПЦЗ)",
-  value: "defender"
+  value: "right central defender"
 }, {
   label: "Левый Центральный Защитник (ЛЦЗ)",
-  value: "defender"
+  value: "left central defender"
 }, {
   label: "Правый Защитник (ПЗ)",
-  value: "defender"
+  value: "right defender"
 }, {
   label: "Левый Защитник (ЛЗ)",
-  value: "defender"
+  value: "left defender"
 }, {
   label: "Центральный Опорный Полузащитник (ЦОП)",
-  value: "midfielder"
+  value: "central defensive midfielder"
 }, {
   label: "Центральный Полузащитник (ЦП)",
-  value: "midfielder"
+  value: "central midfielder"
 }, {
   label: "Центральный Атакующий Полузащитник (ЦАП)",
-  value: "midfielder"
+  value: "central attacking midfielder"
 }, {
   label: "Правый Фланговый Полузащитник (ПФП)",
-  value: "defender"
+  value: "right wing midfielder"
 }, {
   label: "Левый Фланговый Полузащитник (ЛФП)",
-  value: "defender"
+  value: "left wing midfielder"
 }, {
   label: "Нападающий (НАП)",
   value: "forward"
 }, {
   label: "Правый Нападающий (ПНАП)",
-  value: "forward"
+  value: "right forward"
 }, {
   label: "Левый Нападающий (ЛНАП)",
-  value: "forward"
+  value: "left forward"
 }]
 
 export const specifiedSkillOptions = [{
