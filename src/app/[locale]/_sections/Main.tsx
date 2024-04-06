@@ -5,7 +5,7 @@ import ArrowRightIcon from "@/shared/icons/arrow-right.svg";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 
 export const Main = () => {
-  const t = useTranslations('Landing');
+  const t = useTranslations('landing.main');
 
   return (
     <section className="relative container grid grid-cols-7 items-center gap-20 py-36">

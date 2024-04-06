@@ -1,5 +1,7 @@
 {
-  "Landing": {
-    "title": "Your chance to make your dream come true!"
+  "landing": {
+    "main": {
+      "title": "Your chance to make your dream come true!"
+    }
   }
 }
