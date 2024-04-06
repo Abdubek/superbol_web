@@ -3,8 +3,8 @@ import ChevronDownIcon from "@/shared/icons/chevron-down.svg";
 import * as React from "react";
 import {Typography} from "@/shared/ui/Typography";
 import Image from "next/image";
-import Kazakhstan2023 from "../../../public/superbol/2023/kazakhstan.png";
-import Kazakhstan2022 from "../../../public/superbol/2022/kazakhstan.png";
+import Kazakhstan2023 from "../../../../public/superbol/2023/kazakhstan.png";
+import Kazakhstan2022 from "../../../../public/superbol/2022/kazakhstan.png";
 
 export const PreviousSuperBols = () => {
   return (

@@ -19,10 +19,10 @@ export const Header = () => {
         <Typography size="caption2" className="hover:text-text-primary">Стать участником</Typography>
       </Link>
       <div className="flex gap-10">
-        {/*<Button size="sm" radius="md" weight="bold" variant="ghost">*/}
-        {/*  RU*/}
-        {/*  <ChevronDownIcon />*/}
-        {/*</Button>*/}
+        <Button size="sm" radius="md" weight="bold" variant="ghost">
+          RU
+          <ChevronDownIcon />
+        </Button>
         <Button asChild size="sm" radius="md" weight="bold" variant="ghost">
           <Link href={Routes.SIGN_IN}>
             Войти

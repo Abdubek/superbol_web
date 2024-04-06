@@ -1,22 +1,24 @@
 import {Typography} from "@/shared/ui/Typography";
 import {Button} from "@/shared/ui/Button";
-import Link from "next/link";
+import {useTranslations} from 'next-intl';
 import ArrowRightIcon from "@/shared/icons/arrow-right.svg";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 
 export const Main = () => {
+  const t = useTranslations('Landing');
+
   return (
     <section className="relative container grid grid-cols-7 items-center gap-20 py-36">
       <PrimaryPattern
-        className="absolute left-[10px] w-[600px] h-[600px]"
+        className="absolute left-[10px] md:w-[600px] w-full h-[600px]"
         style={{
           clipPath: "circle(50% at center)",
           opacity: "0.1",
         }}
       />
       <div className="col-span-7 lg:col-span-4 flex flex-col gap-5 items-start">
-        <Typography size="h1" variant="primary" className="uppercase">
-          ТВОЙ ШАНС<br/> ОСУЩЕСТВЛЕНИЯ МЕЧТЫ
+        <Typography size="h3" variant="primary" className="uppercase md:text-5xl">
+          {t('title')}
         </Typography>
         <Typography size="body1" className="max-w-[480px]">
           <span className="text-text-primary font-bold">«SUPER BOL»</span> - первый социальный футбольный проект в

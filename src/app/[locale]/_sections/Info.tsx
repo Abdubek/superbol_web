@@ -1,7 +1,7 @@
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/shared/ui/Tabs"
 import {Typography} from "@/shared/ui/Typography";
-import PlayerPicture from "../../../public/player.png";
-import PlayersPicture from "../../../public/players.png";
+import PlayerPicture from "../../../../public/player.png";
+import PlayersPicture from "../../../../public/players.png";
 import QuotesIcon from '@/shared/icons/quotes.svg'
 import Image from 'next/image'
 
