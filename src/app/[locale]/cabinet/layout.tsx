@@ -4,7 +4,7 @@ import Link from "next/link";
 import {Routes} from "@/routes";
 import {ParticipantCard} from "@/entities/participant/ui/Card";
 import {ProfileMenu} from "@/entities/participant/ui/ProfileMenu";
-import {Footer} from "@/app/_sections/Footer";
+import {Footer} from "../_sections/Footer";
 import {LogoutButton} from "@/features/Logout";
 import {ScoutCard} from "@/entities/scout/ui/Card";
 import {userApi} from "@/shared/api/user";
