@@ -5,6 +5,7 @@ import {FirstStep, FirstStepForm} from "./FirstStep";
 import {StepsView} from "@/features/ParticipantApplicationForm/StepsView";
 import {SecondStep, SecondStepForm} from "@/features/ParticipantApplicationForm/SecondStep";
 import {ThirdStep} from "@/features/ParticipantApplicationForm/ThirdStep";
+import {City} from "@/shared/api/cities";
 
 type FormType = {
   data: FirstStepForm & SecondStepForm
@@ -36,7 +37,11 @@ export const useFormStore = create<FormType>((set, getState) => ({
   }
 }))
 
-export const ParticipantApplicationForm = () => {
+type Props = {
+  cities: City[]
+}
+
+export const ParticipantApplicationForm = ({ cities }: Props) => {
   const step = useFormStore((state) => state.step)
 
   return (
@@ -44,7 +49,7 @@ export const ParticipantApplicationForm = () => {
       <StepsView step={step} />
       <div className="max-w-[400px]">
         {step === 1 && <FirstStep />}
-        {step === 2 && <SecondStep />}
+        {step === 2 && <SecondStep cities={cities} />}
       </div>
       {step === 3 && <ThirdStep />}
     </div>

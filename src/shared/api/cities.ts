@@ -1,6 +1,6 @@
 import {request} from "@/shared/api/api";
 
-type City = {
+export type City = {
   id: number
   name: string
   start_at: string

@@ -54,14 +54,14 @@ export const FirstStep = () => {
         {...register("birth_date", { required: true })}
       />
       <FormInput
-        type="text"
+        type="number"
         label="Рост"
         placeholder="Введите ваш рост в см"
         error={formErrorText(errors.height)}
         {...register("height", { required: true })}
       />
       <FormInput
-        type="text"
+        type="number"
         label="Вес"
         placeholder="Введите ваш вес в кг"
         error={formErrorText(errors.weight)}

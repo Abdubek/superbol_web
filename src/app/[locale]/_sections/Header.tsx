@@ -10,13 +10,13 @@ export const Header = () => {
     <header className='container py-2.5 flex items-center justify-between'>
       <PrimaryLogo width={48} height={48} />
       <Link href={"/#"}>
-        <Typography size="caption2" className="hover:text-text-primary">Главная</Typography>
+        <Typography size="caption2" className="hover:text-text-primary sm:block hidden">Главная</Typography>
       </Link>
       <Link href={"/#superbol2024"}>
-        <Typography size="caption2" className="hover:text-text-primary">SuperBol 2024</Typography>
+        <Typography size="caption2" className="hover:text-text-primary sm:block hidden">SuperBol 2024</Typography>
       </Link>
       <Link href={"/#join"}>
-        <Typography size="caption2" className="hover:text-text-primary">Стать участником</Typography>
+        <Typography size="caption2" className="hover:text-text-primary sm:block hidden">Стать участником</Typography>
       </Link>
       <div className="flex gap-10">
         <Button size="sm" radius="md" weight="bold" variant="ghost">

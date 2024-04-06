@@ -7,12 +7,17 @@ import {
 } from "./options";
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "./index";
+import {City} from "@/shared/api/cities";
 
 export type SecondStepForm = {
   casting_city?: string
 }
 
-export const SecondStep = () => {
+type Props = {
+  cities: City[]
+}
+
+export const SecondStep = ({ cities }: Props) => {
   const {
     handleSubmit,
     formState: { errors },
@@ -32,7 +37,10 @@ export const SecondStep = () => {
         control={control}
         name="casting_city"
         required
-        options={castingCityOptions}
+        options={cities.map(city => ({
+          label: city.name,
+          value: city.name
+        }))}
         error={formErrorText(errors.casting_city)}
       />
       <Button type="submit" variant="secondary" size="lg">Далее</Button>

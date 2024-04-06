@@ -14,12 +14,12 @@ export const Info = () => {
   return (
     <section className="container pb-9 min-h-[535px]">
       <Tabs defaultValue={TabTypes.RULES}>
-        <TabsList className="mb-10">
+        <TabsList className="sm:mb-10 mb-4 sm:gap-12 gap-4">
           <TabsTrigger value={TabTypes.RULES} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
-            <Typography size="h3">Правила проекта</Typography>
+            <Typography className="sm:font-bold sm:text-[32px] sm:leading-[133%] text-base">Правила проекта</Typography>
           </TabsTrigger>
           <TabsTrigger value={TabTypes.GOALS} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">
-            <Typography size="h3">Наши цели</Typography>
+            <Typography className="sm:font-bold sm:text-[32px] sm:leading-[133%] text-base">Наши цели</Typography>
           </TabsTrigger>
         </TabsList>
         <TabsContent value={TabTypes.RULES}>
@@ -48,13 +48,13 @@ const RulesContent = () => {
           Проект основан на следующих принципах: равенства и доступности для всех желающих участвовать, здорового образа жизни, запрета на дискриминацию и отвергания насилия, поддержки инноваций в футболе, стимулирования интереса молодежи к этому виду спорта и развития юношеского спорта в Казахстане.
         </Typography>
       </div>
-      <div className="flex-1 flex flex-col items-center justify-center">
+      <div className="flex-1 flex flex-col items-center justify-center w-full">
         <Typography asChild size="h4" className="mb-6 lg:hidden block">
           <h4>
             Кастинг участников будет проводиться по уникальной системе и методике отбора, разработанной профессиональной командой организаторов проекта.
           </h4>
         </Typography>
-        <div className="relative w-[522px] h-[442px] px-10 mb-6">
+        <div className="relative sm:w-[522px] w-[320px] sm:h-[442px] px-10 mb-6">
           <Image alt="Player picture"
                  src={PlayerPicture}
                  sizes="100vw"
@@ -62,11 +62,11 @@ const RulesContent = () => {
                    width: '100%',
                    height: 'auto',
                  }} />
-          <Typography className="absolute top-[90px] left-8 p-2.5 bg-bg-white text-text-primary border-2 rounded-lg text-lg text-center">
+          <Typography className="absolute top-[10px] left-8 p-2.5 bg-bg-white text-text-primary border-2 rounded-lg sm:text-lg text-sm text-center">
             16-24 года
           </Typography>
 
-          <Typography className="absolute top-[170px] left-0 p-2.5 bg-bg-white text-text-primary border-2 rounded-lg text-lg text-center">
+          <Typography className="absolute top-[80px] left-0 p-2.5 bg-bg-white text-text-primary border-2 rounded-lg sm:text-lg text-sm text-center">
             любитель футбола
           </Typography>
 

@@ -5,6 +5,7 @@ import {Typography} from "@/shared/ui/Typography";
 import Image from "next/image";
 import Kazakhstan2023 from "../../../../public/superbol/2023/kazakhstan.png";
 import Kazakhstan2022 from "../../../../public/superbol/2022/kazakhstan.png";
+import {ReactNode} from "react";
 
 export const PreviousSuperBols = () => {
   return (
@@ -40,10 +41,10 @@ export const PreviousSuperBols = () => {
 
 const SuperBol2023 = () => {
   return (
-    <div className="container mx-auto xl:p-12 p-6 grid grid-cols-5 gap-24">
+    <div className="container mx-auto xl:p-12 p-6 grid grid-cols-5 sm:gap-24 gap-0">
       <div className="lg:col-span-2 col-span-5">
         <Typography size="h3" className="mb-9">Финалисты 2023</Typography>
-        <div className="grid grid-cols-5 gap-5">
+        <div className="grid sm:grid-cols-5 grid-cols-4 gap-5">
           <div className="flex flex-col items-center text-center">
             <Image src="/superbol/2023/1.png" alt="Владислав Гаврилюк" width={82} height={82} className="mb-2" quality={100} />
             <Typography size="body3">Владислав<br/> Гаврилюк</Typography>
@@ -94,23 +95,11 @@ const SuperBol2023 = () => {
           </div>
         </div>
       </div>
-      <div className="lg:col-span-3 col-span-5 lg:order-1 -order-1">
-        <div className="flex gap-12 mb-2 justify-center">
-          <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">16520</Typography>
-            <Typography size="body1">участников</Typography>
-            <Typography size="body3" variant="grey">по 14 городам</Typography>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">186</Typography>
-            <Typography size="body1">финалистов</Typography>
-            <Typography size="body3" variant="grey">на первой<br/> тренировке</Typography>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">25</Typography>
-            <Typography size="body1">финалистов</Typography>
-            <Typography size="body3" variant="grey">по контрольным матчам</Typography>
-          </div>
+      <div className="lg:col-span-3 col-span-5 lg:order-1 -order-1 pb-4">
+        <div className="flex sm:gap-12 gap-2 justify-center mb-2">
+          <StatsInfo stats={16520} info="участников" hint="по 14 городам" />
+          <StatsInfo stats={186} info="финалистов" hint={<>на первой<br/> тренировке</>} />
+          <StatsInfo stats={25} info="финалистов" hint="по контрольным матчам" />
         </div>
 
         <Image src={Kazakhstan2023}
@@ -129,10 +118,10 @@ const SuperBol2023 = () => {
 
 const SuperBol2022 = () => {
   return (
-    <div className="container mx-auto xl:p-12 p-6 grid grid-cols-5 gap-24">
+    <div className="container mx-auto xl:p-12 p-6 grid grid-cols-5 sm:gap-24 gap-0">
       <div className="lg:col-span-2 col-span-5">
         <Typography size="h3" className="mb-9">Финалисты 2022</Typography>
-        <div className="grid grid-cols-5 gap-5">
+        <div className="grid sm:grid-cols-5 grid-cols-4 gap-5">
           <div className="flex flex-col items-center text-center">
             <Image src="/superbol/2022/2.png" alt="Асылзат Ерден" width={82} height={82} className="mb-2" quality={100} />
             <Typography size="body3">Асылзат<br/> Ерден</Typography>
@@ -195,23 +184,11 @@ const SuperBol2022 = () => {
           </div>
         </div>
       </div>
-      <div className="lg:col-span-3 col-span-5 lg:order-1 -order-1">
-        <div className="flex gap-12 justify-center mb-2">
-          <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">6590</Typography>
-            <Typography size="body1">участников</Typography>
-            <Typography size="body3" variant="grey">по 8 городам</Typography>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">50</Typography>
-            <Typography size="body1">финалистов</Typography>
-            <Typography size="body3" variant="grey">на первой<br/> тренировке</Typography>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <Typography size="h1" variant="primary">22</Typography>
-            <Typography size="body1">финалистов</Typography>
-            <Typography size="body3" variant="grey">по контрольным матчам</Typography>
-          </div>
+      <div className="lg:col-span-3 col-span-5 lg:order-1 -order-1 pb-4">
+        <div className="flex sm:gap-12 gap-2 justify-center mb-2">
+          <StatsInfo stats={6590} info="участников" hint="по 8 городам" />
+          <StatsInfo stats={50} info="финалистов" hint={<>на первой<br/> тренировке</>} />
+          <StatsInfo stats={22} info="финалистов" hint="по контрольным матчам" />
         </div>
 
         <Image src={Kazakhstan2022}
@@ -224,6 +201,22 @@ const SuperBol2022 = () => {
                }}
         />
       </div>
+    </div>
+  )
+}
+
+type StatsInfoProps = {
+  stats: number
+  info: string
+  hint: string | ReactNode
+}
+
+const StatsInfo = ({ stats, info, hint }: StatsInfoProps) => {
+  return (
+    <div className="flex flex-col items-center text-center">
+      <Typography size="h1" variant="primary" className="sm:text-5xl text-lg">{stats}</Typography>
+      <Typography size="body1">{info}</Typography>
+      <Typography size="body3" variant="grey">{hint}</Typography>
     </div>
   )
 }

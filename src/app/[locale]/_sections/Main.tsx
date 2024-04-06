@@ -8,9 +8,9 @@ export const Main = () => {
   const t = useTranslations('landing.main');
 
   return (
-    <section className="relative container grid grid-cols-7 items-center gap-20 py-36">
+    <section className="relative container grid grid-cols-7 items-center sm:gap-20 gap-0 sm:py-36 pb-10 pt-36">
       <PrimaryPattern
-        className="absolute left-[10px] md:w-[600px] w-full h-[600px]"
+        className="absolute sm:left-[10px] left=0 md:w-[600px] w-full h-[600px]"
         style={{
           clipPath: "circle(50% at center)",
           opacity: "0.1",
