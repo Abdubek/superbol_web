@@ -66,6 +66,7 @@ export type Participant = {
 
 type GetParticipantParams = {
   user_id?: number
+  only_faves?: boolean
 }
 
 const getParticipantsList = (params: GetParticipantParams = {}): Promise<Participant[]> => {
