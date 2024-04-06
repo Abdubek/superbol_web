@@ -3,6 +3,7 @@ import {Button} from "@/shared/ui/Button";
 import {useTranslations} from 'next-intl';
 import ArrowRightIcon from "@/shared/icons/arrow-right.svg";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
+import Link from "next/link";
 
 export const Main = () => {
   const t = useTranslations('landing.main');
@@ -24,9 +25,12 @@ export const Main = () => {
           <span className="text-text-primary font-bold">«SUPER BOL»</span> - первый социальный футбольный проект в
           формате реалити-шоу в Казахстане
         </Typography>
-        <Button variant="primary">
-          Стать участником
-        </Button>
+
+        <Link href={"/sign-up"}>
+          <Button variant="primary">
+            Стать участником
+          </Button>
+        </Link>
       </div>
       <div className="col-span-3 hidden lg:flex flex-col items-start gap-14 pr-14">
         <a href="https://www.youtube.com/@SuperBolKz"

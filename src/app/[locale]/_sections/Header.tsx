@@ -12,10 +12,7 @@ export const Header = () => {
       <Link href={"/#"}>
         <Typography size="caption2" className="hover:text-text-primary sm:block hidden">Главная</Typography>
       </Link>
-      <Link href={"/#superbol2024"}>
-        <Typography size="caption2" className="hover:text-text-primary sm:block hidden">SuperBol 2024</Typography>
-      </Link>
-      <Link href={"/#join"}>
+      <Link href={"/sign-up"}>
         <Typography size="caption2" className="hover:text-text-primary sm:block hidden">Стать участником</Typography>
       </Link>
       <div className="flex gap-10">

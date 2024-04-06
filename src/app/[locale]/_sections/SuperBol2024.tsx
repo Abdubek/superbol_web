@@ -1,8 +1,11 @@
 import {Typography} from "@/shared/ui/Typography";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 import {Button} from "@/shared/ui/Button";
+import {citiesApi} from "@/shared/api/cities";
 
-export const SuperBol2024 = () => {
+export const SuperBol2024 = async () => {
+  const citiesData = await citiesApi.getCitiesList() || []
+
   return (
     <section className="container grid grid-cols-2 sm:gap-10 gap-3 sm:py-15 py-4">
       <Typography asChild size="h1" variant="primary" className="col-span-2"><h1>Super Bol 2024</h1></Typography>
@@ -27,24 +30,11 @@ export const SuperBol2024 = () => {
         </Typography>
 
         <div className="grid grid-rows-4 grid-flow-col gap-1">
-          <Typography size="body1">
-            🇰🇿 Алматы: ХХ - ХХ месяц
-          </Typography>
-          <Typography size="body1">
-            🇰🇿 Алматы: ХХ - ХХ месяц
-          </Typography>
-          <Typography size="body1">
-            🇰🇿 Шымкент: ХХ - ХХ месяц
-          </Typography>
-          <Typography size="body1">
-            🇰🇿 Алматы: ХХ - ХХ месяц
-          </Typography>
-          <Typography size="body1">
-            🇰🇬  Бишкек: ХХ - ХХ месяц
-          </Typography>
-          <Typography size="body1">
-            🇺🇿  Ташкент: ХХ - ХХ месяц
-          </Typography>
+          {citiesData.map((city, index) =>
+            <Typography key={index} size="body1">
+               <CountryIcon country={city.country} /> {city.name_ru}: {new Intl.DateTimeFormat('ru-RU').format(new Date(city.start_at)).substring(0, 2)}-{new Intl.DateTimeFormat('ru-RU').format(new Date(city.end_at)).substring(0, 2)} {new Intl.DateTimeFormat('ru-RU', { month: 'long' }).format(new Date(city.end_at))}
+            </Typography>
+          )}
         </div>
       </div>
       <div className="col-span-2">
@@ -52,4 +42,17 @@ export const SuperBol2024 = () => {
       </div>
     </section>
   )
+}
+
+const CountryIcon = ({ country }: { country: "KZ" | "KG" | "UZ" }) => {
+  switch (country) {
+    case "KZ":
+      return <>🇰🇿</>
+    case "KG":
+      return <>🇰🇬</>
+    case "UZ":
+      return <>🇺🇿</>
+    default:
+      return <>🇰🇿</>
+  }
 }
