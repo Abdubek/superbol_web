@@ -10,6 +10,8 @@ import {
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "./index";
 import {Participant} from "@/shared/api/participant";
+import {SecondStepForm} from "@/features/ParticipantApplicationForm/SecondStep";
+import {City} from "@/shared/api/cities";
 
 export type FirstStepForm = {
   full_name?: string
@@ -27,15 +29,16 @@ export type FirstStepForm = {
 
 type Props = {
   initialData?: Participant
+  cities: City[]
 }
 
-export const FirstStep = ({ initialData }: Props) => {
+export const FirstStep = ({ initialData, cities }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     control
-  } = useForm<FirstStepForm>({
+  } = useForm<FirstStepForm & SecondStepForm>({
     defaultValues: {
       full_name: initialData?.full_name,
       birth_date: initialData?.birth_date ? initialData?.birth_date.substring(0, 10) : undefined,
@@ -51,7 +54,8 @@ export const FirstStep = ({ initialData }: Props) => {
       gaming_positions_2: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 2)
         ? initialData?.gaming_positions[1] : undefined,
       gaming_positions_3: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 3)
-        ? initialData?.gaming_positions[2] : undefined
+        ? initialData?.gaming_positions[2] : undefined,
+      casting_city: initialData?.casting_city
     }
   })
   const submitFirstStep = useFormStore((state) => state.submitFirstStep)
@@ -149,6 +153,20 @@ export const FirstStep = ({ initialData }: Props) => {
         options={specifiedSkillOptions}
         error={formErrorText(errors.specified_skills)}
       />
+      {initialData?.status !== "application_submitted" &&
+        <FormSelect<SecondStepForm>
+          label="Город кастинга"
+          placeholder="Выберите из списка"
+          control={control}
+          name="casting_city"
+          required
+          options={cities.map(city => ({
+            label: city.name,
+            value: city.name
+          }))}
+          error={formErrorText(errors.casting_city)}
+        />
+      }
       {initialData?.status === "activated" && <Button type="submit" variant="secondary" size="lg">Далее</Button>}
     </form>
   )

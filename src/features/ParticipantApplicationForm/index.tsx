@@ -54,9 +54,9 @@ export const ParticipantApplicationForm = ({ cities, initialData }: Props) => {
 
   return (
     <div className="flex flex-col gap-10">
-      <StepsView step={step} />
+      {initialData?.status === "activated" && <StepsView step={step} />}
       <div className="max-w-[400px]">
-        {step === 1 && <FirstStep initialData={initialData} />}
+        {step === 1 && <FirstStep cities={cities} initialData={initialData} />}
         {step === 2 && <SecondStep cities={cities} />}
       </div>
       {step === 3 && <ThirdStep />}

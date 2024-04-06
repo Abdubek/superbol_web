@@ -7,13 +7,16 @@ import InformationIcon from "@/shared/icons/information.svg";
 import {Typography} from "@/shared/ui/Typography";
 import {Routes} from "@/routes";
 import {userApi} from "@/shared/api/user";
+import {participantApi} from "@/shared/api/participant";
 
 export const ProfileMenu = async () => {
   const profileData = await userApi.profile()
+  const applications = await participantApi.getParticipantsList({ user_id: profileData.id })
+  const myApplication = applications?.length ? applications[0] : undefined
 
   return (
     <div className="flex flex-col gap-3">
-      {profileData?.role === "participant" &&
+      {(profileData?.role === "participant" && myApplication?.status === "activated") &&
         <Typography size="body3" className="flex items-center gap-3 p-2 rounded-lg bg-bg-red/5">
           <div>
             <InformationIcon />
