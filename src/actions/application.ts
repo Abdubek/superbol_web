@@ -6,8 +6,5 @@ export async function application(data: ApplicationDTO) {
   console.log("application", data)
   const res = await participantApi.application(data)
   console.log("application ", res)
-  if (res === null) {
-    return true
-  }
-  return false
+  return res === null
 }

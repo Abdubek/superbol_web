@@ -14,13 +14,13 @@ export const Footer = () => {
           <Image src="/partners/freedom.png" alt="Freedom" width={137} height={72} />
         </div>
         <div className="flex flex-col items-end">
-          <Typography size="caption2" variant="primary" className="text-right mb-3">
-            По вопросам сотрудничества и дополнительной<br/> информации свяжитесь с нами
-          </Typography>
-          <Typography size="body3" variant="grey">+ 7 7ХХ ХХХ ХХХХ</Typography>
-          <Typography size="body3" variant="grey">+ 7 7ХХ ХХХ ХХХХ</Typography>
-          <Typography size="body3" variant="grey">+ 7 7ХХ ХХХ ХХХХ</Typography>
-          <Typography size="body3" variant="grey" className="mb-3">email@gmail.com</Typography>
+          {/*<Typography size="caption2" variant="primary" className="text-right mb-3">*/}
+          {/*  По вопросам сотрудничества и дополнительной<br/> информации свяжитесь с нами*/}
+          {/*</Typography>*/}
+          {/*<Typography size="body3" variant="grey">+ 7 7ХХ ХХХ ХХХХ</Typography>*/}
+          {/*<Typography size="body3" variant="grey">+ 7 7ХХ ХХХ ХХХХ</Typography>*/}
+          {/*<Typography size="body3" variant="grey">+ 7 7ХХ ХХХ ХХХХ</Typography>*/}
+          {/*<Typography size="body3" variant="grey" className="mb-3">email@gmail.com</Typography>*/}
           <div className="flex items-center gap-6">
             <a href="https://www.youtube.com/@SuperBolKz"
                target="_blank"

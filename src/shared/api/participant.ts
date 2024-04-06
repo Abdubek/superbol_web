@@ -1,4 +1,5 @@
 import {request} from "@/shared/api/api";
+import qs from 'qs'
 
 type RegisterDTO = {
   email: string
@@ -43,14 +44,14 @@ const application = (data: ApplicationDTO) => {
   })
 }
 
-type Participant = {
+export type Participant = {
   id: number,
   user_id: number,
   number: string,
   full_name: string,
-  status: string,
+  status: 'created' | 'activated' | 'application_submitted' | 'application_verified' | 'passed_first_casting' | 'came_to_second_casting',
   agreement_accepted: boolean,
-  birth_date: Date,
+  birth_date: string,
   height: number,
   weight: number,
   origin_city: string,
@@ -63,8 +64,12 @@ type Participant = {
   is_favorite: boolean
 }
 
-const getParticipantsList = (): Promise<Participant[]> => {
-  return request('/participants')
+type GetParticipantParams = {
+  user_id?: number
+}
+
+const getParticipantsList = (params: GetParticipantParams = {}): Promise<Participant[]> => {
+  return request(`/participants?${qs.stringify(params)}`)
 }
 
 export const participantApi = {

@@ -1,3 +1,5 @@
+"use client"
+
 import {Typography} from "@/shared/ui/Typography";
 import ConsentToParticipateIcon from '@/shared/icons/consent-to-participate.svg'
 import ConsentOfLegalRepresentativesIcon from '@/shared/icons/consent-of-legal-representatives.svg'
@@ -6,11 +8,14 @@ import {ArrowDownIcon} from "@radix-ui/react-icons";
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "@/features/ParticipantApplicationForm/index";
 import {actions} from "@/actions";
+import {useRouter} from "next/navigation";
 
 export const ThirdStep = () => {
   const data = useFormStore((state) => state.data)
+  const setStep = useFormStore((state) => state.setStep)
+  const router = useRouter();
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     const gamePositions = []
     data.gaming_positions_1 && gamePositions.push(data.gaming_positions_1)
     data.gaming_positions_2 && gamePositions.push(data.gaming_positions_2)
@@ -19,7 +24,7 @@ export const ThirdStep = () => {
     const specifiedSkills = []
     data.specified_skills && specifiedSkills.push(data.specified_skills)
 
-    void actions.application({
+    await actions.application({
       full_name: data.full_name,
       birth_date: data.birth_date + "T00:00:00Z",
       height: Number(data.height),
@@ -31,6 +36,8 @@ export const ThirdStep = () => {
       gaming_positions: gamePositions,
       specified_skills: specifiedSkills
     })
+    setStep(1)
+    router.refresh()
   }
 
   return (

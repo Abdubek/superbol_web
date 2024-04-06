@@ -9,6 +9,7 @@ import {
 } from "./options";
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "./index";
+import {Participant} from "@/shared/api/participant";
 
 export type FirstStepForm = {
   full_name?: string
@@ -24,13 +25,35 @@ export type FirstStepForm = {
   specified_skills?: string
 }
 
-export const FirstStep = () => {
+type Props = {
+  initialData?: Participant
+}
+
+export const FirstStep = ({ initialData }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     control
-  } = useForm<FirstStepForm>()
+  } = useForm<FirstStepForm>({
+    defaultValues: {
+      full_name: initialData?.full_name,
+      birth_date: initialData?.birth_date ? initialData?.birth_date.substring(0, 10) : undefined,
+      height: initialData?.height,
+      weight: initialData?.weight,
+      origin_city: initialData?.origin_city,
+      main_leg: initialData?.main_leg,
+      experience_years: initialData?.experience_years,
+      specified_skills: (initialData?.specified_skills && initialData?.specified_skills?.length >= 1)
+        ? initialData?.specified_skills[0] : undefined,
+      gaming_positions_1: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 1)
+        ? initialData?.gaming_positions[0] : undefined,
+      gaming_positions_2: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 2)
+        ? initialData?.gaming_positions[1] : undefined,
+      gaming_positions_3: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 3)
+        ? initialData?.gaming_positions[2] : undefined
+    }
+  })
   const submitFirstStep = useFormStore((state) => state.submitFirstStep)
 
   const onSubmit = (data: FirstStepForm) => {
@@ -126,7 +149,7 @@ export const FirstStep = () => {
         options={specifiedSkillOptions}
         error={formErrorText(errors.specified_skills)}
       />
-      <Button type="submit" variant="secondary" size="lg">Далее</Button>
+      {!initialData && <Button type="submit" variant="secondary" size="lg">Далее</Button>}
     </form>
   )
 }
