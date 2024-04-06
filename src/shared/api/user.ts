@@ -40,6 +40,7 @@ type ProfileResponse = {
   email: string
   full_name: string
   image_key: string
+  role: "participant" | "scout" | "moderator" | "volunteer"
 }
 
 const profile = (): Promise<ProfileResponse> => {

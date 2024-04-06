@@ -55,7 +55,7 @@ export const ResetPasswordForm = ({ email, token }: Props) => {
 
       <FormInput
         value={password}
-        onChange={onPasswordChange}
+        onChange={(e) => onPasswordChange(e.target.value)}
         name="password"
         type="password"
         placeholder="Введите новый пароль"
@@ -63,7 +63,7 @@ export const ResetPasswordForm = ({ email, token }: Props) => {
 
       <FormInput
         value={repeatedPassword}
-        onChange={onRepeatedPasswordChange}
+        onChange={(e) => onRepeatedPasswordChange(e.target.value)}
         name="repeatedPassword"
         type="password"
         placeholder="Повторите новый пароль"

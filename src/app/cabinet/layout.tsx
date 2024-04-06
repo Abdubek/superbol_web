@@ -1,18 +1,22 @@
 import {ReactNode} from "react";
 import ForegroundLogo from "@/shared/icons/foreground_logo.svg";
-import {Button} from "@/shared/ui/Button";
 import Link from "next/link";
 import {Routes} from "@/routes";
 import {ParticipantCard} from "@/entities/participant/ui/Card";
 import {ProfileMenu} from "@/entities/participant/ui/ProfileMenu";
 import {Footer} from "@/app/_sections/Footer";
+import {LogoutButton} from "@/features/Logout";
+import {ScoutCard} from "@/entities/scout/ui/Card";
+import {userApi} from "@/shared/api/user";
 
 
-export default function CabinetLayout({
+export default async function CabinetLayout({
  children,
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const profileData = await userApi.profile()
+
   return (
     <div>
       <header className="bg-bg-primary">
@@ -21,17 +25,14 @@ export default function CabinetLayout({
             <ForegroundLogo width={48} height={48} />
           </Link>
 
-          <Button asChild size="sm" radius="md" weight="bold" variant="foreground">
-            <Link href={Routes.HOME}>
-              Выйти
-            </Link>
-          </Button>
+          <LogoutButton />
         </div>
       </header>
 
       <div className="container grid grid-cols-4 gap-15 pt-15 mb-48">
         <div className="col-span-1 flex flex-col gap-6">
-          <ParticipantCard />
+          {profileData?.role === "participant" && <ParticipantCard />}
+          {profileData?.role === "scout" && <ScoutCard />}
           <ProfileMenu />
         </div>
         <div className="col-span-3">

@@ -24,6 +24,10 @@ body {
     }
 }
 
+.scout-card-gradient {
+    background: linear-gradient(318.27deg, #FAED88 2.11%, rgba(71, 163, 196, 0.5) 50.36%, rgba(71, 163, 196, 0) 100.36%);
+}
+
 @layer base {
     @font-face {
         font-family: 'Involve';

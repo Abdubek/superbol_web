@@ -12,6 +12,8 @@ const config: Config = {
         lightblue: "#47A3C440",
         yellow: "#FCE531",
         red: "#EA4335",
+        success: "#34A85326",
+        warn: "#FAED88"
       },
       button: {
         primary: "#47A3C4",
