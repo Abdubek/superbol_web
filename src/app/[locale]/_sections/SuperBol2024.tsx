@@ -37,9 +37,9 @@ export const SuperBol2024 = async () => {
           )}
         </div>
       </div>
-      <div className="col-span-2">
-        <Button variant="primary">Узнать подробнее</Button>
-      </div>
+      {/*<div className="col-span-2">*/}
+      {/*  <Button variant="primary">Узнать подробнее</Button>*/}
+      {/*</div>*/}
     </section>
   )
 }
