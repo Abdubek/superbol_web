@@ -12,46 +12,60 @@ export const mainLegOptions = [{
 
 export const gamingPositionOptions = [{
   label: "Вратарь (ВР)",
-  value: "goalkeeper"
+  value: "goalkeeper",
+  color: "yellow"
 }, {
   label: "Центральный Защитник (ЦЗ)",
-  value: "central defender"
+  value: "central defender",
+  color: "green"
 }, {
   label: "Правый Центральный Защитник (ПЦЗ)",
-  value: "right central defender"
+  value: "right central defender",
+  color: "green"
 }, {
   label: "Левый Центральный Защитник (ЛЦЗ)",
-  value: "left central defender"
+  value: "left central defender",
+  color: "green"
 }, {
   label: "Правый Защитник (ПЗ)",
-  value: "right defender"
+  value: "right defender",
+  color: "green"
 }, {
   label: "Левый Защитник (ЛЗ)",
-  value: "left defender"
+  value: "left defender",
+  color: "green"
 }, {
   label: "Центральный Опорный Полузащитник (ЦОП)",
-  value: "central defensive midfielder"
+  value: "central defensive midfielder",
+  color: "red"
 }, {
   label: "Центральный Полузащитник (ЦП)",
-  value: "central midfielder"
+  value: "central midfielder",
+  color: "red"
 }, {
   label: "Центральный Атакующий Полузащитник (ЦАП)",
-  value: "central attacking midfielder"
+  value: "central attacking midfielder",
+  color: "red"
 }, {
   label: "Правый Фланговый Полузащитник (ПФП)",
-  value: "right wing midfielder"
+  value: "right wing midfielder",
+  color: "red"
 }, {
   label: "Левый Фланговый Полузащитник (ЛФП)",
-  value: "left wing midfielder"
+  value: "left wing midfielder",
+  color: "red"
 }, {
   label: "Нападающий (НАП)",
-  value: "forward"
+  value: "forward",
+  color: "blue"
 }, {
   label: "Правый Нападающий (ПНАП)",
-  value: "right forward"
+  value: "right forward",
+  color: "blue"
 }, {
   label: "Левый Нападающий (ЛНАП)",
-  value: "left forward"
+  value: "left forward",
+  color: "blue"
 }]
 
 export const specifiedSkillOptions = [{

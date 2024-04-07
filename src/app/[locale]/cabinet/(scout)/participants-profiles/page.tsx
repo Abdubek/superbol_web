@@ -8,6 +8,7 @@ import {actions} from "@/actions";
 import {FavoriteButton} from "@/features/FavoriteButton";
 import {RatingInput} from "@/features/RatingInput";
 import {gamingPositionOptions} from "@/entities/participant/options";
+import {cn} from "@/shared/utils/common";
 
 export default async function CabinetParticipantProfilesPage() {
   const data = await participantApi.getParticipantsList({
@@ -24,10 +25,10 @@ export default async function CabinetParticipantProfilesPage() {
             <th className="px-6 py-4"></th>
             <th className="px-6 py-4 text-left">Имя Фамилия</th>
             <th className="py-4 text-left">Оценка</th>
-            <th className="px-6 py-4">Город</th>
-            <th className="px-6 py-4">Игровая позиция 1</th>
-            <th className="px-6 py-4">Игровая позиция 2</th>
-            <th className="px-6 py-4">Игровая позиция 3</th>
+            <th className="px-6 py-4 text-left">Город</th>
+            <th className="px-6 py-4 text-left">Игровая позиция 1</th>
+            <th className="px-6 py-4 text-left">Игровая позиция 2</th>
+            <th className="px-6 py-4 text-left">Игровая позиция 3</th>
           </tr>
           </thead>
           <tbody>
@@ -47,7 +48,9 @@ export default async function CabinetParticipantProfilesPage() {
               </td>
               <td className="px-6 py-4">{item.casting_city}</td>
               {item.gaming_positions?.map((pos, posInd) =>
-                <td key={posInd} className="px-6 py-4">{gamingPositionOptions.find(i => i.value === pos)?.label}</td>
+                <td key={posInd} className="px-6 py-4">
+                  <GamePosition pos={pos} />
+                </td>
               )}
             </tr>
           )}
@@ -55,5 +58,20 @@ export default async function CabinetParticipantProfilesPage() {
         </table>
       </div>
     </main>
+  )
+}
+
+const GamePosition = ({ pos }: { pos: string }) => {
+  const item = gamingPositionOptions.find(i => i.value === pos)
+  return (
+    <div className={cn(
+      "py-1 text-center min-w-[200px] whitespace-normal text-sm rounded-md",
+      item?.color === "blue" && "bg-bg-primary/15",
+      item?.color === "red" && "bg-bg-red/15",
+      item?.color === "yellow" && "bg-bg-yellow/25",
+      item?.color === "green" && "bg-bg-success",
+    )}>
+      {item?.label}
+    </div>
   )
 }
