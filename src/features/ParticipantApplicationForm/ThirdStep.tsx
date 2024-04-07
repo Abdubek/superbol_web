@@ -13,6 +13,7 @@ import {useRouter} from "next/navigation";
 export const ThirdStep = () => {
   const data = useFormStore((state) => state.data)
   const setStep = useFormStore((state) => state.setStep)
+  const setStatus = useFormStore((state) => state.setStatus)
   const router = useRouter();
 
   const onSubmit = async () => {
@@ -36,8 +37,10 @@ export const ThirdStep = () => {
       gaming_positions: gamePositions,
       specified_skills: specifiedSkills
     })
-    window?.scrollTo(0, 0)
-    window?.location?.reload()
+    setStep(1)
+    setStatus("application_verified")
+    window.scrollTo(0, 0)
+    router.refresh()
   }
 
   return (

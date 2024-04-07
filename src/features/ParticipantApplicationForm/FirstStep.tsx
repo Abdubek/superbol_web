@@ -28,11 +28,12 @@ export type FirstStepForm = {
 }
 
 type Props = {
-  initialData?: Participant
   cities: City[]
 }
 
-export const FirstStep = ({ initialData, cities }: Props) => {
+export const FirstStep = ({ cities }: Props) => {
+  const data = useFormStore((state) => state.data)
+
   const {
     register,
     handleSubmit,
@@ -40,25 +41,22 @@ export const FirstStep = ({ initialData, cities }: Props) => {
     control
   } = useForm<FirstStepForm & SecondStepForm>({
     defaultValues: {
-      full_name: initialData?.full_name,
-      birth_date: initialData?.birth_date ? initialData?.birth_date.substring(0, 10) : undefined,
-      height: initialData?.height,
-      weight: initialData?.weight,
-      origin_city: initialData?.origin_city,
-      main_leg: initialData?.main_leg,
-      experience_years: initialData?.experience_years,
-      specified_skills: (initialData?.specified_skills && initialData?.specified_skills?.length >= 1)
-        ? initialData?.specified_skills[0] : undefined,
-      gaming_positions_1: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 1)
-        ? initialData?.gaming_positions[0] : undefined,
-      gaming_positions_2: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 2)
-        ? initialData?.gaming_positions[1] : undefined,
-      gaming_positions_3: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 3)
-        ? initialData?.gaming_positions[2] : undefined,
-      casting_city: initialData?.casting_city
+      full_name: data?.full_name,
+      birth_date: data?.birth_date,
+      height: data?.height,
+      weight: data?.weight,
+      origin_city: data?.origin_city,
+      main_leg: data?.main_leg,
+      experience_years: data?.experience_years,
+      specified_skills: data?.specified_skills,
+      gaming_positions_1: data.gaming_positions_1,
+      gaming_positions_2: data.gaming_positions_2,
+      gaming_positions_3: data.gaming_positions_3,
+      casting_city: data?.casting_city
     }
   })
   const submitFirstStep = useFormStore((state) => state.submitFirstStep)
+  const applicationStatus = useFormStore((state) => state.applicationStatus)
 
   const onSubmit = (data: FirstStepForm) => {
     window?.scrollTo(0, 0)
@@ -154,7 +152,7 @@ export const FirstStep = ({ initialData, cities }: Props) => {
         options={specifiedSkillOptions}
         error={formErrorText(errors.specified_skills)}
       />
-      {initialData?.status === "application_verified" &&
+      {applicationStatus === "application_verified" &&
         <FormSelect<SecondStepForm>
           label="Город кастинга"
           placeholder="Выберите из списка"
@@ -168,7 +166,7 @@ export const FirstStep = ({ initialData, cities }: Props) => {
           error={formErrorText(errors.casting_city)}
         />
       }
-      {initialData?.status === "activated" && <Button type="submit" variant="secondary" size="lg">Далее</Button>}
+      {applicationStatus === "activated" && <Button type="submit" variant="secondary" size="lg">Далее</Button>}
     </form>
   )
 }

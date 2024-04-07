@@ -16,7 +16,7 @@ export const LocaleSwitcher = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="relative">
-      {changeLang && (
+      {changeLang ? (
         <div className="absolute top-0 h-full w-full">
           <div className="sticky top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 w-[200px] mx-auto overflow-hidden">
             <Button
@@ -39,7 +39,7 @@ export const LocaleSwitcher = ({ children }: PropsWithChildren) => {
             </Button>
           </div>
         </div>
-      )}
+      ) : null}
       <div className={clsx("relative", changeLang && "blur-sm")}>
         {children}
       </div>
