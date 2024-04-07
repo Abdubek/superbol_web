@@ -4,6 +4,7 @@ import {Input} from "@/shared/ui/Input";
 import {useState} from "react";
 import {actions} from "@/actions";
 import {cn} from "@/shared/utils/common";
+import {useRouter} from "next/navigation";
 
 type Props = {
   participantId: number
@@ -11,10 +12,12 @@ type Props = {
 }
 
 export const RatingInput = ({ participantId, defaultValue }: Props) => {
+  const router = useRouter()
   const [value, setValue] = useState(defaultValue ? String(defaultValue) : "")
 
-  const handleSetRating = () => {
-    actions.addRating(participantId, Number(value))
+  const handleSetRating = async () => {
+    await actions.addRating(participantId, Number(value))
+    router.refresh()
   }
 
   return (
