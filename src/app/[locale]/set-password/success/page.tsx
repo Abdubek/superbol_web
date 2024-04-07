@@ -1,11 +1,13 @@
 import PrimaryLogo from "@/shared/icons/primary_logo.svg";
 import CheckIcon from "@/shared/icons/check.svg";
-import {Typography} from "@/shared/ui/Typography";
-import {Button} from "@/shared/ui/Button";
+import { Typography } from "@/shared/ui/Typography";
+import { Button } from "@/shared/ui/Button";
 import Link from "next/link";
-import {Routes} from "@/routes";
+import { Routes } from "@/routes";
+import { useTranslations } from "next-intl";
 
 export default function SetPasswordSuccessPage() {
+  const t = useTranslations("auth");
   return (
     <main className="container flex flex-col justify-between items-center min-h-screen py-8">
       <PrimaryLogo width={48} height={48} />
@@ -14,19 +16,23 @@ export default function SetPasswordSuccessPage() {
         <CheckIcon />
 
         <Typography size="h3" variant="primary" className="mt-2 text-center">
-          Аккаунт успешно<br/> зарегистрирован!
+          {t.rich("success.userActivated.title", {
+            br: () => <br />,
+          })}
         </Typography>
 
         <Typography size="body2" variant="grey" className="mt-2 text-center">
-          Войдите профиль, чтобы продолжить регистрацию<br/> на кастинг
+          {t.rich("success.userActivated.subtitle", {
+            br: () => <br />,
+          })}
         </Typography>
 
         <Button asChild variant="primary" className="w-full mt-5">
-          <Link href={Routes.SIGN_IN}>Войти</Link>
+          <Link href={Routes.SIGN_IN}>{t("buttons.signIn")}</Link>
         </Button>
       </div>
 
       <div />
     </main>
-  )
+  );
 }

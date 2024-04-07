@@ -5,6 +5,7 @@ import {isEmpty} from "@/shared/utils/common";
 import {redirect} from "next/navigation";
 import {Routes} from "@/routes";
 import {cookies} from "next/headers";
+import { useTranslations } from "next-intl";
 
 type SignInErrors = {
   email?: string
@@ -12,6 +13,8 @@ type SignInErrors = {
 }
 
 export async function signIn(prevState: any, formData: FormData) {
+  const t = useTranslations("auth");
+  
   const errors: SignInErrors = {}
 
   const rawFormData = {
@@ -20,10 +23,10 @@ export async function signIn(prevState: any, formData: FormData) {
   };
 
   if (!rawFormData.email) {
-    errors.email = 'Введите почту'
+    errors.email = t("inputs.email.placeholder");
   }
   if (!rawFormData.password) {
-    errors.password = 'Введите пароль'
+    errors.password = t("inputs.password.placeholder");
   }
 
   if (!isEmpty(errors)) {

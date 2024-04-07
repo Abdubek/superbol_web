@@ -1,38 +1,45 @@
-'use client'
+"use client";
 
-import { useFormState } from 'react-dom'
-import {actions} from "@/actions";
-import {Typography} from "@/shared/ui/Typography";
-import {Button} from "@/shared/ui/Button";
-import {FormInput} from "@/shared/ui/FormInput";
+import { useFormState } from "react-dom";
+import { actions } from "@/actions";
+import { Typography } from "@/shared/ui/Typography";
+import { Button } from "@/shared/ui/Button";
+import { FormInput } from "@/shared/ui/FormInput";
+import { useTranslations } from "next-intl";
 
 const initialState = {
-  email: '',
-}
+  email: "",
+};
 
 export const ForgotPasswordForm = () => {
-  const [state, formAction] = useFormState(actions.forgotPassword, initialState)
-
+  const [state, formAction] = useFormState(
+    actions.forgotPassword,
+    initialState
+  );
+  const t = useTranslations("auth");
   return (
-    <form className='flex flex-col items-start text-left gap-5 max-w-[350px]'
-          action={formAction}>
-
+    <form
+      className="flex flex-col items-start text-left gap-5 max-w-[350px]"
+      action={formAction}
+    >
       <Typography size="h3" variant="primary">
-        Забыли пароль?
+        {t("forgotPassword.title")}
       </Typography>
 
       <Typography size="body2" variant="grey">
-        Мы отправим письмо для восстановления пароля на вашу почту, которая была использована для создания аккаунта
+        {t("forgotPassword.subtitle")}
       </Typography>
 
       <FormInput
-        name="email"
+        name={t("inputs.email.label")}
         type="email"
-        placeholder="Введите почту"
+        placeholder={t("inputs.email.placeholder")}
         error={state?.email}
       />
 
-      <Button type="submit" variant="primary" className="w-full">Далее</Button>
+      <Button type="submit" variant="primary" className="w-full">
+        {t("buttons.next")}
+      </Button>
     </form>
-  )
-}
+  );
+};

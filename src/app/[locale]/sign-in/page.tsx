@@ -1,22 +1,27 @@
 import Image from "next/image";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 import PrimaryLogo from "@/shared/icons/primary_logo.svg";
-import {Typography} from "@/shared/ui/Typography";
+import { Typography } from "@/shared/ui/Typography";
 import Link from "next/link";
-import {SignInForm} from "@/features/SignInForm";
-import {Routes} from "@/routes";
+import { SignInForm } from "@/features/SignInForm";
+import { Routes } from "@/routes";
+import { useTranslations } from "next-intl";
 
 export default function SignInPage() {
+  const t = useTranslations("auth");
+
   return (
     <main className="container min-h-screen flex py-8 md:flex-row flex-col gap-6">
       <div className="flex-1 relative w-full rounded-3xl overflow-hidden min-h-[250px]">
-        <Image src={"/players2.png"}
-               alt={"Players"}
-               fill
-               quality={100}
-               style={{
-                 objectFit: 'cover',
-               }} />
+        <Image
+          src={"/players2.png"}
+          alt={"Players"}
+          fill
+          quality={100}
+          style={{
+            objectFit: "cover",
+          }}
+        />
         <PrimaryPattern
           className="absolute top-0 left-0 right-0 bottom-0"
           style={{
@@ -32,16 +37,27 @@ export default function SignInPage() {
         <SignInForm />
 
         <div className="flex flex-col items-center text-center">
-          <Image src="/partners/freedom.png" alt="Freedom" width={111} height={58} />
+          <Image
+            src="/partners/freedom.png"
+            alt="Freedom"
+            width={111}
+            height={58}
+          />
           <Typography variant="grey">
-            Создавая аккаунт, я принимаю
-            <Typography variant="darkBlue" asChild>
-              <Link href="/"> Условия пользования и <br/> Политику конфиденциальности </Link>
-            </Typography>
-            Компании.
+            {t.rich("signIn.routes.statements.title", {
+              link: () => (
+                <Typography variant="darkBlue" asChild>
+                  <Link href="/">
+                    {t.rich("signIn.routes.statements.cta", {
+                      br: () => <br />,
+                    })}
+                  </Link>
+                </Typography>
+              ),
+            })}
           </Typography>
         </div>
       </div>
     </main>
-  )
+  );
 }

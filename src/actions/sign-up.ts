@@ -12,13 +12,13 @@ type SignUpErrors = {
 
 export async function signUp(prevState: any, formData: FormData) {
   const errors: SignUpErrors = {}
-
+  const t = useTranslations("auth");
   const rawFormData = {
     email: formData.get("email") as string,
   };
 
   if (!rawFormData.email) {
-    errors.email = 'Введите почту'
+    errors.email = t("inputs.email.placeholder");
   }
 
   if (!isEmpty(errors)) {

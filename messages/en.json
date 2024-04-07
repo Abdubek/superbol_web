@@ -79,29 +79,60 @@
   },
   "auth": {
     "signIn": {
-      "title": "Войти в личный кабинет"
+      "title": "Log in <br></br>to your personal account",
+      "routes": {
+        "register": {
+          "title": "No account?",
+          "cta": "Sign up"
+        },
+        "forgotPassword": {
+          "title": "Forgot your password?",
+          "cta": "Restore"
+        },
+        "statements": {
+          "title": "By creating an account, I accept <link></link>",
+          "cta": "<br></br>the Company's Terms of Use and Privacy Policy."
+        }
+      }
     },
     "signUp": {
-      "title": "Регистрация аккаунта"
+      "title": "Account Registration"
     },
     "forgotPassword": {
-      "title": "Забыли пароль?",
-      "subtitle": "Мы отправим письмо для восстановления пароля на вашу почту, которая была использована для создания аккаунта"
+      "title": "Forgot your password?",
+      "subtitle": "We will send a password recovery email to your email address that was used to create the account"
     },
     "buttons": {
-      "signIn": "Войти",
-      "next":"",
-      "":""
+      "signIn": "Enter",
+      "next": "Further",
+      "": ""
     },
     "inputs": {
       "email": {
-        "label": "Почта",
-        "placeholder": "Введите почту"
+        "label": "Email",
+        "placeholder": "Enter your email"
       },
       "password": {
-        "label": "Пароль",
-        "placeholder": "Введите пароль"
+        "label": "Password",
+        "placeholder": "Enter your password"
       }
+<<<<<<< HEAD
+=======
+    },
+    "success": {
+      "emailSent": {
+        "title": "Check your inbox",
+        "subtitle": "We have sent a link to confirm the email"
+      },
+      "passwordChanged": {
+        "title": "The password has been <br></br>successfully restored!",
+        "subtitle": ""
+      },
+      "userActivated": {
+        "title": "The account has been <br></br>successfully registered!",
+        "subtitle": "Log in to your profile to continue registering <br></br>for the casting"
+      }
+>>>>>>> 38fb811 (i18n: add auth pages)
     }
   }
 }
