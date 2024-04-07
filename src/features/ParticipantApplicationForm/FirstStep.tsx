@@ -153,7 +153,7 @@ export const FirstStep = ({ initialData, cities }: Props) => {
         options={specifiedSkillOptions}
         error={formErrorText(errors.specified_skills)}
       />
-      {initialData?.status === "application_submitted" &&
+      {initialData?.status === "application_verified" &&
         <FormSelect<SecondStepForm>
           label="Город кастинга"
           placeholder="Выберите из списка"

@@ -44,12 +44,14 @@ const application = (data: ApplicationDTO) => {
   })
 }
 
+export type ApplicationStatus = 'created' | 'activated' | 'application_submitted' | 'application_verified' | 'passed_first_casting' | 'came_to_second_casting'
+
 export type Participant = {
   id: number,
   user_id: number,
   number: string,
   full_name: string,
-  status: 'created' | 'activated' | 'application_submitted' | 'application_verified' | 'passed_first_casting' | 'came_to_second_casting',
+  status: ApplicationStatus,
   agreement_accepted: boolean,
   birth_date: string,
   height: number,
@@ -67,6 +69,7 @@ export type Participant = {
 type GetParticipantParams = {
   user_id?: number
   only_faves?: boolean
+  status?: ApplicationStatus
 }
 
 const getParticipantsList = (params: GetParticipantParams = {}): Promise<Participant[]> => {
