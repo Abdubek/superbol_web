@@ -116,8 +116,6 @@
         "label": "Password",
         "placeholder": "Enter your password"
       }
-<<<<<<< HEAD
-=======
     },
     "success": {
       "emailSent": {
@@ -132,7 +130,6 @@
         "title": "The account has been <br></br>successfully registered!",
         "subtitle": "Log in to your profile to continue registering <br></br>for the casting"
       }
->>>>>>> 38fb811 (i18n: add auth pages)
     }
   }
 }
