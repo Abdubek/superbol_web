@@ -31,7 +31,7 @@ export default async function CabinetParticipantProfilesPage() {
                 </div>
                 {item.full_name} {item.status}
               </td>
-              <td><Input /></td>
+              <td><Input className="h-7 w-16" /></td>
               <td className="px-6 py-4">{item.casting_city}</td>
               {item.gaming_positions?.map((pos, posInd) =>
                 <td key={posInd} className="px-6 py-4">{pos}</td>
