@@ -1,6 +1,7 @@
 import {participantApi} from "@/shared/api/participant";
 import {Typography} from "@/shared/ui/Typography";
 import DefaultAvatar from "@/shared/icons/default-avatar-36.svg";
+import {GamePosition} from "@/entities/participant/ui/GamePosition";
 
 export default async function CabinetParticipantsPage() {
   const data = await participantApi.getParticipantsList({
@@ -32,7 +33,9 @@ export default async function CabinetParticipantsPage() {
                 </td>
                 <td className="px-6 py-4">{item.casting_city}</td>
                 {item.gaming_positions?.map((pos, posInd) =>
-                  <td key={posInd} className="px-6 py-4">{pos}</td>
+                  <td key={posInd} className="px-6 py-4">
+                    <GamePosition pos={pos} />
+                  </td>
                 )}
               </tr>
             )}

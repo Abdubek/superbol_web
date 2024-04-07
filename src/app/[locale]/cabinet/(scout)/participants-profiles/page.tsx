@@ -9,6 +9,7 @@ import {citiesApi} from "@/shared/api/cities";
 import {CastingCityFilter} from "@/features/CastingCityFilter";
 import {SearchParams} from "nuqs/parsers";
 import {FavoriteFilter} from "@/features/FavoriteFilter";
+import {GamePosition} from "@/entities/participant/ui/GamePosition";
 
 type Props = {
   searchParams: SearchParams;
@@ -77,20 +78,5 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
         </div>
       </div>
     </main>
-  )
-}
-
-const GamePosition = ({ pos }: { pos: string }) => {
-  const item = gamingPositionOptions.find(i => i.value === pos)
-  return (
-    <div className={cn(
-      "py-1 text-center min-w-[200px] whitespace-normal text-sm rounded-md",
-      item?.color === "blue" && "bg-bg-primary/15",
-      item?.color === "red" && "bg-bg-red/15",
-      item?.color === "yellow" && "bg-bg-yellow/25",
-      item?.color === "green" && "bg-bg-success",
-    )}>
-      {item?.label}
-    </div>
   )
 }
