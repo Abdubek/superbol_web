@@ -6,6 +6,8 @@ import {setPassword} from "@/actions/set-password";
 import {changePassword} from "@/actions/change-password";
 import {application} from "@/actions/application";
 import {logout} from "@/actions/log-out";
+import {addFavorite, deleteFavorite} from "@/actions/favorites";
+import {addRating} from "@/actions/rating";
 
 export const actions = {
   signIn,
@@ -16,4 +18,7 @@ export const actions = {
   setPassword,
   changePassword,
   application,
+  addFavorite,
+  deleteFavorite,
+  addRating
 }
