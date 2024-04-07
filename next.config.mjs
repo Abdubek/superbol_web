@@ -4,6 +4,15 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
+  images: {
+    remotePatterns: [{
+      protocol: "http",
+      hostname: '46.101.124.209',
+      port: '8082',
+      pathname: '/api/v1/images'
+    }]
+  },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>

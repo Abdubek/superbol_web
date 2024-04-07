@@ -8,6 +8,7 @@ import {application} from "@/actions/application";
 import {logout} from "@/actions/log-out";
 import {addFavorite, deleteFavorite} from "@/actions/favorites";
 import {addRating} from "@/actions/rating";
+import {uploadAvatar} from "@/actions/upload-avatar";
 
 export const actions = {
   signIn,
@@ -20,5 +21,6 @@ export const actions = {
   application,
   addFavorite,
   deleteFavorite,
-  addRating
+  addRating,
+  uploadAvatar
 }

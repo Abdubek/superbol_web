@@ -1,10 +1,10 @@
-import DefaultAvatar from "@/shared/icons/default-avatar.svg";
 import {Typography} from "@/shared/ui/Typography";
 import Image from "next/image";
 import Link from "next/link";
 import {Routes} from "@/routes";
 import Pattern from "@/shared/images/pattern.svg";
 import {userApi} from "@/shared/api/user";
+import {UserAvatar} from "@/features/Avatar";
 
 export const ParticipantCard = async () => {
   const profileData = await userApi.profile()
@@ -19,7 +19,7 @@ export const ParticipantCard = async () => {
       />
 
       <div className="w-[126px] h-[126px] rounded-full border-[3px] border-border-secondary flex items-center justify-center box-border z-10">
-        <DefaultAvatar width={120} height={120} />
+        <UserAvatar image={profileData?.image_key} width={120} />
       </div>
 
       <div className="flex flex-col items-center gap-1 z-10 w-full">

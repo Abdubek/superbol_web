@@ -50,9 +50,28 @@ const profile = (): Promise<ProfileResponse> => {
   return request('/users/profile')
 }
 
+const uploadAvatar = (data: FormData) => {
+  return request('/images', {
+    method: "POST",
+    body: data
+  })
+}
+
+const updateUser = (image_key: string, locale: string) => {
+  return request("/users", {
+    method: "PUT",
+    body: JSON.stringify({
+      image_key,
+      locale
+    })
+  })
+}
+
 export const userApi = {
   authenticate,
   resetPassword,
   updatePassword,
-  profile
+  profile,
+  uploadAvatar,
+  updateUser
 }
