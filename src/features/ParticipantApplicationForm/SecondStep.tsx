@@ -4,7 +4,7 @@ import {formErrorText} from "@/shared/utils/common";
 import {FormSelect} from "@/shared/ui/FormSelect";
 import {
   castingCityOptions,
-} from "./options";
+} from "../../entities/participant/options";
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "./index";
 import {City} from "@/shared/api/cities";

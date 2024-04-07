@@ -7,6 +7,7 @@ import HeartPrimaryIcon from "@/shared/icons/heart-primary.svg"
 import {actions} from "@/actions";
 import {FavoriteButton} from "@/features/FavoriteButton";
 import {RatingInput} from "@/features/RatingInput";
+import {gamingPositionOptions} from "@/entities/participant/options";
 
 export default async function CabinetParticipantProfilesPage() {
   const data = await participantApi.getParticipantsList({
@@ -46,7 +47,7 @@ export default async function CabinetParticipantProfilesPage() {
               </td>
               <td className="px-6 py-4">{item.casting_city}</td>
               {item.gaming_positions?.map((pos, posInd) =>
-                <td key={posInd} className="px-6 py-4">{pos}</td>
+                <td key={posInd} className="px-6 py-4">{gamingPositionOptions.find(i => i.value === pos)?.label}</td>
               )}
             </tr>
           )}

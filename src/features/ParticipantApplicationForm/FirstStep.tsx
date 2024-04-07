@@ -6,7 +6,7 @@ import {
   gamingPositionOptions,
   mainLegOptions,
   specifiedSkillOptions
-} from "./options";
+} from "../../entities/participant/options";
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "./index";
 import {Participant} from "@/shared/api/participant";
