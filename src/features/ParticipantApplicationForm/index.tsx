@@ -73,6 +73,7 @@ export const ParticipantApplicationForm = ({ cities, initialData }: Props) => {
   const setData = useFormStore((state) => state.setData)
 
   useEffect(() => {
+    console.log("setData", initialData)
     setData({
       full_name: initialData?.full_name,
       birth_date: initialData?.birth_date ? initialData?.birth_date.substring(0, 10) : undefined,
@@ -91,7 +92,7 @@ export const ParticipantApplicationForm = ({ cities, initialData }: Props) => {
         ? initialData?.gaming_positions[2] : undefined,
       casting_city: initialData?.casting_city
     }, initialData?.status)
-  }, [])
+  }, [initialData])
 
   return (
     <div className="flex flex-col gap-10">

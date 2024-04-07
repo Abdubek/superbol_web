@@ -40,7 +40,7 @@ export const FirstStep = ({ cities }: Props) => {
     formState: { errors },
     control
   } = useForm<FirstStepForm & SecondStepForm>({
-    defaultValues: {
+    values: {
       full_name: data?.full_name,
       birth_date: data?.birth_date,
       height: data?.height,
