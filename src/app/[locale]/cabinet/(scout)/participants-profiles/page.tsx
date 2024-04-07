@@ -1,23 +1,34 @@
 import {participantApi} from "@/shared/api/participant";
 import {Typography} from "@/shared/ui/Typography";
 import DefaultAvatar from "@/shared/icons/default-avatar-36.svg";
-import {Input} from "@/shared/ui/Input";
-import HeartIcon from "@/shared/icons/heart.svg"
-import HeartPrimaryIcon from "@/shared/icons/heart-primary.svg"
-import {actions} from "@/actions";
 import {FavoriteButton} from "@/features/FavoriteButton";
 import {RatingInput} from "@/features/RatingInput";
 import {gamingPositionOptions} from "@/entities/participant/options";
 import {cn} from "@/shared/utils/common";
+import {citiesApi} from "@/shared/api/cities";
+import {CastingCityFilter} from "@/features/CastingCityFilter";
+import {SearchParams} from "nuqs/parsers";
 
-export default async function CabinetParticipantProfilesPage() {
-  const data = await participantApi.getParticipantsList({
-    status: "application_verified"
-  })
+type Props = {
+  searchParams: SearchParams;
+};
+
+export default async function CabinetParticipantProfilesPage({ searchParams }: Props) {
+
+  const city = searchParams.city as string | undefined
+
+  const [cities, data] = await Promise.all([
+    citiesApi.getCitiesList(),
+    participantApi.getParticipantsList({
+      status: "application_verified",
+      casting_city: city
+    })
+  ])
 
   return (
     <main>
       <Typography size="h3" className="mb-10">Список участников</Typography>
+      <CastingCityFilter cities={cities} className="mb-10" />
       <div className="overflow-x-scroll">
         <table className="w-full whitespace-nowrap">
           <thead>

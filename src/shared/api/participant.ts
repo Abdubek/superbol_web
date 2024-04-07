@@ -70,9 +70,11 @@ type GetParticipantParams = {
   user_id?: number
   only_faves?: boolean
   status?: ApplicationStatus
+  casting_city?: string
 }
 
 const getParticipantsList = (params: GetParticipantParams = {}): Promise<Participant[]> => {
+  console.log(`/participants?${qs.stringify(params)}`)
   return request(`/participants?${qs.stringify(params)}`)
 }
 
