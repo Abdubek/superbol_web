@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import {Typography} from "@/shared/ui/Typography";
+import { Typography } from "@/shared/ui/Typography";
+import { useTranslations } from "next-intl";
 import { TikTokEmbed } from "react-social-media-embed";
-import {useWindowSize} from "usehooks-ts";
+import { useWindowSize } from "usehooks-ts";
 
 const ttlinks = [
   "7272981798030675205",
@@ -11,15 +12,22 @@ const ttlinks = [
   "7254856341993393413",
 ];
 
-export const TiktokVideos = () => {
+interface TiktokVideosProps {
+  title: string;
+}
 
+export const TiktokVideos = ({ title }: TiktokVideosProps) => {
   return (
     <section className="container sm:pb-48 pb-10">
-      <Typography size="h2" variant="primary" className="mb-10">Смотрите нас в TikTok</Typography>
+      <Typography size="h2" variant="primary" className="mb-10">
+        {title}
+      </Typography>
       <div className="flex overflow-x-scroll gap-9">
         {ttlinks.map((id, index) => (
-          <div className="rounded-2xl overflow-hidden min-w-[320px]"
-               key={index}>
+          <div
+            className="rounded-2xl overflow-hidden min-w-[320px]"
+            key={index}
+          >
             <TikTokEmbed
               url={`https://www.tiktok.com/@superbol.kz/video/${id}`}
               width={325}
@@ -28,5 +36,5 @@ export const TiktokVideos = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
