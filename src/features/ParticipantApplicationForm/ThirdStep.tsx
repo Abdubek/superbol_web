@@ -23,7 +23,9 @@ export const ThirdStep = () => {
     data.gaming_positions_3 && gamePositions.push(data.gaming_positions_3)
 
     const specifiedSkills = []
-    data.specified_skills && specifiedSkills.push(data.specified_skills)
+    data.specified_skills_1 && specifiedSkills.push(data.specified_skills_1)
+    data.specified_skills_2 && specifiedSkills.push(data.specified_skills_2)
+    data.specified_skills_3 && specifiedSkills.push(data.specified_skills_3)
 
     await actions.application({
       full_name: data.full_name,

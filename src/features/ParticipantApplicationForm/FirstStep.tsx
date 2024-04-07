@@ -1,4 +1,4 @@
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import {FormInput} from "@/shared/ui/FormInput";
 import {formErrorText} from "@/shared/utils/common";
 import {FormSelect} from "@/shared/ui/FormSelect";
@@ -6,12 +6,14 @@ import {
   gamingPositionOptions,
   mainLegOptions,
   specifiedSkillOptions
-} from "../../entities/participant/options";
+} from "@/entities/participant/options";
 import {Button} from "@/shared/ui/Button";
+import Select from 'react-select';
 import {useFormStore} from "./index";
-import {Participant} from "@/shared/api/participant";
 import {SecondStepForm} from "@/features/ParticipantApplicationForm/SecondStep";
 import {City} from "@/shared/api/cities";
+import {Typography} from "@/shared/ui/Typography";
+import * as React from "react";
 
 export type FirstStepForm = {
   full_name?: string
@@ -24,7 +26,9 @@ export type FirstStepForm = {
   gaming_positions_2?: string
   gaming_positions_3?: string
   experience_years?: number
-  specified_skills?: string
+  specified_skills_1?: string
+  specified_skills_2?: string
+  specified_skills_3?: string
 }
 
 type Props = {
@@ -48,7 +52,9 @@ export const FirstStep = ({ cities }: Props) => {
       origin_city: data?.origin_city,
       main_leg: data?.main_leg,
       experience_years: data?.experience_years,
-      specified_skills: data?.specified_skills,
+      specified_skills_1: data?.specified_skills_1,
+      specified_skills_2: data?.specified_skills_2,
+      specified_skills_3: data?.specified_skills_3,
       gaming_positions_1: data.gaming_positions_1,
       gaming_positions_2: data.gaming_positions_2,
       gaming_positions_3: data.gaming_positions_3,
@@ -144,14 +150,58 @@ export const FirstStep = ({ cities }: Props) => {
         {...register("experience_years", { required: true })}
       />
       <FormSelect<FirstStepForm>
-        label="Ваши сильные качества"
-        placeholder="Выберите сильные качества"
+        label="Ваши сильные качества 1"
+        placeholder="Выберите основную сильную качество"
         control={control}
-        name="specified_skills"
+        name="specified_skills_1"
         required
         options={specifiedSkillOptions}
-        error={formErrorText(errors.specified_skills)}
+        error={formErrorText(errors.specified_skills_1)}
       />
+      <FormSelect<FirstStepForm>
+        label="Ваши сильные качества 2"
+        placeholder="Выберите второстепенную сильную качество"
+        control={control}
+        name="gaming_positions_2"
+        required
+        options={specifiedSkillOptions}
+        error={formErrorText(errors.specified_skills_2)}
+      />
+      <FormSelect<FirstStepForm>
+        label="Ваши сильные качества 3"
+        placeholder="Выберите дополнительную сильную качество"
+        control={control}
+        name="specified_skills_3"
+        required
+        options={specifiedSkillOptions}
+        error={formErrorText(errors.specified_skills_3)}
+      />
+      {/*<div className="w-full">*/}
+      {/*  <Typography asChild size="caption2" className="mb-2 block">*/}
+      {/*    <label>Ваши сильные качества</label>*/}
+      {/*  </Typography>*/}
+      {/*  <Controller*/}
+      {/*    rules={{ required: true }}*/}
+      {/*    render={({ field }) => (*/}
+      {/*      <Select*/}
+      {/*        isMulti*/}
+      {/*        value={specifiedSkillOptions.find(i => field?.value?.includes(i.value))}*/}
+      {/*        options={specifiedSkillOptions}*/}
+      {/*        placeholder="Необходимо выбрать 3 варианта:"*/}
+      {/*        className="w-full"*/}
+      {/*        classNamePrefix="select"*/}
+      {/*        onChange={(value) => {*/}
+      {/*          console.log("multi onchange", value)*/}
+      {/*          field.onChange(value.map(i => i.value))*/}
+      {/*        }}*/}
+      {/*      />)}*/}
+      {/*    control={control}*/}
+      {/*    name="specified_skills"*/}
+      {/*  />*/}
+      {/*  {formErrorText(errors.specified_skills) &&*/}
+      {/*    <Typography size="body3" variant="red">{formErrorText(errors.specified_skills)}</Typography>*/}
+      {/*  }*/}
+      {/*</div>*/}
       {applicationStatus === "application_verified" &&
         <FormSelect<SecondStepForm>
           label="Город кастинга"

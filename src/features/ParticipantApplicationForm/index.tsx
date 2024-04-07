@@ -82,8 +82,13 @@ export const ParticipantApplicationForm = ({ cities, initialData }: Props) => {
       origin_city: initialData?.origin_city,
       main_leg: initialData?.main_leg,
       experience_years: initialData?.experience_years,
-      specified_skills: (initialData?.specified_skills && initialData?.specified_skills?.length >= 1)
+      specified_skills_1: (initialData?.specified_skills && initialData?.specified_skills?.length >= 1)
         ? initialData?.specified_skills[0] : undefined,
+      specified_skills_2: (initialData?.specified_skills && initialData?.specified_skills?.length >= 2)
+        ? initialData?.specified_skills[1] : undefined,
+      specified_skills_3: (initialData?.specified_skills && initialData?.specified_skills?.length >= 3)
+        ? initialData?.specified_skills[2] : undefined,
+
       gaming_positions_1: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 1)
         ? initialData?.gaming_positions[0] : undefined,
       gaming_positions_2: (initialData?.gaming_positions && initialData?.gaming_positions?.length >= 2)
