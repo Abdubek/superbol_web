@@ -1,12 +1,18 @@
 import {Typography} from "@/shared/ui/Typography";
 import {notificationApi} from "@/shared/api/notification";
 import {Notification} from "@/features/Notification";
+import {ReactNode} from "react";
 
-export default async function CabinetNotificationsPage() {
+export default async function CabinetNotificationsPage({
+  params: { locale },
+}: Readonly<{
+  params: { locale: string };
+}>) {
   const data = await notificationApi.getNotificationList()
-  console.log(data)
 
   const notifications = data?.notifications || []
+
+  console.log(notifications)
 
   return (
     <main>
@@ -16,8 +22,8 @@ export default async function CabinetNotificationsPage() {
           <Notification
             key={index}
             type={item.type}
-            title={item.name}
-            description={item.description}
+            title={(item as any)[locale === "en" ? "name" : `name_${locale}`]}
+            description={(item as any)[locale === "en" ? "description" : `description_${locale}`]}
             date={new Date(item.date)}
             qr={item.qr_code}
           />

@@ -26,6 +26,7 @@ export const SecondStep = ({ cities }: Props) => {
   const submitSecondStep = useFormStore((state) => state.submitSecondStep)
 
   const onSubmit = (data: SecondStepForm) => {
+    window?.scrollTo(0, 0)
     submitSecondStep(data)
   }
 

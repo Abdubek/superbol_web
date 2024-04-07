@@ -36,8 +36,8 @@ export const ThirdStep = () => {
       gaming_positions: gamePositions,
       specified_skills: specifiedSkills
     })
-    setStep(1)
-    router.refresh()
+    window?.scrollTo(0, 0)
+    window?.location?.reload()
   }
 
   return (

@@ -1,4 +1,5 @@
 import {request} from "@/shared/api/api";
+import {Participant} from "@/shared/api/participant";
 
 type AuthenticateDTO = {
   email: string,
@@ -40,6 +41,8 @@ type ProfileResponse = {
   email: string
   full_name: string
   image_key: string
+  locale: string
+  participant: Participant
   role: "participant" | "scout" | "moderator" | "volunteer"
 }
 

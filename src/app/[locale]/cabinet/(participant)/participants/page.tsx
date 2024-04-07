@@ -3,8 +3,9 @@ import {Typography} from "@/shared/ui/Typography";
 import DefaultAvatar from "@/shared/icons/default-avatar-36.svg";
 
 export default async function CabinetParticipantsPage() {
-  const data = await participantApi.getParticipantsList()
-  console.log("getParticipantsList", data)
+  const data = await participantApi.getParticipantsList({
+    status: "application_verified",
+  })
 
   return (
     <main className="whitespace-nowrap">

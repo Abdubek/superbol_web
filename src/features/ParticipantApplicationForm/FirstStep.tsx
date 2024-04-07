@@ -61,6 +61,7 @@ export const FirstStep = ({ initialData, cities }: Props) => {
   const submitFirstStep = useFormStore((state) => state.submitFirstStep)
 
   const onSubmit = (data: FirstStepForm) => {
+    window?.scrollTo(0, 0)
     submitFirstStep(data)
   }
 

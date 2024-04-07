@@ -27,7 +27,7 @@ export const ParticipantCard = async () => {
           {profileData.full_name || profileData.email}
         </Typography>
         <Typography size="body3" variant="grey">
-          ID{profileData.id}
+          {profileData?.participant?.number}
         </Typography>
       </div>
 

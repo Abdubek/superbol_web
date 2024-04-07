@@ -10,8 +10,8 @@ export const FavoriteFilter = () => {
 
   return (
     <div className="flex gap-1 items-center">
-      <Button size="sm" variant={value === "all" ? "primary" : "secondary"} onClick={() => setValue("all", { shallow: true })}>Все участники</Button>
-      <Button size="sm" variant={value === "favorite" ? "primary" : "secondary"} onClick={() => setValue("favorite", { shallow: true })}>Избранные</Button>
+      <Button size="sm" variant={value === "all" ? "primary" : "secondary"} onClick={() => setValue("all", { shallow: false })}>Все участники</Button>
+      <Button size="sm" variant={value === "favorite" ? "primary" : "secondary"} onClick={() => setValue("favorite", { shallow: false })}>Избранные</Button>
     </div>
   )
 }
