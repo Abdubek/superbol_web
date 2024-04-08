@@ -1,48 +1,48 @@
-import {Controller, useForm} from "react-hook-form";
-import {FormInput} from "@/shared/ui/FormInput";
-import {formErrorText} from "@/shared/utils/common";
-import {FormSelect} from "@/shared/ui/FormSelect";
+import { Controller, useForm } from "react-hook-form";
+import { FormInput } from "@/shared/ui/FormInput";
+import { formErrorText } from "@/shared/utils/common";
+import { FormSelect } from "@/shared/ui/FormSelect";
 import {
   gamingPositionOptions,
   mainLegOptions,
-  specifiedSkillOptions
+  specifiedSkillOptions,
 } from "@/entities/participant/options";
-import {Button} from "@/shared/ui/Button";
-import Select from 'react-select';
-import {useFormStore} from "./index";
-import {SecondStepForm} from "@/features/ParticipantApplicationForm/SecondStep";
-import {City} from "@/shared/api/cities";
-import {Typography} from "@/shared/ui/Typography";
+import { Button } from "@/shared/ui/Button";
+import { useFormStore } from "./index";
+import { SecondStepForm } from "@/features/ParticipantApplicationForm/SecondStep";
+import { City } from "@/shared/api/cities";
+import { Typography } from "@/shared/ui/Typography";
 import * as React from "react";
+import { useTranslations } from "next-intl";
 
 export type FirstStepForm = {
-  full_name?: string
-  birth_date?: string
-  height?: number
-  weight?: number
-  origin_city?: string
-  main_leg?: string
-  gaming_positions_1?: string
-  gaming_positions_2?: string
-  gaming_positions_3?: string
-  experience_years?: number
-  specified_skills_1?: string
-  specified_skills_2?: string
-  specified_skills_3?: string
-}
+  full_name?: string;
+  birth_date?: string;
+  height?: number;
+  weight?: number;
+  origin_city?: string;
+  main_leg?: string;
+  gaming_positions_1?: string;
+  gaming_positions_2?: string;
+  gaming_positions_3?: string;
+  experience_years?: number;
+  specified_skills_1?: string;
+  specified_skills_2?: string;
+  specified_skills_3?: string;
+};
 
 type Props = {
-  cities: City[]
-}
+  cities: City[];
+};
 
 export const FirstStep = ({ cities }: Props) => {
-  const data = useFormStore((state) => state.data)
+  const data = useFormStore((state) => state.data);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    control
+    control,
   } = useForm<FirstStepForm & SecondStepForm>({
     values: {
       full_name: data?.full_name,
@@ -58,57 +58,62 @@ export const FirstStep = ({ cities }: Props) => {
       gaming_positions_1: data.gaming_positions_1,
       gaming_positions_2: data.gaming_positions_2,
       gaming_positions_3: data.gaming_positions_3,
-      casting_city: data?.casting_city
-    }
-  })
-  const submitFirstStep = useFormStore((state) => state.submitFirstStep)
-  const applicationStatus = useFormStore((state) => state.applicationStatus)
+      casting_city: data?.casting_city,
+    },
+  });
+  const submitFirstStep = useFormStore((state) => state.submitFirstStep);
+  const applicationStatus = useFormStore((state) => state.applicationStatus);
 
   const onSubmit = (data: FirstStepForm) => {
-    window?.scrollTo(0, 0)
-    submitFirstStep(data)
-  }
+    window?.scrollTo(0, 0);
+    submitFirstStep(data);
+  };
+
+  const t = useTranslations("application");
 
   return (
-    <form className="flex flex-col gap-6 items-start" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col gap-6 items-start"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <FormInput
         type="text"
-        label="Имя Фамилия"
-        placeholder="Введите имя и фамилию"
+        label={t("inputs.full_name.label")}
+        placeholder={t("inputs.full_name.placeholder")}
         error={formErrorText(errors.full_name)}
-        {...register("full_name", { required: true  })}
+        {...register("full_name", { required: true })}
       />
       <FormInput
         type="date"
-        label="Дата рождения"
-        placeholder="дд.мм.гггг"
+        label={t("inputs.birth_date.label")}
+        placeholder={t("inputs.birth_date.placeholder")}
         error={formErrorText(errors.birth_date)}
         {...register("birth_date", { required: true })}
       />
       <FormInput
         type="number"
-        label="Рост"
-        placeholder="Введите ваш рост в см"
+        label={t("inputs.height.label")}
+        placeholder={t("inputs.height.placeholder")}
         error={formErrorText(errors.height)}
         {...register("height", { required: true })}
       />
       <FormInput
         type="number"
-        label="Вес"
-        placeholder="Введите ваш вес в кг"
+        label={t("inputs.weight.label")}
+        placeholder={t("inputs.weight.placeholder")}
         error={formErrorText(errors.weight)}
         {...register("weight", { required: true })}
       />
       <FormInput
         type="text"
-        label="Город проживания"
-        placeholder="Введите город"
+        label={t("inputs.residence.label")}
+        placeholder={t("inputs.residence.placeholder")}
         error={formErrorText(errors.origin_city)}
         {...register("origin_city", { required: true })}
       />
       <FormSelect<FirstStepForm>
-        label="Игровая нога"
-        placeholder="Выберите из списка"
+        label={t("inputs.preferred_foot.label")}
+        placeholder={t("inputs.preferred_foot.placeholder")}
         control={control}
         name="main_leg"
         required
@@ -116,8 +121,8 @@ export const FirstStep = ({ cities }: Props) => {
         error={formErrorText(errors.main_leg)}
       />
       <FormSelect<FirstStepForm>
-        label="Игровая позиция 1"
-        placeholder="Выберите основную игровую позицию"
+        label={t("inputs.playing_position.1.label")}
+        placeholder={t("inputs.playing_position.1.placeholder")}
         control={control}
         name="gaming_positions_1"
         required
@@ -125,8 +130,8 @@ export const FirstStep = ({ cities }: Props) => {
         error={formErrorText(errors.gaming_positions_1)}
       />
       <FormSelect<FirstStepForm>
-        label="Игровая позиция 2"
-        placeholder="Выберите второстепенную игровую позицию"
+        label={t("inputs.playing_position.2.label")}
+        placeholder={t("inputs.playing_position.2.placeholder")}
         control={control}
         name="gaming_positions_2"
         required
@@ -134,8 +139,8 @@ export const FirstStep = ({ cities }: Props) => {
         error={formErrorText(errors.gaming_positions_2)}
       />
       <FormSelect<FirstStepForm>
-        label="Игровая позиция 3"
-        placeholder="Выберите дополнительную игровую позицию"
+        label={t("inputs.playing_position.3.label")}
+        placeholder={t("inputs.playing_position.3.placeholder")}
         control={control}
         name="gaming_positions_3"
         required
@@ -144,14 +149,14 @@ export const FirstStep = ({ cities }: Props) => {
       />
       <FormInput
         type="number"
-        label="Игровой опыт"
-        placeholder="Выберите количество лет опыта"
+        label={t("inputs.game_experience.label")}
+        placeholder={t("inputs.game_experience.placeholder")}
         error={formErrorText(errors.experience_years)}
         {...register("experience_years", { required: true })}
       />
       <FormSelect<FirstStepForm>
-        label="Ваши сильные качества 1"
-        placeholder="Выберите основную сильную качество"
+        label={t("inputs.strengths.1.label")}
+        placeholder={t("inputs.strengths.1.placeholder")}
         control={control}
         name="specified_skills_1"
         required
@@ -159,8 +164,8 @@ export const FirstStep = ({ cities }: Props) => {
         error={formErrorText(errors.specified_skills_1)}
       />
       <FormSelect<FirstStepForm>
-        label="Ваши сильные качества 2"
-        placeholder="Выберите второстепенную сильную качество"
+        label={t("inputs.strengths.2.label")}
+        placeholder={t("inputs.strengths.2.placeholder")}
         control={control}
         name="specified_skills_2"
         required
@@ -168,8 +173,8 @@ export const FirstStep = ({ cities }: Props) => {
         error={formErrorText(errors.specified_skills_2)}
       />
       <FormSelect<FirstStepForm>
-        label="Ваши сильные качества 3"
-        placeholder="Выберите дополнительную сильную качество"
+        label={t("inputs.strengths.3.label")}
+        placeholder={t("inputs.strengths.3.placeholder")}
         control={control}
         name="specified_skills_3"
         required
@@ -202,21 +207,25 @@ export const FirstStep = ({ cities }: Props) => {
       {/*    <Typography size="body3" variant="red">{formErrorText(errors.specified_skills)}</Typography>*/}
       {/*  }*/}
       {/*</div>*/}
-      {applicationStatus === "application_verified" &&
+      {applicationStatus === "application_verified" && (
         <FormSelect<SecondStepForm>
-          label="Город кастинга"
-          placeholder="Выберите из списка"
+          label={t("inputs.casting_city.label")}
+          placeholder={t("inputs.casting_city.placeholder")}
           control={control}
           name="casting_city"
           required
-          options={cities.map(city => ({
+          options={cities.map((city) => ({
             label: city.name,
-            value: city.name
+            value: city.name,
           }))}
           error={formErrorText(errors.casting_city)}
         />
-      }
-      {applicationStatus === "activated" && <Button type="submit" variant="secondary" size="lg">Далее</Button>}
+      )}
+      {applicationStatus === "activated" && (
+        <Button type="submit" variant="secondary" size="lg">
+          {t("buttons.next")}
+        </Button>
+      )}
     </form>
-  )
-}
+  );
+};

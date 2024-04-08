@@ -125,7 +125,8 @@
       "next": "Further",
       "tryAgain": "Try again",
       "savePassword": "Save the password",
-      "changePassword": "Change your password"
+      "changePassword": "Change your password",
+      "logout": "Log out"
     },
     "inputs": {
       "email": {
@@ -164,5 +165,108 @@
       }
     },
     "failure": "Something went wrong <br />"
+  },
+  "welcome": {
+    "heading": "User's Instructions",
+    "tabs": {
+      "about": {
+        "name": "About the project",
+        "title": "Super Bol 2024",
+        "content": "Football selections will be conducted according to a unique elimination system and methodology developed by the team of the project organizer. A sports reality show consists of a casting, which includes the second qualifying match and the final. The final stage, which includes professional football training under the guidance of the coaching staff and holding regular weekly matches in order to identify and view potential scouts signing a professional contract with the participants. <br></br><br></br> The project is carried out on the basis of the following principles: equality and accessibility for all individuals wishing to participate in the project, wellness orientation, prohibition of discrimination and prevention of propaganda of the cult of cruelty, violence and humiliation of human dignity, promotion of the \"innovative mentality\" in football, increasing youth interest in football, development of youth sports in Kazakhstan."
+      }
+    },
+    "time": {
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes"
+    },
+    "warning": "Do not forget to fill out the application form to participate in the casting",
+    "menu": {
+      "profile": "Profile",
+      "application": "Questionnaire",
+      "participants": "List of participants",
+      "notifications": "Notifications",
+      "participants_profiles": "Participant profiles"
+    },
+    "profile": {
+      "title": "Profile",
+      "user_id": "User ID",
+      "email": "Email",
+      "full_name": "First Name Last Name"
+    }
+  },
+  "application": {
+    "title": "Participant Questionnaire",
+    "inputs": {
+      "full_name": {
+        "label": "First Name Last Name",
+        "placeholder": "Enter your first and last name"
+      },
+      "birth_date": {
+        "label": "Date of birth",
+        "placeholder": "dd.mm.yyyy"
+      },
+      "height": {
+        "label": "Height",
+        "placeholder": "Enter your height in cm"
+      },
+      "weight": {
+        "label": "Weight",
+        "placeholder": "Enter your weight in kg"
+      },
+      "residence": {
+        "label": "City of residence",
+        "placeholder": "Enter the city"
+      },
+      "preferred_foot": {
+        "label": "Preferred Foot",
+        "placeholder": "Select from the list"
+      },
+      "playing_position": {
+        "1": {
+          "label": "Playing position 1",
+          "placeholder": "Select the main playing position"
+        },
+        "2": {
+          "label": "Playing position 2",
+          "placeholder": "Select the secondary playing position"
+        },
+        "3": {
+          "label": "Playing position 3",
+          "placeholder": "Select the additional playing position"
+        }
+      },
+      "game_experience": {
+        "label": "Game experience",
+        "placeholder": "Enter the number of years"
+      },
+      "strengths": {
+        "1": {
+          "label": "Strength 1",
+          "placeholder": "Select the main strength"
+        },
+        "2": {
+          "label": "Strength 2",
+          "placeholder": "Select the secondary strength"
+        },
+        "3": {
+          "label": "Strength 3",
+          "placeholder": "Select the additional strength"
+        }
+      },
+      "casting_city": {
+        "label": "The casting city",
+        "placeholder": "Select from the list"
+      }
+    },
+    "buttons": {
+      "next": "Further"
+    }
+  },
+  "participants": {
+    "title": "List of participants"
+  },
+  "notifications": {
+    "title": "Notifications"
   }
 }
