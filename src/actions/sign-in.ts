@@ -13,7 +13,6 @@ type SignInErrors = {
 }
 
 export async function signIn(prevState: any, formData: FormData) {
-  const t = useTranslations("auth");
   
   const errors: SignInErrors = {}
 
@@ -23,10 +22,10 @@ export async function signIn(prevState: any, formData: FormData) {
   };
 
   if (!rawFormData.email) {
-    errors.email = t("inputs.email.placeholder");
+    errors.email = 'Введите почту';
   }
   if (!rawFormData.password) {
-    errors.password = t("inputs.password.placeholder");
+    errors.password = 'Введите пароль';
   }
 
   if (!isEmpty(errors)) {
