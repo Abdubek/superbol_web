@@ -162,7 +162,7 @@ export const FirstStep = ({ cities }: Props) => {
         label="Ваши сильные качества 2"
         placeholder="Выберите второстепенную сильную качество"
         control={control}
-        name="gaming_positions_2"
+        name="specified_skills_2"
         required
         options={specifiedSkillOptions}
         error={formErrorText(errors.specified_skills_2)}
