@@ -10,8 +10,10 @@ export type City = {
   country: "KZ" | "KG" | "UZ"
 }
 
-const getCitiesList = (): Promise<City[]> => {
-  return request(`/cities`)
+const getCitiesList = async (): Promise<City[]> => {
+  const response: City[] = await request(`/cities`)
+  // @ts-ignore
+  return response.sort((a, b) => new Date(a.start_at) - new Date(b.start_at))
 }
 
 export const citiesApi = {

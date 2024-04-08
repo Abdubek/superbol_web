@@ -31,7 +31,7 @@ export const ForgotPasswordForm = () => {
       </Typography>
 
       <FormInput
-        name={t("inputs.email.label")}
+        name="email"
         type="email"
         placeholder={t("inputs.email.placeholder")}
         error={state?.email}

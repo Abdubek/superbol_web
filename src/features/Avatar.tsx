@@ -14,7 +14,7 @@ export const UserAvatar = ({ image, width = 60 }: Props) => {
       width === 60 && "w-[60px] h-[60px]",
       width === 120 && "w-[120px] h-[120px]"
     )}>
-      <img src={`http://46.101.124.209:8082/api/v1/images/${image}`}
+      <img src={`https://super-bol.kz/api/v1/images/${image}`}
            alt="avatar"
            width={60}
            height={60}

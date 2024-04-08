@@ -11,7 +11,16 @@ const nextConfig = {
       hostname: '46.101.124.209',
       port: '8082',
       pathname: '/api/v1/images'
+    }, {
+      protocol: "https",
+      hostname: 'super-bol.kz',
+      pathname: '/api/v1/images'
     }]
+  },
+  experimental: {
+    serverActions: {
+      allowedOrigins: ["super-bol.kz"]
+    }
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports

@@ -6,12 +6,23 @@ import { Button } from "@/shared/ui/Button";
 import { Routes } from "@/routes";
 import { LocaleSwitcherButton } from "@/features/LocaleSwitcher/LocaleSwitcherButton";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export const Header = () => {
   const t = useTranslations("landing.header");
   return (
     <header className="container py-2.5 flex items-center justify-between">
-      <PrimaryLogo width={48} height={48} />
+      <div className="flex items-center gap-3">
+        <PrimaryLogo width={48} height={48} />
+        <a href="https://www.freedomholdingcorp.com" target="_blank" rel="noreferrer noopener">
+          <Image
+            src="/partners/freedom.png"
+            alt="Freedom"
+            width={137}
+            height={72}
+          />
+        </a>
+      </div>
       <Link href={"/#"}>
         <Typography
           size="caption2"

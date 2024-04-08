@@ -2,7 +2,7 @@ import createMiddleware from 'next-intl/middleware';
 import {pathnames, locales, localePrefix} from './config';
 
 export default createMiddleware({
-  defaultLocale: 'ru',
+  defaultLocale: 'kz',
   locales,
   pathnames,
   localePrefix

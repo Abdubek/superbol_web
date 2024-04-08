@@ -17,7 +17,7 @@ export const Main = () => {
           opacity: "0.1",
         }}
       />
-      <div className="col-span-7 lg:col-span-4 flex flex-col gap-5 items-start">
+      <div className="col-span-7 lg:col-span-4 flex flex-col gap-5 items-start z-10">
         <Typography
           size="h3"
           variant="primary"
