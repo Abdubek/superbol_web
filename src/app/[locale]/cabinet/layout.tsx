@@ -8,6 +8,7 @@ import {Footer} from "../_sections/Footer";
 import {LogoutButton} from "@/features/Logout";
 import {ScoutCard} from "@/entities/scout/ui/Card";
 import {userApi} from "@/shared/api/user";
+import {LocaleSwitcherButton} from "@/features/LocaleSwitcher/LocaleSwitcherButton";
 
 
 export default async function CabinetLayout({
@@ -25,7 +26,10 @@ export default async function CabinetLayout({
             <ForegroundLogo width={48} height={48} />
           </Link>
 
-          <LogoutButton />
+          <div className="flex items-center gap-10 text-text-white">
+            <LocaleSwitcherButton />
+            <LogoutButton />
+          </div>
         </div>
       </header>
 
