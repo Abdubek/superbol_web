@@ -73,7 +73,6 @@ export const ParticipantApplicationForm = ({ cities, initialData }: Props) => {
   const setData = useFormStore((state) => state.setData)
 
   useEffect(() => {
-    console.log("setData", initialData)
     setData({
       full_name: initialData?.full_name,
       birth_date: initialData?.birth_date ? initialData?.birth_date.substring(0, 10) : undefined,

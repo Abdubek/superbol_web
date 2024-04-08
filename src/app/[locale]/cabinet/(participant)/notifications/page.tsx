@@ -1,7 +1,6 @@
 import { Typography } from "@/shared/ui/Typography";
 import { notificationApi } from "@/shared/api/notification";
 import { Notification } from "@/features/Notification";
-import { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 
 export default async function CabinetNotificationsPage({
@@ -10,10 +9,8 @@ export default async function CabinetNotificationsPage({
   params: { locale: string };
 }>) {
   const data = await notificationApi.getNotificationList();
-
   const notifications = data?.notifications || [];
 
-  console.log(notifications);
   const t = await getTranslations("notifications");
   return (
     <main>
