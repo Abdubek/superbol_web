@@ -4,7 +4,6 @@ import {isEmpty} from "@/shared/utils/common";
 import {redirect} from "next/navigation";
 import {Routes} from "@/routes";
 import {userApi} from "@/shared/api/user";
-import { useTranslations } from "next-intl";
 
 type ForgotPasswordErrors = {
   email?: string
