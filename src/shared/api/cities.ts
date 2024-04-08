@@ -11,9 +11,10 @@ export type City = {
 }
 
 const getCitiesList = async (): Promise<City[]> => {
-  const response: City[] = await request(`/cities`)
-  // @ts-ignore
-  return response.sort((a, b) => new Date(a.start_at) - new Date(b.start_at))
+  // const response: City[] = await request(`/cities`)
+  // // @ts-ignore
+  // return response.sort((a, b) => new Date(a.start_at) - new Date(b.start_at))
+  return []
 }
 
 export const citiesApi = {

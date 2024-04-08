@@ -39,7 +39,7 @@ export const Header = () => {
           {t("cta")}
         </Typography>
       </Link>
-      <div className="flex gap-10">
+      <div className="flex sm:gap-10 gap-4 whitespace-nowrap">
         <LocaleSwitcherButton />
         <Button asChild size="sm" radius="md" weight="bold" variant="ghost">
           <Link href={Routes.SIGN_IN}>{t("login")}</Link>

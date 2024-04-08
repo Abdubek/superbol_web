@@ -1,6 +1,5 @@
 import {ReactNode} from "react";
 import ForegroundLogo from "@/shared/icons/foreground_logo.svg";
-import Link from "next/link";
 import {Routes} from "@/routes";
 import {ParticipantCard} from "@/entities/participant/ui/Card";
 import {ProfileMenu} from "@/entities/participant/ui/ProfileMenu";
@@ -9,6 +8,7 @@ import {LogoutButton} from "@/features/Logout";
 import {ScoutCard} from "@/entities/scout/ui/Card";
 import {userApi} from "@/shared/api/user";
 import {LocaleSwitcherButton} from "@/features/LocaleSwitcher/LocaleSwitcherButton";
+import Link from "next/link";
 
 
 export default async function CabinetLayout({

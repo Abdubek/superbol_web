@@ -35,7 +35,9 @@ export const ProfileMenu = async () => {
         className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
       >
         <Link href={Routes.PROFILE}>
-          <ProfileIcon />
+          <div>
+            <ProfileIcon />
+          </div>
           {t("menu.profile")}
         </Link>
       </Typography>
@@ -46,7 +48,9 @@ export const ProfileMenu = async () => {
           className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
         >
           <Link href={Routes.PROFILE_APPLICATION}>
-            <StarIcon />
+            <div>
+              <StarIcon />
+            </div>
             {t("menu.application")}
           </Link>
         </Typography>
@@ -58,7 +62,9 @@ export const ProfileMenu = async () => {
           className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
         >
           <Link href={Routes.PROFILE_PARTICIPANTS}>
-            <PeopleIcon />
+            <div>
+              <PeopleIcon/>
+            </div>
             {t("menu.participants")}
           </Link>
         </Typography>
@@ -70,7 +76,9 @@ export const ProfileMenu = async () => {
           className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
         >
           <Link href={Routes.PROFILE_NOTIFICATIONS}>
-            <NotificationIcon />
+            <div>
+              <NotificationIcon/>
+            </div>
             {t("menu.notifications")}
           </Link>
         </Typography>
@@ -82,7 +90,9 @@ export const ProfileMenu = async () => {
           className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
         >
           <Link href={Routes.PROFILE_PARTICIPANTS_PROFILES}>
-            <NotificationIcon />
+            <div>
+              <NotificationIcon />
+            </div>
             {t("menu.participants_profiles")}
           </Link>
         </Typography>
