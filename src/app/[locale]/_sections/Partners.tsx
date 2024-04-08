@@ -19,12 +19,6 @@ export const Partners = () => {
           width={317}
           height={166}
         />
-        <Image
-          src="/partners/qazsport.png"
-          alt="Freedom"
-          width={350}
-          height={75}
-        />
       </div>
     </section>
   );

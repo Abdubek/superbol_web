@@ -1,52 +1,56 @@
 import {Typography} from "@/shared/ui/Typography";
 import {Header} from "@/app/[locale]/_sections/Header";
 import {Footer} from "@/app/[locale]/_sections/Footer";
+import {useTranslations} from "next-intl";
 
 export default function PrivacyPolicyPage() {
+  const t = useTranslations("privacy");
+
   return (
     <div>
       <Header />
       <div className="container pt-12">
-          <Typography size="h3" variant="primary" className="text-center mb-6">Политика конфиденциальности</Typography>
+          <Typography size="h3" variant="primary" className="text-center mb-6">{t('privacy_policy')}</Typography>
 
-          <Typography size="caption1">1. Сбор и использование информации</Typography>
-          <Typography size="body1" className="mb-4">Мы ценим ваше доверие и обязуемся защищать вашу конфиденциальность. При использовании нашего сервиса "Super Bol" мы можем собирать определенную информацию о вас, такую как ваше имя, контактные данные, данные о профиле и другие сведения, необходимые для обеспечения работы сервиса и участия в проекте.</Typography>
+          <Typography size="caption1">1. {t('privacy_policy_1_title')}</Typography>
+          <Typography size="body1" className="mb-4">
+              {t('privacy_policy_1_content')}
+          </Typography>
 
-          <Typography size="caption1">2. Использование информации</Typography>
-          <Typography size="body1">Собранная информация может использоваться для следующих целей:</Typography>
+          <Typography size="caption1">2. {t('privacy_policy_2_title')}</Typography>
+          <Typography size="body1">{t('privacy_policy_2_content')}</Typography>
           <Typography size="body1" className="mb-4">
               <ul className="list-disc">
-                  <li>Предоставления доступа к сервису и участия в проекте "Super Bol".</li>
-                  <li>Обработки заявок и запросов от участников.</li>
-                  <li>Обработки заявок и запросов от участников.</li>
-                  <li>Улучшения качества сервиса и адаптации его к потребностям пользователей.</li>
-                  <li>Проведения аналитики и исследований для оптимизации проекта.</li>
+                  <li>{t('privacy_policy_2_list_1')}</li>
+                  <li>{t('privacy_policy_2_list_2')}</li>
+                  <li>{t('privacy_policy_2_list_3')}</li>
+                  <li>{t('privacy_policy_2_list_4')}</li>
               </ul>
           </Typography>
 
-          <Typography size="caption1">3. Раскрытие информации</Typography>
-          <Typography size="body1" className="mb-4">Мы можем раскрывать вашу информацию третьим лицам только в случаях, предусмотренных законом или с вашего согласия.</Typography>
+          <Typography size="caption1">3. {t('privacy_policy_3_title')}</Typography>
+          <Typography size="body1" className="mb-4">{t('privacy_policy_3_content')}</Typography>
 
-          <Typography size="caption1">4. Безопасность данных</Typography>
-          <Typography size="body1" className="mb-4">Мы принимаем меры для защиты ваших данных от несанкционированного доступа, использования или раскрытия.</Typography>
+          <Typography size="caption1">4. {t('privacy_policy_4_title')}</Typography>
+          <Typography size="body1" className="mb-4">{t('privacy_policy_4_content')}</Typography>
 
-          <Typography size="caption1">5. Изменения в политике</Typography>
-          <Typography size="body1" className="mb-8">Мы оставляем за собой право вносить изменения в нашу Политику конфиденциальности. В случае значительных изменений, мы уведомим вас об этом.</Typography>
+          <Typography size="caption1">5. {t('privacy_policy_5_title')}</Typography>
+          <Typography size="body1" className="mb-8">{t('privacy_policy_5_content')}</Typography>
 
-          <Typography size="h3" variant="primary" className="text-center mb-6">Пользовательское соглашение</Typography>
-          <Typography size="caption1">Условия использования</Typography>
-          <Typography size="body1" className="mb-6">Используя наш сервис "Super Bol", вы соглашаетесь с нашими Условиями использования и обязуетесь соблюдать их.</Typography>
+          <Typography size="h3" variant="primary" className="text-center mb-6">{t('terms_of_use')}</Typography>
+          <Typography size="caption1">{t('terms_of_use_1_title')}</Typography>
+          <Typography size="body1" className="mb-6">{t('terms_of_use_1_content')}</Typography>
 
-          <Typography size="caption1">Права и обязанности</Typography>
-          <Typography size="body1" className="mb-6">Вы имеете право на доступ к сервису и участие в проекте в соответствии с нашими правилами и регламентом. Вы также обязуетесь соблюдать правила проекта и уважать других участников.</Typography>
+          <Typography size="caption1">{t('terms_of_use_2_title')}</Typography>
+          <Typography size="body1" className="mb-6">{t('terms_of_use_2_content')}</Typography>
 
-          <Typography size="caption1">Ответственность</Typography>
-          <Typography size="body1" className="mb-6">Мы не несем ответственности за утрату или повреждение данных, возникшие в результате использования нашего сервиса.</Typography>
+          <Typography size="caption1">{t('terms_of_use_3_title')}</Typography>
+          <Typography size="body1" className="mb-6">{t('terms_of_use_3_content')}</Typography>
 
-          <Typography size="caption1">Изменения в соглашении</Typography>
-          <Typography size="body1" className="mb-6">Мы оставляем за собой право вносить изменения в наше Пользовательское соглашение. Изменения вступают в силу с момента их публикации.</Typography>
+          <Typography size="caption1">{t('terms_of_use_4_title')}</Typography>
+          <Typography size="body1" className="mb-6">{t('terms_of_use_4_content')}</Typography>
 
-          <Typography size="body1" className="mb-16">С уважением, Команда проекта "Super Bol"</Typography>
+          <Typography size="body1" className="mb-16">{t('terms_of_use_last')}</Typography>
       </div>
       <Footer />
     </div>

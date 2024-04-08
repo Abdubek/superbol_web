@@ -268,5 +268,32 @@
   },
   "notifications": {
     "title": "Notifications"
+  },
+  "privacy": {
+    "privacy_policy": "Privacy Policy",
+    "privacy_policy_1_title": "Collection and Use of Information",
+    "privacy_policy_1_content": "We value your trust and commit to protecting your privacy. When using our \"Super Bol\" service, we may collect certain information about you, such as your name, contact details, profile data, and other information necessary for the operation of the service and participation in the project.",
+    "privacy_policy_2_title" : "Use of Information",
+    "privacy_policy_2_content": "The collected information may be used for the following purposes:",
+    "privacy_policy_2_list_1": "Providing access to the service and participation in the \"Super Bol\" project.",
+    "privacy_policy_2_list_2": "Processing applications and requests from participants.",
+    "privacy_policy_2_list_3": "Improving the quality of the service and tailoring it to the needs of users.",
+    "privacy_policy_2_list_4": "Conducting analytics and research to optimize the project.",
+    "privacy_policy_3_title": "Disclosure of Information",
+    "privacy_policy_3_content": "We may disclose your information to third parties only in cases provided by law or with your consent.",
+    "privacy_policy_4_title": "Data Security",
+    "privacy_policy_4_content": "We take measures to protect your data from unauthorized access, use, or disclosure.",
+    "privacy_policy_5_title": "Changes to the Policy",
+    "privacy_policy_5_content": "We reserve the right to make changes to our Privacy Policy. In the event of significant changes, we will notify you.",
+    "terms_of_use": "User Agreement",
+    "terms_of_use_1_title": "Terms of Use",
+    "terms_of_use_1_content": "By using our \"Super Bol\" service, you agree to our Terms of Use and commit to abide by them.",
+    "terms_of_use_2_title": "Rights and Obligations",
+    "terms_of_use_2_content": "You have the right to access the service and participate in the project in accordance with our rules and regulations. You also commit to abide by the project's rules and respect other participants.",
+    "terms_of_use_3_title": "Liability",
+    "terms_of_use_3_content": "We are not responsible for the loss or damage of data resulting from the use of our service.",
+    "terms_of_use_4_title": "Changes to the Agreement",
+    "terms_of_use_4_content": "We reserve the right to make changes to our User Agreement. Changes come into effect at the moment of their publication.",
+    "terms_of_use_last": "Best regards, Project Team \"Super Bol\""
   }
 }
