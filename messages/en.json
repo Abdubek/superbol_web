@@ -102,10 +102,30 @@
       "title": "Forgot your password?",
       "subtitle": "We will send a password recovery email to your email address that was used to create the account"
     },
+    "resetPassword": {
+      "title": "Recover password",
+      "subtitle": "For the account",
+      "required": {
+        "1": "Specify at least 8 characters",
+        "2": "The password must contain a number or a character",
+        "3": "The entered passwords match"
+      }
+    },
+    "setPassword": {
+      "title": "Create a password",
+      "subtitle": "For the account",
+      "required": {
+        "1": "Specify at least 8 characters",
+        "2": "The password must contain a number or a character",
+        "3": "The entered passwords match"
+      }
+    },
     "buttons": {
       "signIn": "Enter",
       "next": "Further",
-      "": ""
+      "tryAgain": "Try again",
+      "savePassword": "Save the password",
+      "changePassword": "Change your password"
     },
     "inputs": {
       "email": {
@@ -115,6 +135,14 @@
       "password": {
         "label": "Password",
         "placeholder": "Enter your password"
+      },
+      "newPassword": {
+        "label": "Новый пароль",
+        "placeholder": "Enter a new password"
+      },
+      "repeatedPassword": {
+        "label": "Повторите пароль",
+        "placeholder": "Repeat the new password"
       }
     },
     "success": {
@@ -129,7 +157,12 @@
       "userActivated": {
         "title": "The account has been <br></br>successfully registered!",
         "subtitle": "Log in to your profile to continue registering <br></br>for the casting"
+      },
+      "changePassword": {
+        "title": "We have sent an email to the inbox",
+        "subtitle": "Check your email and click on the sent link to change your password."
       }
-    }
+    },
+    "failure": "Something went wrong <br />"
   }
 }
