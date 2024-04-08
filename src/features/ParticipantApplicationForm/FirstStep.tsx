@@ -14,6 +14,7 @@ import { City } from "@/shared/api/cities";
 import { Typography } from "@/shared/ui/Typography";
 import * as React from "react";
 import { useTranslations } from "next-intl";
+import { subYears } from "date-fns";
 
 export type FirstStepForm = {
   full_name?: string;
@@ -87,6 +88,8 @@ export const FirstStep = ({ cities }: Props) => {
         type="date"
         label={t("inputs.birth_date.label")}
         placeholder={t("inputs.birth_date.placeholder")}
+        max={subYears(new Date(), 14).toISOString().split("T")[0]}
+        min={subYears(new Date(), 23).toISOString().split("T")[0]}
         error={formErrorText(errors.birth_date)}
         {...register("birth_date", { required: true })}
       />
