@@ -3,6 +3,7 @@ import {pathnames, locales, localePrefix} from './config';
 
 export default createMiddleware({
   defaultLocale: 'kz',
+  localeDetection: false,
   locales,
   pathnames,
   localePrefix
