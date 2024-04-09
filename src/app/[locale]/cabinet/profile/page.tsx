@@ -27,7 +27,7 @@ export default async function CabinetProfilePage() {
           </Typography>
           <div className="flex gap-4 items-center">
             <Typography size="body1">{profileData.email}</Typography>
-            <SendConfirmEmailButton isVerified={profileData.email_verified} />
+            <SendConfirmEmailButton isVerified={profileData.participant.email_verified} />
           </div>
         </div>
         <div className="flex flex-col gap-2 pt-3">

@@ -76,6 +76,7 @@ export type Participant = {
   experience_years: number,
   specified_skills: string[],
   rating: number,
+  email_verified: boolean
   is_favorite: boolean
 }
 
