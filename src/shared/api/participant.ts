@@ -24,6 +24,19 @@ const activate = (data: ActivateDTO) => {
   })
 }
 
+const sendConfirmEmail = () => {
+  return request('/participants/verification', {
+    method: "POST",
+  })
+}
+
+const confirmEmail = (token: string) => {
+  return request('/participants/verification', {
+    method: "PUT",
+    body: JSON.stringify({ token })
+  })
+}
+
 export type ApplicationDTO = {
   full_name?: string
   birth_date?: string
@@ -82,5 +95,7 @@ export const participantApi = {
   register,
   activate,
   application,
-  getParticipantsList
+  getParticipantsList,
+  sendConfirmEmail,
+  confirmEmail
 }

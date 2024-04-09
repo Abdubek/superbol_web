@@ -149,7 +149,10 @@
     "success": {
       "emailSent": {
         "title": "Check your inbox",
-        "subtitle": "We have sent a link to confirm the email"
+        "subtitle": "We have sent a link to confirm the email",
+        "signUp": {
+          "subtitle": "We have sent a link to confirm the email"
+        }
       },
       "passwordChanged": {
         "title": "The password has been <br></br>successfully restored!",

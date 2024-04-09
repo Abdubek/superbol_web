@@ -32,7 +32,7 @@ export async function signIn(prevState: any, formData: FormData) {
     return errors
   }
 
-  const res = await userApi.authenticate(rawFormData)
+  const res = await userApi.loginOrRegister(rawFormData)
   if (res.token) {
     console.log(res.token.toString())
     cookies().set('access_token', res.token.toString())

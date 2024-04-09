@@ -3,6 +3,7 @@ import "./globals.css";
 import { LocaleSwitcher } from "@/features/LocaleSwitcher";
 import { ReactNode } from "react";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import ToastProvider from "@/shared/ui/ToastProvider";
 
 export const metadata: Metadata = {
   title: "SuperBol 2024",
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body>
         <LocaleSwitcher>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
+            <ToastProvider>
+              {children}
+            </ToastProvider>
           </NextIntlClientProvider>
         </LocaleSwitcher>
       </body>

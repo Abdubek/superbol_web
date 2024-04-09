@@ -9,6 +9,7 @@ import {logout} from "@/actions/log-out";
 import {addFavorite, deleteFavorite} from "@/actions/favorites";
 import {addRating} from "@/actions/rating";
 import {uploadAvatar} from "@/actions/upload-avatar";
+import {sendConfirmEmail} from "@/actions/sendConfirmEmail";
 
 export const actions = {
   signIn,
@@ -22,5 +23,6 @@ export const actions = {
   addFavorite,
   deleteFavorite,
   addRating,
-  uploadAvatar
+  uploadAvatar,
+  sendConfirmEmail
 }

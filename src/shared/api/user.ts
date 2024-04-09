@@ -13,6 +13,18 @@ const authenticate = (data: AuthenticateDTO) => {
   })
 }
 
+type LoginOrRegisterDTO = {
+  email: string,
+  password: string
+}
+
+const loginOrRegister = (data: LoginOrRegisterDTO) => {
+  return request('/users/login-or-register', {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+}
+
 type ResetPasswordDTO = {
   email: string
 }
@@ -43,6 +55,7 @@ type ProfileResponse = {
   image_key: string
   locale: string
   participant: Participant
+  email_verified: boolean
   role: "participant" | "scout" | "moderator" | "volunteer"
 }
 
@@ -69,6 +82,7 @@ const updateUser = (image_key: string, locale: string) => {
 
 export const userApi = {
   authenticate,
+  loginOrRegister,
   resetPassword,
   updatePassword,
   profile,

@@ -1,9 +1,9 @@
 import { Typography } from "@/shared/ui/Typography";
-import DefaultAvatar from "@/shared/icons/default-avatar-mini.svg";
 import { userApi } from "@/shared/api/user";
 import { ChangePasswordButton } from "@/features/ChangePasswordButton";
 import { UploadAvatar } from "@/features/UploadAvatar";
 import { getTranslations } from "next-intl/server";
+import {ConfirmEmailButton} from "@/features/ConfirmEmailButton";
 
 export default async function CabinetProfilePage() {
   const profileData = await userApi.profile();
@@ -25,7 +25,10 @@ export default async function CabinetProfilePage() {
           <Typography size="body1" variant="grey">
             {t("profile.email")}
           </Typography>
-          <Typography size="body1">{profileData.email}</Typography>
+          <div className="flex gap-4 items-center">
+            <Typography size="body1">{profileData.email}</Typography>
+            <ConfirmEmailButton isVerified={profileData.email_verified} />
+          </div>
         </div>
         <div className="flex flex-col gap-2 pt-3">
           <Typography size="body1" variant="grey">

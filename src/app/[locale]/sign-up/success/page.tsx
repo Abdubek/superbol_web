@@ -21,7 +21,7 @@ export default function SignUpSuccessPage() {
         </Typography>
 
         <Typography size="body2" variant="grey" className="mt-2 text-center">
-          {t.rich("success.emailSent.subtitle", {
+          {t.rich("success.emailSent.signUp.subtitle", {
             br: () => <br />,
           })}
         </Typography>
