@@ -12,13 +12,13 @@ type Props = {
 
 export const SendConfirmEmailButton = ({ isVerified }: Props) => {
   const t = useTranslations("auth");
-  const [disable, setDisable] = useState(false)
+  const [isSent, setSentState] = useState(false)
 
   const handleClick = async () => {
     const res = await actions.sendConfirmEmail()
     console.log("actions.sendConfirmEmail, res", res)
     if (res) {
-      setDisable(true)
+      setSentState(true)
       toast(t.rich("success.emailSent.signUp.subtitle", {
         br: () => <br />,
       }))
@@ -34,6 +34,7 @@ export const SendConfirmEmailButton = ({ isVerified }: Props) => {
   }
 
   return (
-    <Button variant="primary" size="sm" onClick={handleClick} disabled={disable}>Подтвердить</Button>
+    <Button variant="primary" size="sm" onClick={handleClick} disabled={isSent}>{!isSent ? "Подтвердить" : "Письмо отправлено"}</Button>
+
   )
 }
