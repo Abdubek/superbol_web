@@ -167,6 +167,9 @@
         "subtitle": "Check your email and click on the sent link to change your password."
       }
     },
+    "confirm": {
+      "title": "To confirm your email, click on the button"
+    },
     "failure": "Something went wrong <br />"
   },
   "welcome": {
