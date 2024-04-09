@@ -13,7 +13,7 @@ import { SecondStepForm } from "@/features/ParticipantApplicationForm/SecondStep
 import { City } from "@/shared/api/cities";
 import { Typography } from "@/shared/ui/Typography";
 import * as React from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { subYears } from "date-fns";
 
 export type FirstStepForm = {
@@ -71,6 +71,7 @@ export const FirstStep = ({ cities }: Props) => {
   };
 
   const t = useTranslations("application");
+  const locale = useLocale();
 
   return (
     <form
@@ -120,7 +121,10 @@ export const FirstStep = ({ cities }: Props) => {
         control={control}
         name="main_leg"
         required
-        options={mainLegOptions}
+        options={mainLegOptions.map((item) => ({
+          value: item.value,
+          label: getLabelByLocale(item, locale as "kz" | "ru" | "en"),
+        }))}
         error={formErrorText(errors.main_leg)}
       />
       <FormSelect<FirstStepForm>
@@ -129,7 +133,10 @@ export const FirstStep = ({ cities }: Props) => {
         control={control}
         name="gaming_positions_1"
         required
-        options={gamingPositionOptions}
+        options={gamingPositionOptions.map((item) => ({
+          value: item.value,
+          label: getLabelByLocale(item, locale as "kz" | "ru" | "en"),
+        }))}
         error={formErrorText(errors.gaming_positions_1)}
       />
       <FormSelect<FirstStepForm>
@@ -138,7 +145,10 @@ export const FirstStep = ({ cities }: Props) => {
         control={control}
         name="gaming_positions_2"
         required
-        options={gamingPositionOptions}
+        options={gamingPositionOptions.map((item) => ({
+          value: item.value,
+          label: getLabelByLocale(item, locale as "kz" | "ru" | "en"),
+        }))}
         error={formErrorText(errors.gaming_positions_2)}
       />
       <FormSelect<FirstStepForm>
@@ -147,7 +157,10 @@ export const FirstStep = ({ cities }: Props) => {
         control={control}
         name="gaming_positions_3"
         required
-        options={gamingPositionOptions}
+        options={gamingPositionOptions.map((item) => ({
+          value: item.value,
+          label: getLabelByLocale(item, locale as "kz" | "ru" | "en"),
+        }))}
         error={formErrorText(errors.gaming_positions_3)}
       />
       <FormInput
@@ -163,7 +176,10 @@ export const FirstStep = ({ cities }: Props) => {
         control={control}
         name="specified_skills_1"
         required
-        options={specifiedSkillOptions}
+        options={specifiedSkillOptions.map((item) => ({
+          value: item.value,
+          label: getLabelByLocale(item, locale as "kz" | "ru" | "en"),
+        }))}
         error={formErrorText(errors.specified_skills_1)}
       />
       <FormSelect<FirstStepForm>
@@ -172,7 +188,10 @@ export const FirstStep = ({ cities }: Props) => {
         control={control}
         name="specified_skills_2"
         required
-        options={specifiedSkillOptions}
+        options={specifiedSkillOptions.map((item) => ({
+          value: item.value,
+          label: getLabelByLocale(item, locale as "kz" | "ru" | "en"),
+        }))}
         error={formErrorText(errors.specified_skills_2)}
       />
       <FormSelect<FirstStepForm>
@@ -181,7 +200,10 @@ export const FirstStep = ({ cities }: Props) => {
         control={control}
         name="specified_skills_3"
         required
-        options={specifiedSkillOptions}
+        options={specifiedSkillOptions.map((item) => ({
+          value: item.value,
+          label: getLabelByLocale(item, locale as "kz" | "ru" | "en"),
+        }))}
         error={formErrorText(errors.specified_skills_3)}
       />
       {/*<div className="w-full">*/}
@@ -231,4 +253,15 @@ export const FirstStep = ({ cities }: Props) => {
       )}
     </form>
   );
+};
+
+const getLabelByLocale = (option: any, locale: "kz" | "ru" | "en") => {
+  switch (locale) {
+    case "kz":
+      return option.label_kz;
+    case "ru":
+      return option.label;
+    case "en":
+      return option.label_en;
+  }
 };
