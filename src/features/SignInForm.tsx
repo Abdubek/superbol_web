@@ -50,12 +50,12 @@ export const SignInForm = () => {
       </Button>
 
       <div className="flex flex-col gap-2">
-        <Typography size="body3">
-          {t("signIn.routes.register.title")}{" "}
-          <Typography asChild variant="primary">
-            <Link href={Routes.SIGN_UP}>{t("signIn.routes.register.cta")}</Link>
-          </Typography>
-        </Typography>
+        {/*<Typography size="body3">*/}
+        {/*  {t("signIn.routes.register.title")}{" "}*/}
+        {/*  <Typography asChild variant="primary">*/}
+        {/*    <Link href={Routes.SIGN_UP}>{t("signIn.routes.register.cta")}</Link>*/}
+        {/*  </Typography>*/}
+        {/*</Typography>*/}
         <Typography size="body3">
           {t("signIn.routes.forgotPassword.title")}{" "}
           <Typography asChild variant="primary">

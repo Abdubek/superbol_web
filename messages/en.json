@@ -79,7 +79,7 @@
   },
   "auth": {
     "signIn": {
-      "title": "Log in <br></br>to your personal account",
+      "title": "Log in or register <br></br>to your personal account",
       "routes": {
         "register": {
           "title": "No account?",
