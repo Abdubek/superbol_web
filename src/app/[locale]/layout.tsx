@@ -4,6 +4,7 @@ import { LocaleSwitcher } from "@/features/LocaleSwitcher";
 import { ReactNode } from "react";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import ToastProvider from "@/shared/ui/ToastProvider";
+import { FlashToaster } from "@/features/FlashToaster/FlashToaster";
 
 export const metadata: Metadata = {
   title: "SuperBol 2024",
@@ -27,6 +28,7 @@ export default function RootLayout({
             <ToastProvider>
               {children}
             </ToastProvider>
+            <FlashToaster />
           </NextIntlClientProvider>
         </LocaleSwitcher>
       </body>

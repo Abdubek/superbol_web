@@ -3,7 +3,7 @@ import { Typography } from "@/shared/ui/Typography";
 import DefaultAvatar from "@/shared/icons/default-avatar-36.svg";
 import { GamePosition } from "@/entities/participant/ui/GamePosition";
 import { getTranslations } from "next-intl/server";
-import {LIMIT, PagePagination} from "@/features/PagePagination";
+import {PagePagination} from "@/features/PagePagination";
 import {SearchParams} from "nuqs/parsers";
 
 type Props = {

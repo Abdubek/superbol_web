@@ -1,5 +1,7 @@
 import {redirect} from "next/navigation";
-import {cookies} from "next/headers";
+import {cookies, headers} from "next/headers";
+import {setFlash} from "@/features/FlashToaster/FlashToaster";
+import {getLocale} from "next-intl/server";
 
 // const API_URL = 'http://46.101.124.209:8082/api/v1'
 // const API_URL = 'https://super-bol.kz/api/v1'
@@ -38,17 +40,30 @@ export const request = <T>(module: string, init?: RequestInit) => {
       const isJson = res.headers
         .get("content-type")
         ?.includes("application/json");
-      const responseData: BaseResponse<T> | null = isJson ? await res.json() : null;
+      let responseData: BaseResponse<T> | null = isJson ? await res.json() : null;
 
-      // if (!responseData?.hasOwnProperty('success')) {
-      //   return responseData
-      // }
-
-      if (!responseData?.success) {
-        return Promise.reject(responseData?.errorMsg);
+      if (res.status >= 300) {
+        responseData = await res.json()
       }
 
-      return responseData.data;
+      if (!responseData?.hasOwnProperty('success')) {
+        return responseData
+      }
+      const headersList = headers();
+      const locale = await getLocale();
+      const fullUrl = headersList.get('referer') || "";
+
+      if (!responseData?.success) {
+        // @ts-ignore
+        if (responseData?.errorMsg?.[locale]) {
+          // @ts-ignore
+          setFlash({type: 'error', message: responseData.errorMsg[locale]});
+          redirect(fullUrl)
+        }
+        return Promise.resolve(responseData?.errorMsg);
+      }
+
+      return responseData?.data;
     },
   )
 }
