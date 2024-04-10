@@ -115,7 +115,7 @@
       "title": "Create a password",
       "subtitle": "For the account",
       "required": {
-        "1": "Specify at least 8 characters",
+        "1": "Specify at least 5 characters",
         "2": "The password must contain a number or a character",
         "3": "The entered passwords match"
       }

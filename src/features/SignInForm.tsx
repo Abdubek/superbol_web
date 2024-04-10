@@ -9,6 +9,8 @@ import { Routes } from "@/routes";
 import { FormInput } from "@/shared/ui/FormInput";
 import { useFormatter, useTranslations } from "next-intl";
 import {SubmitButton} from "@/features/SubmitButton";
+import CheckSmallIcon from "@/shared/icons/check-small.svg";
+import CrossIcon from "@/shared/icons/cross.svg";
 
 const initialState = {
   email: "",
@@ -26,7 +28,7 @@ export const SignInForm = () => {
     >
       <Typography size="h3" variant="primary">
         {t.rich("signIn.title", {
-          br: () => <br />,
+          br: () => <br/>,
         })}
       </Typography>
 
@@ -38,13 +40,25 @@ export const SignInForm = () => {
         error={state?.email}
       />
 
-      <FormInput
-        label={t("inputs.password.label")}
-        name="password"
-        type="password"
-        placeholder={t("inputs.password.placeholder")}
-        error={state?.password}
-      />
+      <div className="flex flex-col items-start gap-2 w-full">
+        <FormInput
+          label={t("inputs.password.label")}
+          name="password"
+          type="password"
+          placeholder={t("inputs.password.placeholder")}
+          error={state?.password}
+        />
+
+        <div className="flex items-center gap-2">
+          <CheckSmallIcon/>
+          <Typography size="body3">{t("setPassword.required.1")}</Typography>
+        </div>
+
+        <div className="flex gap-2">
+          <CheckSmallIcon/>
+          <Typography size="body3">{t("setPassword.required.2")}</Typography>
+        </div>
+      </div>
 
       <SubmitButton type="submit" variant="primary" className="w-full">
         {t("buttons.signIn")}
