@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import { actions } from "@/actions";
 import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button";
@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Routes } from "@/routes";
 import { FormInput } from "@/shared/ui/FormInput";
 import { useFormatter, useTranslations } from "next-intl";
+import {SubmitButton} from "@/features/SubmitButton";
 
 const initialState = {
   email: "",
@@ -45,9 +46,9 @@ export const SignInForm = () => {
         error={state?.password}
       />
 
-      <Button type="submit" variant="primary" className="w-full">
+      <SubmitButton type="submit" variant="primary" className="w-full">
         {t("buttons.signIn")}
-      </Button>
+      </SubmitButton>
 
       <div className="flex flex-col gap-2">
         {/*<Typography size="body3">*/}

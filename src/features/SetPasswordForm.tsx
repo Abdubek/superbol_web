@@ -8,6 +8,7 @@ import { useState } from "react";
 import CheckSmallIcon from "@/shared/icons/check-small.svg";
 import CrossIcon from "@/shared/icons/cross.svg";
 import { useTranslations } from "next-intl";
+import {SubmitButton} from "@/features/SubmitButton";
 
 const passwordSymbolsRegex = /^(?=.*(\d|[^\w\s])).+$/;
 
@@ -97,14 +98,14 @@ export const SetPasswordForm = ({ email, token }: Props) => {
         </div>
       </div>
 
-      <Button
+      <SubmitButton
         type="submit"
         variant="primary"
         className="w-full"
         disabled={!isFormValid}
       >
         {t("buttons.savePassword")}
-      </Button>
+      </SubmitButton>
     </form>
   );
 };

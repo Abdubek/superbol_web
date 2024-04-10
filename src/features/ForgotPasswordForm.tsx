@@ -6,6 +6,7 @@ import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button";
 import { FormInput } from "@/shared/ui/FormInput";
 import { useTranslations } from "next-intl";
+import {SubmitButton} from "@/features/SubmitButton";
 
 const initialState = {
   email: "",
@@ -37,9 +38,9 @@ export const ForgotPasswordForm = () => {
         error={state?.email}
       />
 
-      <Button type="submit" variant="primary" className="w-full">
+      <SubmitButton type="submit" variant="primary" className="w-full">
         {t("buttons.next")}
-      </Button>
+      </SubmitButton>
     </form>
   );
 };

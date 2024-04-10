@@ -2,6 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import clsx from "clsx";
 import {ButtonHTMLAttributes, FC} from "react";
 import {Slot} from "@radix-ui/react-slot";
+import Image from "next/image";
 
 const style = cva("flex items-center justify-center gap-2", {
   variants: {
@@ -36,6 +37,7 @@ export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof style> {
   asChild?: boolean
+  isLoading?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -46,13 +48,26 @@ export const Button: FC<ButtonProps> = ({
   asChild,
   children,
   className,
+  isLoading = false,
   ...props
 }) => {
   const Component = asChild ? Slot : "button"
 
   return (
     <Component className={clsx(className, style({ size, radius, weight, variant }))} {...props}>
-      {children}
+      {isLoading ? (
+        <div>
+          <Image
+            className="animate-spin"
+            alt="loader"
+            src={variant === "primary" ? "/loader-white.png" : "/loader.png"}
+            width={32}
+            height={32}
+          />
+        </div>
+      ) : (
+        children
+      )}
     </Component>
   );
 };
