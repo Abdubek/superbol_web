@@ -18,7 +18,7 @@ export default async function CabinetApplicationPage() {
       </Typography>
       <ParticipantApplicationForm
         cities={cities}
-        initialData={profileData.participant}
+        initialData={profileData?.participant}
       />
     </main>
   );

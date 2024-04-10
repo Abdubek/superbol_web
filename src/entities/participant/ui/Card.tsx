@@ -19,12 +19,12 @@ export const ParticipantCard = async () => {
       />
 
       <div className="w-[126px] h-[126px] rounded-full border-[3px] border-border-secondary flex items-center justify-center box-border z-10">
-        <UserAvatar image={profileData?.image_key} width={120} />
+        <UserAvatar image={profileData?.image_key || ""} width={120} />
       </div>
 
       <div className="flex flex-col items-center gap-1 z-10 w-full">
         <Typography size="h3" variant="white" className="text-center w-full line-clamp-2">
-          {profileData.full_name || profileData.email}
+          {profileData?.full_name || profileData?.email}
         </Typography>
         <Typography size="body3" variant="grey">
           {profileData?.participant?.number}

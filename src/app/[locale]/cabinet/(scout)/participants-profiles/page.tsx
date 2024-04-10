@@ -51,7 +51,7 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
             </tr>
             </thead>
             <tbody>
-            {data?.map((item, index) =>
+            {data?.participants.map((item, index) =>
               <tr key={index} className="border-b border-border-lightgray">
                 <td className="px-6 py-4">
                   <FavoriteButton isFavorite={item.is_favorite} participantId={item.id} />

@@ -19,7 +19,7 @@ type LoginOrRegisterDTO = {
 }
 
 const loginOrRegister = (data: LoginOrRegisterDTO) => {
-  return request('/users/login-or-register', {
+  return request<{ token: string }>('/users/login-or-register', {
     method: "POST",
     body: JSON.stringify(data)
   })
@@ -59,12 +59,12 @@ type ProfileResponse = {
   role: "participant" | "scout" | "moderator" | "volunteer"
 }
 
-const profile = (): Promise<ProfileResponse> => {
-  return request('/users/profile')
+const profile = () => {
+  return request<ProfileResponse>('/users/profile')
 }
 
 const uploadAvatar = (data: FormData) => {
-  return request('/images', {
+  return request<{ key: string }>('/images', {
     method: "POST",
     body: data
   })

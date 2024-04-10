@@ -94,8 +94,8 @@ type GetParticipantsListResponse = {
   total_count: number
 }
 
-const getParticipantsList = (params: GetParticipantParams = {}): Promise<GetParticipantsListResponse> => {
-  return request(`/participants?${qs.stringify(params)}`)
+const getParticipantsList = (params: GetParticipantParams = {}) => {
+  return request<GetParticipantsListResponse>(`/participants?${qs.stringify(params)}`)
 }
 
 export const participantApi = {

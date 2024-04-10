@@ -20,8 +20,8 @@ type NotificationListResponse = {
   count: number
 }
 
-const getNotificationList = (): Promise<NotificationListResponse> => {
-  return request('/notifications')
+const getNotificationList = () => {
+  return request<NotificationListResponse>('/notifications')
 }
 
 export const notificationApi = {

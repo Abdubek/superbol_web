@@ -66,7 +66,7 @@ export default async function CabinetParticipantsPage({ searchParams }: Props) {
           </tbody>
         </table>
       </div>
-      <PagePagination totalSize={response.total_count} />
+      <PagePagination totalSize={response?.total_count || 0} />
     </main>
   );
 }

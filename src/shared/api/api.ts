@@ -4,8 +4,8 @@ import {setFlash} from "@/features/FlashToaster/FlashToaster";
 import {getLocale} from "next-intl/server";
 
 // const API_URL = 'http://46.101.124.209:8082/api/v1'
-// const API_URL = 'https://super-bol.kz/api/v1'
-const API_URL = 'http://super-bol.kz:9090/api/v1'
+const API_URL = 'https://super-bol.kz/api/v1'
+// const API_URL = 'http://super-bol.kz:9090/api/v1'
 
 type BaseResponse<T> = {
   data: T
@@ -46,9 +46,6 @@ export const request = <T>(module: string, init?: RequestInit) => {
         responseData = await res.json()
       }
 
-      if (!responseData?.hasOwnProperty('success')) {
-        return responseData
-      }
       const headersList = headers();
       const locale = await getLocale();
       const fullUrl = headersList.get('referer') || "";
@@ -60,7 +57,7 @@ export const request = <T>(module: string, init?: RequestInit) => {
           setFlash({type: 'error', message: responseData.errorMsg[locale]});
           redirect(fullUrl)
         }
-        return Promise.resolve(responseData?.errorMsg);
+        return Promise.resolve(null);
       }
 
       return responseData?.data;
