@@ -19,7 +19,7 @@ export default function Home() {
       <SuperBol2024 />
       <PreviousSuperBols />
       <Partners />
-      {/*<TiktokVideos title={t("title")} />*/}
+      <TiktokVideos title={t("title")} />
       <Footer />
     </main>
   );

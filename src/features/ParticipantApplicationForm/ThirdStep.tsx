@@ -9,11 +9,13 @@ import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "@/features/ParticipantApplicationForm/index";
 import {actions} from "@/actions";
 import {useRouter} from "next/navigation";
+import {useState} from "react";
 
 export const ThirdStep = () => {
   const data = useFormStore((state) => state.data)
   const setStep = useFormStore((state) => state.setStep)
   const setStatus = useFormStore((state) => state.setStatus)
+  const [pending, setPending] = useState(false)
   const router = useRouter();
 
   const onSubmit = async () => {
@@ -27,6 +29,7 @@ export const ThirdStep = () => {
     data.specified_skills_2 && specifiedSkills.push(data.specified_skills_2)
     data.specified_skills_3 && specifiedSkills.push(data.specified_skills_3)
 
+    setPending(true)
     await actions.application({
       full_name: data.full_name,
       birth_date: data.birth_date + "T00:00:00Z",
@@ -40,6 +43,7 @@ export const ThirdStep = () => {
       specified_skills: specifiedSkills
     })
     setStep(1)
+    setPending(false)
     setStatus("application_verified")
     window.scrollTo(0, 0)
     router.refresh()
@@ -56,7 +60,7 @@ export const ThirdStep = () => {
         </ul>
         Пожалуйста, нажмите на кнопки ниже, чтобы скачать документы. При успешном прохождении на следующий этап, просим вас принести документы с собой в бумажном варианте.
       </Typography>
-      <div className="flex justify-between mb-6">
+      <div className="flex justify-between mb-6 gap-4">
         <Typography size="body2" asChild>
           <a href="/files/SuperBol%202024_Согласие%20участника.pdf"
              download
@@ -197,7 +201,7 @@ export const ThirdStep = () => {
           </li>
         </ul>
       </Typography>
-      <Button variant="primary" size="lg" onClick={onSubmit}>Подтвердить</Button>
+      <Button variant="primary" size="lg" onClick={onSubmit} isLoading={pending} disabled={pending}>Подтвердить</Button>
     </div>
   )
 }
