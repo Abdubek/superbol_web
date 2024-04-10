@@ -2,8 +2,8 @@ import {redirect} from "next/navigation";
 import {cookies} from "next/headers";
 
 // const API_URL = 'http://46.101.124.209:8082/api/v1'
-const API_URL = 'https://super-bol.kz/api/v1'
-// const API_URL = 'http://super-bol.kz:9090/api/v1'
+// const API_URL = 'https://super-bol.kz/api/v1'
+const API_URL = 'http://super-bol.kz:9090/api/v1'
 
 export const request = (module: string, init?: RequestInit) => {
   const token = cookies().get('access_token')
