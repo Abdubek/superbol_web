@@ -12,5 +12,5 @@ export function FlashToaster() {
 }
 
 export function setFlash(flash: { type: 'success' | 'error'; message: string }) {
-  cookies().set('flash', JSON.stringify(flash), { path: '/', expires: new Date(Date.now() + 2 * 1000) });
+  cookies().set('flash', JSON.stringify(flash), { path: '/', expires: new Date(Date.now() + 3 * 1000) });
 }
