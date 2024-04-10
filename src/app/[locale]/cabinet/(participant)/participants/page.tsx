@@ -12,7 +12,7 @@ type Props = {
 
 export default async function CabinetParticipantsPage({ searchParams }: Props) {
   const response = await participantApi.getParticipantsList({
-    // status: "application_verified",
+    status: "application_verified",
     limit: 10,
     offset: (Number(searchParams?.page) || 0)
   });
