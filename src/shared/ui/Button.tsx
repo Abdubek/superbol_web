@@ -4,7 +4,7 @@ import {ButtonHTMLAttributes, FC} from "react";
 import {Slot} from "@radix-ui/react-slot";
 import Image from "next/image";
 
-const style = cva("flex items-center justify-center gap-2", {
+export const buttonVariants = cva("flex items-center justify-center gap-2", {
   variants: {
     size: {
       sm: "p-2",
@@ -35,7 +35,7 @@ const style = cva("flex items-center justify-center gap-2", {
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof style> {
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean
   isLoading?: boolean
 }
@@ -54,7 +54,7 @@ export const Button: FC<ButtonProps> = ({
   const Component = asChild ? Slot : "button"
 
   return (
-    <Component className={clsx(className, style({ size, radius, weight, variant }))} {...props}>
+    <Component className={clsx(className, buttonVariants({ size, radius, weight, variant }))} {...props}>
       {isLoading ? (
         <div>
           <Image

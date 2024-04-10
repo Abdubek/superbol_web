@@ -1,5 +1,4 @@
 import PrimaryLogo from "@/shared/icons/primary_logo.svg";
-import ChevronDownIcon from "@/shared/icons/chevron-down.svg";
 import Link from "next/link";
 import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button";

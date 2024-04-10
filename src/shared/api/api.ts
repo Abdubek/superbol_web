@@ -5,10 +5,21 @@ import {cookies} from "next/headers";
 // const API_URL = 'https://super-bol.kz/api/v1'
 const API_URL = 'http://super-bol.kz:9090/api/v1'
 
-export const request = (module: string, init?: RequestInit) => {
+type BaseResponse<T> = {
+  data: T
+  errorMsg: {
+    ru: string
+    kz: string
+    en: string
+  }
+  success: boolean
+}
+
+export const request = <T>(module: string, init?: RequestInit) => {
   const token = cookies().get('access_token')
   if (token) {
     init = {
+      method: "GET",
       ...init,
       headers: {
         ...init?.headers,
@@ -19,22 +30,25 @@ export const request = (module: string, init?: RequestInit) => {
 
   return fetch(API_URL + module, init).then(
     async (res) => {
-      console.log("request", module, res.status)
+      console.log("request", init?.method, module, res.status)
       if (res.status === 401) {
         redirect('/sign-in')
-        // window.location.href = '/sign-in'
       }
 
       const isJson = res.headers
         .get("content-type")
         ?.includes("application/json");
-      const data = isJson ? await res.json() : null;
+      const responseData: BaseResponse<T> | null = isJson ? await res.json() : null;
 
-      if (data?.error) {
-        return Promise.reject(data);
+      // if (!responseData?.hasOwnProperty('success')) {
+      //   return responseData
+      // }
+
+      if (!responseData?.success) {
+        return Promise.reject(responseData?.errorMsg);
       }
 
-      return data;
+      return responseData.data;
     },
   )
 }

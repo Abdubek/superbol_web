@@ -3,19 +3,30 @@ import { Typography } from "@/shared/ui/Typography";
 import DefaultAvatar from "@/shared/icons/default-avatar-36.svg";
 import { GamePosition } from "@/entities/participant/ui/GamePosition";
 import { getTranslations } from "next-intl/server";
+import {LIMIT, PagePagination} from "@/features/PagePagination";
+import {SearchParams} from "nuqs/parsers";
 
-export default async function CabinetParticipantsPage() {
-  const data = await participantApi.getParticipantsList({
-    status: "application_verified",
+type Props = {
+  searchParams: SearchParams;
+}
+
+export default async function CabinetParticipantsPage({ searchParams }: Props) {
+  const response = await participantApi.getParticipantsList({
+    // status: "application_verified",
+    limit: 10,
+    offset: (Number(searchParams?.page) || 0)
   });
   const t = await getTranslations();
+
+  const data = response?.participants || []
+
   return (
     <main className="whitespace-nowrap">
       <Typography size="h3" className="mb-10">
         {t("participants.title")}
       </Typography>
-      <div className="overflow-x-scroll">
-        <table className="w-full">
+      <div className="overflow-x-scroll mb-5">
+        <table className="w-full ">
           <thead>
             <tr className="bg-bg-platinum font-semibold text-text-darkblue">
               <th className="px-6 py-4">
@@ -55,6 +66,7 @@ export default async function CabinetParticipantsPage() {
           </tbody>
         </table>
       </div>
+      <PagePagination totalSize={response.total_count} />
     </main>
   );
 }
