@@ -83,15 +83,6 @@ export const ResetPasswordForm = ({ email, token }: Props) => {
         </div>
 
         <div className="flex gap-2">
-          {isPasswordSymbolsValid ? (
-            <CheckSmallIcon />
-          ) : (
-            <CrossIcon width={16} />
-          )}
-          <Typography size="body3">{t("resetPassword.required.2")}</Typography>
-        </div>
-
-        <div className="flex gap-2">
           {isPasswordEqual ? <CheckSmallIcon /> : <CrossIcon width={16} />}
           <Typography size="body3">{t("resetPassword.required.3")}</Typography>
         </div>

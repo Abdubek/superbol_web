@@ -53,11 +53,6 @@ export const SignInForm = () => {
           <CheckSmallIcon/>
           <Typography size="body3">{t("setPassword.required.1")}</Typography>
         </div>
-
-        <div className="flex gap-2">
-          <CheckSmallIcon/>
-          <Typography size="body3">{t("setPassword.required.2")}</Typography>
-        </div>
       </div>
 
       <SubmitButton type="submit" variant="primary" className="w-full">
