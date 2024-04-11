@@ -14,6 +14,8 @@ export const SendConfirmEmailButton = ({ isVerified }: Props) => {
   const t = useTranslations("auth");
   const [isSent, setSentState] = useState(false)
 
+  console.log("isVerified", isVerified)
+
   const handleClick = async () => {
     const res = await actions.sendConfirmEmail()
     console.log("actions.sendConfirmEmail, res", res)
