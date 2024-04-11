@@ -24,13 +24,17 @@ export default async function CabinetDocumentsPage({
           </ul>
           Пожалуйста, нажмите на кнопки ниже, чтобы скачать документы. При успешном прохождении на следующий этап, просим вас принести документы с собой в бумажном варианте.
         </Typography>
-        <div className="flex justify-between mb-6 gap-4">
+        <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 mb-6 gap-4">
           <Typography size="body2" asChild>
             <a href="/files/SuperBol_2024_Согласие_участника.pdf"
                download
                className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
-              <ConsentToParticipateIcon />
-              Согласие на участие
+              <div>
+                <ConsentToParticipateIcon />
+              </div>
+              <div className="flex-1">
+                Согласие на участие
+              </div>
               <ArrowDownIcon height={24} width={24} />
             </a>
           </Typography>
@@ -39,19 +43,64 @@ export default async function CabinetDocumentsPage({
                download
                className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
               <div>
-                <ConsentOfLegalRepresentativesIcon />
+                <ConsentOfLegalRepresentativesIcon/>
               </div>
-              Согласие законных представителей
-              <ArrowDownIcon height={24} width={24} />
+              <div className="flex-1">
+                Согласие законных представителей
+              </div>
+              <ArrowDownIcon height={24} width={24}/>
             </a>
           </Typography>
           <Typography size="body2" asChild>
             <a href="/files/SuperBol_2024_Согласие_на_съемку.pdf"
                download
                className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
-              <VideoIcon />
-              Согласие на съемку
-              <ArrowDownIcon height={24} width={24} />
+              <div>
+                <VideoIcon/>
+              </div>
+              <div className="flex-1">
+                Согласие на съемку
+              </div>
+              <ArrowDownIcon height={24} width={24}/>
+            </a>
+          </Typography>
+          <Typography size="body2" asChild>
+            <a href="/files/SuperBol 2024_Келісім.pdf"
+               download
+               className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
+              <div>
+                <ConsentToParticipateIcon/>
+              </div>
+              <div className="flex-1">
+                Келісім
+              </div>
+              <ArrowDownIcon height={24} width={24}/>
+            </a>
+          </Typography>
+          <Typography size="body2" asChild>
+            <a href="/files/SuperBol_2024_Заңды_өкілдердің_келісімі.pdf"
+               download
+               className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
+              <div>
+                <ConsentOfLegalRepresentativesIcon/>
+              </div>
+              <div className="flex-1">
+                Заңды өкілдердің келісімі
+              </div>
+              <ArrowDownIcon height={24} width={24}/>
+            </a>
+          </Typography>
+          <Typography size="body2" asChild>
+            <a href="/files/SuperBol_2024_Съемкаға_келісім.pdf"
+               download
+               className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
+              <div>
+                <VideoIcon/>
+              </div>
+              <div className="flex-1">
+                Съемкаға келісім
+              </div>
+              <ArrowDownIcon height={24} width={24}/>
             </a>
           </Typography>
         </div>
