@@ -33,7 +33,7 @@ export default function RootLayout({
           </NextIntlClientProvider>
         </LocaleSwitcher>
       </body>
-      <GoogleAnalytics gaId="G-Q93Z30S65R" />
+      <GoogleAnalytics gaId="G-B0Q5PGXJS6" />
     </html>
   );
 }
