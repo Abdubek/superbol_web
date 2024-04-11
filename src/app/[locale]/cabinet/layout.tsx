@@ -16,7 +16,6 @@ export default async function CabinetLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const profileData = await userApi.profile()
 
   return (
     <div>
@@ -35,8 +34,8 @@ export default async function CabinetLayout({
 
       <div className="container grid xl:grid-cols-4 grid-cols-6 lg:gap-15 gap-4 pt-15 mb-48">
         <div className="xl:col-span-1 lg:col-span-2 md:col-span-3 col-span-6 flex flex-col gap-6">
-          {profileData?.role === "participant" && <ParticipantCard />}
-          {profileData?.role === "scout" && <ScoutCard />}
+          <ParticipantCard />
+          <ScoutCard />
           <ProfileMenu />
         </div>
         <div className="xl:col-span-3 lg:col-span-4 md:col-span-3 col-span-6">

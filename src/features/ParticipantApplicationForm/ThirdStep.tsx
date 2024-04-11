@@ -8,7 +8,7 @@ import {ArrowDownIcon} from "@radix-ui/react-icons";
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "@/features/ParticipantApplicationForm/index";
 import {actions} from "@/actions";
-import {redirect, useRouter} from "next/navigation";
+import {useRouter} from "next/navigation";
 import {useState} from "react";
 import {Routes} from "@/routes";
 
@@ -47,7 +47,7 @@ export const ThirdStep = () => {
     setPending(false)
     setStatus("application_verified")
     window.scrollTo(0, 0)
-    redirect(Routes.PROFILE_NOTIFICATIONS)
+    router.push(Routes.PROFILE_NOTIFICATIONS)
   }
 
   return (

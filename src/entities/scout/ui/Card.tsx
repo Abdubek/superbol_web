@@ -10,6 +10,10 @@ import {UserAvatar} from "@/features/Avatar";
 export const ScoutCard = async () => {
   const profileData = await userApi.profile()
 
+  if (profileData?.role !== "scout") {
+    return null
+  }
+
   return (
     <Link href={Routes.CABINET} className="relative scout-card-gradient p-5 rounded-2xl sm:py-8 py-6 flex flex-col items-center gap-2">
       <Pattern

@@ -17,7 +17,7 @@ type Props = {
 }
 
 export const PagePagination = ({ totalSize }: Props) => {
-  const totalPage = totalSize / LIMIT
+  const totalPage = totalSize / LIMIT + 1
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
   const [arrayRange, setArrayRange] = useState<Array<number>>([]);
 
@@ -31,10 +31,6 @@ export const PagePagination = ({ totalSize }: Props) => {
       const arrayToFill = [];
       for (let i = leftRange; i <= rightRange; i++)
         i > 0 && arrayToFill.push(i);
-
-      if (arrayToFill.length === 0) {
-        arrayToFill.push(1)
-      }
 
       setArrayRange(arrayToFill);
     };
