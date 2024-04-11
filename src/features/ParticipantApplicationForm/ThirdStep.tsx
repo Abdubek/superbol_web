@@ -62,7 +62,7 @@ export const ThirdStep = () => {
       </Typography>
       <div className="flex justify-between mb-6 gap-4">
         <Typography size="body2" asChild>
-          <a href="/files/SuperBol%202024_Согласие%20участника.pdf"
+          <a href="/files/SuperBol_2024_Согласие_участника.pdf"
              download
              className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
             <ConsentToParticipateIcon />
@@ -82,7 +82,7 @@ export const ThirdStep = () => {
           </a>
         </Typography>
         <Typography size="body2" asChild>
-          <a href="/files/SuperBol%202024_Согласие%20на%20съемку.pdf"
+          <a href="/files/SuperBol_2024_Согласие_на_съемку.pdf"
              download
              className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
             <VideoIcon />

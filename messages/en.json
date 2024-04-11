@@ -192,6 +192,7 @@
       "application": "Questionnaire",
       "participants": "List of participants",
       "notifications": "Notifications",
+      "documents": "Documents",
       "participants_profiles": "Participant profiles"
     },
     "profile": {

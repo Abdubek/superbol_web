@@ -13,4 +13,5 @@ export const Routes = {
   PROFILE_PARTICIPANTS: '/cabinet/participants',
   PROFILE_PARTICIPANTS_PROFILES: '/cabinet/participants-profiles',
   PROFILE_NOTIFICATIONS: '/cabinet/notifications',
+  PROFILE_DOCUMENTS: '/cabinet/documents',
 }

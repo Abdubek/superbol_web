@@ -4,6 +4,7 @@ import StarIcon from "@/shared/icons/star.svg";
 import PeopleIcon from "@/shared/icons/people.svg";
 import NotificationIcon from "@/shared/icons/notification.svg";
 import InformationIcon from "@/shared/icons/information.svg";
+import DocIcon from "@/shared/icons/doc.svg";
 import { Typography } from "@/shared/ui/Typography";
 import { Routes } from "@/routes";
 import { userApi } from "@/shared/api/user";
@@ -80,6 +81,20 @@ export const ProfileMenu = async () => {
               <NotificationIcon/>
             </div>
             {t("menu.notifications")}
+          </Link>
+        </Typography>
+      )}
+      {profileData?.role === "participant" && (
+        <Typography
+          asChild
+          size="caption1"
+          className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        >
+          <Link href={Routes.PROFILE_DOCUMENTS}>
+            <div>
+              <DocIcon/>
+            </div>
+            {t("menu.documents")}
           </Link>
         </Typography>
       )}

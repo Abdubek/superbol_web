@@ -22,7 +22,7 @@ type FormType = {
 
 export const useFormStore = create<FormType>((set, getState) => ({
   data: {},
-  step: 1,
+  step: 3,
   applicationStatus: "created",
   setStatus: (status: ApplicationStatus | undefined) => {
     set({
