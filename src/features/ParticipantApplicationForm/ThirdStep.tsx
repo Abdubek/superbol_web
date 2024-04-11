@@ -8,8 +8,9 @@ import {ArrowDownIcon} from "@radix-ui/react-icons";
 import {Button} from "@/shared/ui/Button";
 import {useFormStore} from "@/features/ParticipantApplicationForm/index";
 import {actions} from "@/actions";
-import {useRouter} from "next/navigation";
+import {redirect, useRouter} from "next/navigation";
 import {useState} from "react";
+import {Routes} from "@/routes";
 
 export const ThirdStep = () => {
   const data = useFormStore((state) => state.data)
@@ -46,7 +47,7 @@ export const ThirdStep = () => {
     setPending(false)
     setStatus("application_verified")
     window.scrollTo(0, 0)
-    router.refresh()
+    redirect(Routes.PROFILE_NOTIFICATIONS)
   }
 
   return (

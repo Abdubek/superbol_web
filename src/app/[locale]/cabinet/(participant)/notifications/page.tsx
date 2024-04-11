@@ -11,6 +11,9 @@ export default async function CabinetNotificationsPage({
   const data = await notificationApi.getNotificationList();
   const notifications = data?.notifications || [];
 
+  // @ts-ignore
+  notifications.sort((a, b) => new Date(b.date) - new Date(a.date))
+
   const t = await getTranslations("notifications");
   return (
     <main>
