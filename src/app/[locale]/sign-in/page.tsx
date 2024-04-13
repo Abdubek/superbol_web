@@ -28,6 +28,12 @@ export default function SignInPage() {
             opacity: "0.2",
           }}
         />
+
+        <Typography size="h2" variant="white"
+                    className="absolute z-20 md:max-w-[430px] max-w-[200px] w-full text-center left-1/2 -translate-x-1/2 md:bottom-[100px] bottom-6 sm:text-[40px] text-[18px]">
+          Твой шанс осуществить мечту!
+        </Typography>
+        <div className="absolute image-gradient left-0 top-0 w-full h-full"></div>
       </div>
       <div className="flex-1 flex flex-col gap-5 justify-between items-center">
         <Link href={Routes.HOME} className="md:block hidden">

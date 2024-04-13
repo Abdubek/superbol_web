@@ -24,6 +24,9 @@ body {
 .scout-card-gradient {
     background: linear-gradient(318.27deg, #FAED88 2.11%, rgba(71, 163, 196, 0.5) 50.36%, rgba(71, 163, 196, 0) 100.36%);
 }
+.image-gradient {
+    background: linear-gradient(180deg, rgba(56, 66, 67, 0.19) 43.83%, rgba(24, 25, 26, 0.77) 104.81%);
+}
 
 /* React-Select styles */
 div.select__control {
