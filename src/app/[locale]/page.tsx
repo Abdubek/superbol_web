@@ -9,7 +9,6 @@ import { Footer } from "./_sections/Footer";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
-  const t = useTranslations("landing.tiktokVideos");
 
   return (
     <main>
@@ -19,7 +18,7 @@ export default function Home() {
       <SuperBol2024 />
       <PreviousSuperBols />
       <Partners />
-      <TiktokVideos title={t("title")} />
+      <TiktokVideos />
       <Footer />
     </main>
   );

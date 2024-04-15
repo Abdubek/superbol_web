@@ -30,6 +30,14 @@ export const Header = () => {
           {t("mainPage")}
         </Typography>
       </Link>
+      <Link href={"/super-bol-2024"}>
+        <Typography
+          size="caption2"
+          className="hover:text-text-primary sm:block hidden"
+        >
+          SuperBol 2024
+        </Typography>
+      </Link>
       <Link href={"/sign-up"}>
         <Typography
           size="caption2"

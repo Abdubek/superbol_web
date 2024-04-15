@@ -12,15 +12,12 @@ const ttlinks = [
   "7254856341993393413",
 ];
 
-interface TiktokVideosProps {
-  title: string;
-}
-
-export const TiktokVideos = ({ title }: TiktokVideosProps) => {
+export const TiktokVideos = () => {
+  const t = useTranslations("landing.tiktokVideos");
   return (
     <section className="container sm:pb-48 pb-10">
       <Typography size="h2" variant="primary" className="mb-10">
-        {title}
+        {t('title')}
       </Typography>
       <div className="flex overflow-x-scroll gap-9">
         {ttlinks.map((id, index) => (

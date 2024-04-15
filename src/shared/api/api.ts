@@ -3,9 +3,7 @@ import {cookies, headers} from "next/headers";
 import {setFlash} from "@/features/FlashToaster/FlashToaster";
 import {getLocale} from "next-intl/server";
 
-// const API_URL = 'http://46.101.124.209:8082/api/v1'
-// const API_URL = 'https://super-bol.kz/api/v1'
-const API_URL = 'http://super-bol.kz:9090/api/v1'
+const API_URL = process.env.API_URL
 
 type BaseResponse<T> = {
   data: T
