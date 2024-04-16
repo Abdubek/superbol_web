@@ -19,7 +19,6 @@ export const request = <T>(module: string, init?: RequestInit) => {
   const token = cookies().get('access_token')
   if (token) {
     init = {
-      method: "GET",
       ...init,
       headers: {
         ...init?.headers,
@@ -28,9 +27,17 @@ export const request = <T>(module: string, init?: RequestInit) => {
     }
   }
 
+  init = {
+    ...init,
+    cache: "force-cache",
+    next: {
+      revalidate: 60
+    }
+  }
+
   return fetch(API_URL + module, init).then(
     async (res) => {
-      console.log("request", init?.method, module, res.status)
+      console.log("request", init?.method || "GET", module, res.status)
       if (res.status === 401) {
         redirect('/sign-in')
       }
