@@ -3,6 +3,7 @@ import clsx from "clsx";
 import {ButtonHTMLAttributes, FC} from "react";
 import {Slot} from "@radix-ui/react-slot";
 import Image from "next/image";
+import {cn} from "@/shared/utils/common";
 
 export const buttonVariants = cva("flex items-center justify-center gap-2", {
   variants: {
@@ -54,7 +55,7 @@ export const Button: FC<ButtonProps> = ({
   const Component = asChild ? Slot : "button"
 
   return (
-    <Component className={clsx(className, buttonVariants({ size, radius, weight, variant }))} {...props}>
+    <Component className={cn(buttonVariants({ size, radius, weight, variant }), className)} {...props}>
       {isLoading ? (
         <div>
           <Image

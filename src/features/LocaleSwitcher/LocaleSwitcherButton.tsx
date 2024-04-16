@@ -13,10 +13,15 @@ export const LocaleSwitcherButton = () => {
 
   return (
     <Button size="sm" radius="md" weight="bold" variant="ghost"
-            className="uppercase"
+            className="uppercase md:text-base text-xs md:gap-2 gap-1 h-8"
             onClick={() => router.replace(pathname + `?${CHANGE_LANG_KEY}=true`)}>
       {locale}
-      <ChevronDownIcon />
+      <div className="md:block hidden">
+        <ChevronDownIcon />
+      </div>
+      <div className="md:hidden block">
+        <ChevronDownIcon width={16} height={16} viewBox="0 0 24 24" />
+      </div>
     </Button>
   )
 }

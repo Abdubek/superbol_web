@@ -1,16 +1,14 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 import { actions } from "@/actions";
 import { Typography } from "@/shared/ui/Typography";
-import { Button } from "@/shared/ui/Button";
 import Link from "next/link";
 import { Routes } from "@/routes";
 import { FormInput } from "@/shared/ui/FormInput";
-import { useFormatter, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import {SubmitButton} from "@/features/SubmitButton";
 import CheckSmallIcon from "@/shared/icons/check-small.svg";
-import CrossIcon from "@/shared/icons/cross.svg";
 
 const initialState = {
   email: "",

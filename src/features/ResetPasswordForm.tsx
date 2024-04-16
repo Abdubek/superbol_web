@@ -2,7 +2,6 @@
 
 import { actions } from "@/actions";
 import { Typography } from "@/shared/ui/Typography";
-import { Button } from "@/shared/ui/Button";
 import { FormInput } from "@/shared/ui/FormInput";
 import { useState } from "react";
 import CheckSmallIcon from "@/shared/icons/check-small.svg";
@@ -78,12 +77,12 @@ export const ResetPasswordForm = ({ email, token }: Props) => {
 
       <div className="flex flex-col items-start gap-2">
         <div className="flex items-center gap-2">
-          {isMinimumSymbolValid ? <CheckSmallIcon /> : <CrossIcon width={16} />}
+          {isMinimumSymbolValid ? <CheckSmallIcon/> : <div className="text-text-red"><CrossIcon width={16}/></div>}
           <Typography size="body3">{t("resetPassword.required.1")}</Typography>
         </div>
 
         <div className="flex gap-2">
-          {isPasswordEqual ? <CheckSmallIcon /> : <CrossIcon width={16} />}
+          {isPasswordEqual ? <CheckSmallIcon/> : <div className="text-text-red"><CrossIcon width={16}/></div>}
           <Typography size="body3">{t("resetPassword.required.3")}</Typography>
         </div>
       </div>

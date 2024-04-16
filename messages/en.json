@@ -3,7 +3,8 @@
     "header": {
       "mainPage": "Main page",
       "cta": "Become a member",
-      "login": "Log in"
+      "login": "Log in",
+      "loginToCabinet": "Log in to cabinet"
     },
     "main": {
       "title": "Your chance to make your dream come true!",
