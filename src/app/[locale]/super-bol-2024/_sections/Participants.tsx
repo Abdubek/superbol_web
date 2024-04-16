@@ -6,6 +6,7 @@ import DefaultAvatar from "@/shared/icons/default-avatar-36.svg";
 import {GamePosition} from "@/entities/participant/ui/GamePosition";
 import {PagePagination} from "@/features/PagePagination";
 import {getTranslations} from "next-intl/server";
+import {useTranslations} from "next-intl";
 
 type Props = {
   searchParams: SearchParams;
@@ -25,7 +26,7 @@ export const Participants = async ({ searchParams }: Props) => {
   return (
     <div className="container mb-16">
       <Typography asChild size="h1" variant="primary" className="col-span-2 mb-7">
-        <h1>Участники Super Bol 2024</h1>
+        <h1>{t('superbol2024.participants.title')}</h1>
       </Typography>
 
       <div className="overflow-x-scroll mb-5">

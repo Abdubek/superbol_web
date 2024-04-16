@@ -1,7 +1,9 @@
 import {gamingPositionOptions} from "@/entities/participant/options";
 import {cn} from "@/shared/utils/common";
+import {useLocale} from "next-intl";
 
 export const GamePosition = ({ pos }: { pos: string }) => {
+  const locale = useLocale()
   const item = gamingPositionOptions.find(i => i.value === pos)
   return (
     <div className={cn(
@@ -11,7 +13,9 @@ export const GamePosition = ({ pos }: { pos: string }) => {
       item?.color === "yellow" && "bg-bg-yellow/25",
       item?.color === "green" && "bg-bg-success",
     )}>
-      {item?.label}
+      {locale === "ru" ? item?.label : null}
+      {locale === "kz" ? item?.label_kz : null}
+      {locale === "en" ? item?.label_en : null}
     </div>
   )
 }
