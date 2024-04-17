@@ -63,6 +63,7 @@ export type Participant = {
   id: number,
   user_id: number,
   number: string,
+  email: string
   full_name: string,
   status: ApplicationStatus,
   agreement_accepted: boolean,
@@ -78,11 +79,11 @@ export type Participant = {
   rating: number,
   email_verified: boolean
   is_favorite: boolean
+  image_url: string
 }
 
 type GetParticipantParams = {
   user_id?: number
-  only_faves?: boolean
   status?: ApplicationStatus
   casting_city?: string
   offset?: number
@@ -98,11 +99,19 @@ const getParticipantsList = (params: GetParticipantParams = {}) => {
   return request<GetParticipantsListResponse>(`/participants?${qs.stringify(params)}`)
 }
 
+const deleteParticipant = (id: number) => {
+  console.log("HEY")
+  return request(`/participants/${id}`, {
+    method: "DELETE"
+  })
+}
+
 export const participantApi = {
   register,
   activate,
   application,
   getParticipantsList,
   sendConfirmEmail,
-  confirmEmail
+  confirmEmail,
+  deleteParticipant
 }

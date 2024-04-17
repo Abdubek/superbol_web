@@ -16,7 +16,6 @@ export default async function CabinetLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-
   return (
     <div>
       <header className="bg-bg-primary">

@@ -4,6 +4,7 @@ import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import {Routes} from "@/routes";
 
 export default function SignUpSuccessPage() {
   const t = useTranslations("auth");
@@ -27,7 +28,7 @@ export default function SignUpSuccessPage() {
         </Typography>
 
         <Button asChild variant="primary" className="w-full mt-5">
-          <Link href="/">OK</Link>
+          <Link href={Routes.HOME}>OK</Link>
         </Button>
       </div>
 

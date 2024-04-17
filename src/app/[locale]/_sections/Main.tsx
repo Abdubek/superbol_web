@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import ArrowRightIcon from "@/shared/icons/arrow-right.svg";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 import Link from "next/link";
+import {Routes} from "@/routes";
 
 export const Main = () => {
   const t = useTranslations("landing.main");
@@ -30,7 +31,7 @@ export const Main = () => {
           {t("subtitle")}
         </Typography>
 
-        <Link href={"/sign-up"}>
+        <Link href={Routes.SIGN_UP}>
           <Button variant="primary">{t("cta")}</Button>
         </Link>
       </div>

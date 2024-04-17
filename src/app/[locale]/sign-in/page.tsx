@@ -53,7 +53,7 @@ export default function SignInPage() {
             {t.rich("signIn.routes.statements.title", {
               link: () => (
                 <Typography variant="darkBlue" asChild>
-                  <Link href="/">
+                  <Link href={Routes.HOME}>
                     {t.rich("signIn.routes.statements.cta", {
                       br: () => <br />,
                     })}

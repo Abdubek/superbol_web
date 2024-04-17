@@ -11,6 +11,7 @@ import {addRating} from "@/actions/rating";
 import {uploadAvatar} from "@/actions/upload-avatar";
 import {sendConfirmEmail} from "@/actions/send-confirm-email";
 import {confirmEmail} from "@/actions/confirm-email";
+import {deleteParticipant} from "@/actions/delete-participant";
 
 export const actions = {
   signIn,
@@ -26,5 +27,6 @@ export const actions = {
   addRating,
   uploadAvatar,
   sendConfirmEmail,
-  confirmEmail
+  confirmEmail,
+  deleteParticipant
 }

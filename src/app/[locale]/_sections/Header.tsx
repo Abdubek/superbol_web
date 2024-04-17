@@ -47,7 +47,7 @@ export const Header = () => {
             />
           </a>
         </div>
-        <Link href={"/#"}>
+        <Link href={Routes.HOME}>
           <Typography
             size="caption2"
             className="hover:text-text-primary md:block hidden"
@@ -55,7 +55,7 @@ export const Header = () => {
             {t("mainPage")}
           </Typography>
         </Link>
-        <Link href={"/super-bol-2024"}>
+        <Link href={Routes.SUPER_BOL_2024}>
           <Typography
             size="caption2"
             className="hover:text-text-primary md:block hidden"
@@ -63,7 +63,7 @@ export const Header = () => {
             SuperBol 2024
           </Typography>
         </Link>
-        <Link href={"/sign-up"}>
+        <Link href={Routes.SIGN_UP}>
           <Typography
             size="caption2"
             className="hover:text-text-primary md:block hidden"
@@ -87,7 +87,7 @@ export const Header = () => {
         </div>
         {isOpen && <div className="absolute bg-bg-white top-[54px] right-0 bottom-0 left-0 z-50 md:hidden block">
           <div className="bg-bg-primary/35 h-full py-6 px-4 flex flex-col gap-2 text-text-white">
-            <Link href={"/#"}>
+            <Link href={Routes.HOME}>
               <Typography
                 size="caption1"
                 className="hover:text-text-primary"
@@ -95,7 +95,7 @@ export const Header = () => {
                 {t("mainPage")}
               </Typography>
             </Link>
-            <Link href={"/super-bol-2024"}>
+            <Link href={Routes.SUPER_BOL_2024}>
               <Typography
                 size="caption1"
                 className="hover:text-text-primary"
@@ -103,7 +103,7 @@ export const Header = () => {
                 SuperBol 2024
               </Typography>
             </Link>
-            <Link href={"/sign-in"}>
+            <Link href={Routes.SIGN_IN}>
               <Typography
                 size="caption1"
                 className="hover:text-text-primary"

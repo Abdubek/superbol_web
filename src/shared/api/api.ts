@@ -2,6 +2,7 @@ import {redirect} from "next/navigation";
 import {cookies, headers} from "next/headers";
 import {setFlash} from "@/features/FlashToaster/FlashToaster";
 import {getLocale} from "next-intl/server";
+import {Routes} from "@/routes";
 
 const API_URL = process.env.API_URL
 
@@ -27,19 +28,11 @@ export const request = <T>(module: string, init?: RequestInit) => {
     }
   }
 
-  init = {
-    ...init,
-    cache: "force-cache",
-    next: {
-      revalidate: 60
-    }
-  }
-
   return fetch(API_URL + module, init).then(
     async (res) => {
       console.log("request", init?.method || "GET", module, res.status)
       if (res.status === 401) {
-        redirect('/sign-in')
+        redirect(Routes.SIGN_IN)
       }
 
       const isJson = res.headers

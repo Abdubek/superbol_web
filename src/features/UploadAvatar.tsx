@@ -25,7 +25,7 @@ export const UploadAvatar = ({ image }: Props) => {
   return (
     <div className="relative">
       <label htmlFor="avatar">
-        <UserAvatar image={image} width={60}/>
+        <UserAvatar image_key={image} width={60}/>
         <div className="absolute right-0 bottom-0">
           <UploadIcon/>
         </div>

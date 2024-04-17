@@ -9,7 +9,7 @@ export default async function CabinetProfilePage() {
   const profileData = await userApi.profile();
   const t = await getTranslations("welcome");
 
-  console.log(profileData?.participant.email_verified)
+  console.log(profileData)
 
   return (
     <main>
@@ -30,7 +30,7 @@ export default async function CabinetProfilePage() {
           </Typography>
           <div className="flex gap-4 items-center">
             <Typography size="body1">{profileData?.email}</Typography>
-            <SendConfirmEmailButton isVerified={profileData ? profileData.participant.email_verified : true} />
+            <SendConfirmEmailButton isVerified={profileData?.participant ? profileData.participant.email_verified : true} />
           </div>
         </div>
         <div className="flex flex-col gap-2 pt-3">
