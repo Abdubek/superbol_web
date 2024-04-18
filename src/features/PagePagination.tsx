@@ -8,17 +8,23 @@ import {
   PaginationPrevious
 } from "@/shared/ui/Pagination";
 import {parseAsInteger, useQueryState} from "nuqs";
-import {useEffect, useRef, useState} from "react";
+import {TransitionStartFunction, useEffect, useRef, useState} from "react";
 
 export const LIMIT = 10
 
 type Props = {
   totalSize: number
+  startTransition: TransitionStartFunction
 }
 
-export const PagePagination = ({ totalSize }: Props) => {
+export const PagePagination = ({ totalSize, startTransition }: Props) => {
   const totalPage = totalSize / LIMIT + 1
-  const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+  const [page, setPage] = useQueryState(
+    "page",
+    parseAsInteger
+      .withDefault(1)
+      .withOptions({ startTransition })
+  );
   const [arrayRange, setArrayRange] = useState<Array<number>>([]);
 
   useEffect(() => {

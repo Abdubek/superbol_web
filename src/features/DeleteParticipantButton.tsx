@@ -27,7 +27,7 @@ export const DeleteParticipantButton = ({ id }: Props) => {
   return (
     <div className="relative">
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger>
+        <PopoverTrigger asChild>
           <Button variant="danger">Удалить</Button>
         </PopoverTrigger>
         <PopoverContent>

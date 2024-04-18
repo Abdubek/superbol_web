@@ -14,11 +14,14 @@ enum TabTypes {
 }
 
 export default async function CabinetPage() {
-  const citiesData = (await citiesApi.getCitiesList()) || [];
-  const t = await getTranslations("welcome");
+  const [profileData, citiesData, t] = await Promise.all([
+    userApi.profile(),
+    citiesApi.getCitiesList(),
+    getTranslations("welcome")
+  ])
   return (
     <main className="">
-      {citiesData.length ? (
+      {citiesData?.length ? (
         <div className="relative bg-gradient-to-tl from-bg-primary lg:px-12 px-4 py-5 rounded-2xl overflow-hidden grid xl:grid-cols-3 grid-cols-2 gap-4 mb-6">
           <Pattern
             className="absolute top-0 left-0 right-0 bottom-0 h-full"
@@ -27,7 +30,7 @@ export default async function CabinetPage() {
             }}
           />
 
-          {citiesData.map((city, index) => (
+          {citiesData?.map((city, index) => (
             <CastingTimer
               key={index}
               city={city.name}
@@ -37,30 +40,34 @@ export default async function CabinetPage() {
         </div>
       ) : null}
 
-      <Typography size="h3" className="mb-3">
-        {t("heading")}
-      </Typography>
-      <Tabs defaultValue={TabTypes.ABOUT_US}>
-        <TabsList className="mb-6">
-          <TabsTrigger
-            value={TabTypes.ABOUT_US}
-            className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]"
-          >
-            <Typography size="caption1">{t("tabs.about.name")}</Typography>
-          </TabsTrigger>
-          {/*<TabsTrigger value={TabTypes.CASTING_PROCESS} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">*/}
-          {/*  <Typography size="caption1">Процесс кастинга</Typography>*/}
-          {/*</TabsTrigger>*/}
-          {/*<TabsTrigger value={TabTypes.ADVICES} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">*/}
-          {/*  <Typography size="caption1">Советы</Typography>*/}
-          {/*</TabsTrigger>*/}
-        </TabsList>
-        <TabsContent value={TabTypes.ABOUT_US}>
-          <AboutUs />
-        </TabsContent>
-        <TabsContent value={TabTypes.CASTING_PROCESS}>casting</TabsContent>
-        <TabsContent value={TabTypes.ADVICES}>advices</TabsContent>
-      </Tabs>
+      {profileData?.role !== "moderator" && (
+        <>
+          <Typography size="h3" className="mb-3">
+            {t("heading")}
+          </Typography>
+          <Tabs defaultValue={TabTypes.ABOUT_US}>
+            <TabsList className="mb-6">
+              <TabsTrigger
+                value={TabTypes.ABOUT_US}
+                className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]"
+              >
+                <Typography size="caption1">{t("tabs.about.name")}</Typography>
+              </TabsTrigger>
+              {/*<TabsTrigger value={TabTypes.CASTING_PROCESS} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">*/}
+              {/*  <Typography size="caption1">Процесс кастинга</Typography>*/}
+              {/*</TabsTrigger>*/}
+              {/*<TabsTrigger value={TabTypes.ADVICES} className="text-text-grey data-[state=active]:text-text-primary data-[state=active]:border-b-[3px]">*/}
+              {/*  <Typography size="caption1">Советы</Typography>*/}
+              {/*</TabsTrigger>*/}
+            </TabsList>
+            <TabsContent value={TabTypes.ABOUT_US}>
+              <AboutUs />
+            </TabsContent>
+            <TabsContent value={TabTypes.CASTING_PROCESS}>casting</TabsContent>
+            <TabsContent value={TabTypes.ADVICES}>advices</TabsContent>
+          </Tabs>
+        </>
+      )}
     </main>
   );
 }
