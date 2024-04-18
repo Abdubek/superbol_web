@@ -4,8 +4,6 @@ import {citiesApi} from "@/shared/api/cities";
 import {CastingCityFilter} from "@/features/CastingCityFilter";
 import {SearchParams} from "nuqs/parsers";
 import {UserAvatar} from "@/features/Avatar";
-import {Button} from "@/shared/ui/Button";
-import {Popover, PopoverContent, PopoverTrigger} from "@/shared/ui/Popover";
 import {DeleteParticipantButton} from "@/features/DeleteParticipantButton";
 import {ParticipantDrawer} from "@/features/ParticipantDrawer";
 import {PagePagination} from "@/features/PagePagination";
@@ -23,6 +21,8 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
     participantApi.getParticipantsList({
       status: "application_verified",
       casting_city: city,
+      limit: 10,
+      offset: (Number(searchParams?.page) || 0)
     })
   ])
 
