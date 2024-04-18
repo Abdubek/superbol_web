@@ -14,7 +14,7 @@ export const LIMIT = 10
 
 type Props = {
   totalSize: number
-  startTransition: TransitionStartFunction
+  startTransition?: TransitionStartFunction
 }
 
 export const PagePagination = ({ totalSize, startTransition }: Props) => {
