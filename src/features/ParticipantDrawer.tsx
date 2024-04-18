@@ -28,7 +28,7 @@ export const ParticipantDrawer = ({ data }: Props) => {
 
   return (
     <Drawer direction="right">
-      <DrawerTrigger>
+      <DrawerTrigger asChild>
         <Button variant="primary">Посмотреть</Button>
       </DrawerTrigger>
       <DrawerPortal>

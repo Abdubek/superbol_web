@@ -8,6 +8,7 @@ import {Button} from "@/shared/ui/Button";
 import {Popover, PopoverContent, PopoverTrigger} from "@/shared/ui/Popover";
 import {DeleteParticipantButton} from "@/features/DeleteParticipantButton";
 import {ParticipantDrawer} from "@/features/ParticipantDrawer";
+import {PagePagination} from "@/features/PagePagination";
 
 type Props = {
   searchParams: SearchParams;
@@ -62,6 +63,7 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
             </tbody>
           </table>
         </div>
+        <PagePagination totalSize={data?.total_count || 0} />
       </div>
     </main>
   )
