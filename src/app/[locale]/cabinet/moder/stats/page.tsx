@@ -22,8 +22,8 @@ export default async function CabinetStatsPage({}: Props) {
             </tr>
             </thead>
             <tbody>
-            {data?.map(item =>
-              <tr>
+            {data?.map((item, index) =>
+              <tr key={index}>
                 <td className="px-6 py-4">{item.city}</td>
                 <td className="px-6 py-4">{item.count}</td>
               </tr>

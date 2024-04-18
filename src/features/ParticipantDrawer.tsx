@@ -99,9 +99,9 @@ export const ParticipantDrawer = ({ data }: Props) => {
             </div>
             <div className="mb-3">
               <Typography size="body1" variant="grey">Сильные качества:</Typography>
-              <Typography size="body1">{data.specified_skills.map(i => (
-                <Skill value={i} />
-              ))}</Typography>
+              <Typography size="body1">{data.specified_skills.map(((i, index) => (
+                <Skill key={index} value={i} />
+              )))}</Typography>
             </div>
             <div className="mb-3">
               <Typography size="body1" variant="grey">Город кастинга:</Typography>
