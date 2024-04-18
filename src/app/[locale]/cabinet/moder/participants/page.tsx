@@ -7,6 +7,7 @@ import {UserAvatar} from "@/features/Avatar";
 import {Button} from "@/shared/ui/Button";
 import {Popover, PopoverContent, PopoverTrigger} from "@/shared/ui/Popover";
 import {DeleteParticipantButton} from "@/features/DeleteParticipantButton";
+import {ParticipantDrawer} from "@/features/ParticipantDrawer";
 
 type Props = {
   searchParams: SearchParams;
@@ -52,7 +53,8 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
                 </td>
                 <td className="px-6 py-4">{item.casting_city}</td>
                 <td className="px-6 py-4">{item.status}</td>
-                <td className="px-6 py-4">
+                <td className="px-6 py-4 flex gap-2">
+                  <ParticipantDrawer data={item} />
                   <DeleteParticipantButton id={item.id} />
                 </td>
               </tr>

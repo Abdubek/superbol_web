@@ -272,7 +272,8 @@
       "participants": "Список участников",
       "notifications": "Уведомления",
       "documents": "Документы",
-      "participants_profiles": "Анкеты участников"
+      "participants_profiles": "Анкеты участников",
+      "stats": "Статистика"
     },
     "profile": {
       "title": "Профиль",

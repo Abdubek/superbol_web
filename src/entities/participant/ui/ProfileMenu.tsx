@@ -24,7 +24,8 @@ const menu = {
     Routes.PROFILE_PARTICIPANTS_PROFILES
   ],
   moderator: [
-    Routes.PROFILE_MODERATOR_PARTICIPANTS
+    Routes.PROFILE_MODERATOR_PARTICIPANTS,
+    Routes.PROFILE_MODERATOR_STATS,
   ],
   volunteer: []
 }
@@ -144,6 +145,23 @@ const menuItems = {
             <NotificationIcon />
           </div>
           {t("menu.participants_profiles")}
+        </Link>
+      </Typography>
+    )
+  },
+  [Routes.PROFILE_MODERATOR_STATS]: async () => {
+    const t = await getTranslations("welcome");
+    return (
+      <Typography
+        asChild
+        size="caption1"
+        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+      >
+        <Link href={Routes.PROFILE_MODERATOR_STATS}>
+          <div>
+            <NotificationIcon />
+          </div>
+          {t("menu.stats")}
         </Link>
       </Typography>
     )

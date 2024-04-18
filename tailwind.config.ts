@@ -13,7 +13,8 @@ const config: Config = {
         yellow: "#FCE531",
         red: "#EA4335",
         success: "#34A85326",
-        warn: "#FAED88"
+        warn: "#FAED88",
+        black: "#000000"
       },
       button: {
         primary: "#47A3C4",

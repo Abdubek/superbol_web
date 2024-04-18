@@ -25,7 +25,6 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
     participantApi.getParticipantsList({
       status: "application_verified",
       casting_city: city,
-      only_faves: by === "favorite"
     })
   ])
 

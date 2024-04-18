@@ -272,7 +272,8 @@
       "participants": "List of participants",
       "notifications": "Notifications",
       "documents": "Documents",
-      "participants_profiles": "Participant profiles"
+      "participants_profiles": "Participant profiles",
+      "stats": "Statistics"
     },
     "profile": {
       "title": "Profile",

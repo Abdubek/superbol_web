@@ -15,5 +15,6 @@ export const Routes = {
   PROFILE_PARTICIPANTS_PROFILES: '/cabinet/scout/participants',
   PROFILE_NOTIFICATIONS: '/cabinet/participant/notifications',
   PROFILE_DOCUMENTS: '/cabinet/participant/documents',
-  PROFILE_MODERATOR_PARTICIPANTS: '/cabinet/moder/participants'
+  PROFILE_MODERATOR_PARTICIPANTS: '/cabinet/moder/participants',
+  PROFILE_MODERATOR_STATS: '/cabinet/moder/stats'
 }
