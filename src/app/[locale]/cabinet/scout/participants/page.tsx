@@ -12,13 +12,15 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
 
   const city = searchParams.city as string | undefined
   const by = searchParams.by as string | undefined
+  const byNumber = searchParams.byNumber as string | undefined
 
   const [cities, data] = await Promise.all([
     citiesApi.getCitiesList(),
     scoutApi.getScoutParticipants({
-      status: "application_verified",
+      status: "came_to_first_casting",
       casting_city: city,
-      only_faves: by === "favorite"
+      only_faves: by === "favorite",
+      numbers: byNumber || undefined
     })
   ])
 

@@ -14,6 +14,8 @@ import {FavoriteFilter} from "@/features/FavoriteFilter";
 import {GamePosition} from "@/entities/participant/ui/GamePosition";
 import {RatingInput} from "@/features/RatingInput";
 import {FavoriteButton} from "@/features/FavoriteButton";
+import {SearchByNumber} from "@/features/SearchByNumber";
+import {Typography} from "@/shared/ui/Typography";
 
 type Props = {
   participants: Participant[]
@@ -42,6 +44,7 @@ export const ScoutParticipantsTable = ({ cities, participants, totalCount }: Pro
         }
         <div>
           <FavoriteFilter startTransition={startTransition} />
+          <SearchByNumber startTransition={startTransition} />
         </div>
         <div className="overflow-x-scroll">
           <table className="w-full whitespace-nowrap">
@@ -61,11 +64,11 @@ export const ScoutParticipantsTable = ({ cities, participants, totalCount }: Pro
             {participants?.map((item, index) =>
               <tr key={index} className="border-b border-border-lightgray">
                 <td className="px-6 py-4">
-                  <FavoriteButton isFavorite={item.is_favorite} participantId={item.id}/>
+                  <FavoriteButton isFavorite={item?.is_favorite} participantId={item?.id}/>
                 </td>
                 <td className="px-6 py-4 flex items-center gap-4">
                   <UserAvatar image_url={item?.image_url || ""} width={36}/>
-                  {item.full_name}
+                  {item?.full_name}
                 </td>
                 <td>
                   <RatingInput defaultValue={item.rating} participantId={item.id}/>
@@ -84,7 +87,10 @@ export const ScoutParticipantsTable = ({ cities, participants, totalCount }: Pro
             </tbody>
           </table>
         </div>
-        <PagePagination totalSize={totalCount || 0} startTransition={startTransition}/>
+        <div className="flex gap-4 items-center">
+          <PagePagination totalSize={totalCount || 0} startTransition={startTransition}/>
+          <Typography>Всего: {totalCount}</Typography>
+        </div>
       </div>
     </>
   )

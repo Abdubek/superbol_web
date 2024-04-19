@@ -81,15 +81,15 @@ export const ParticipantDrawer = ({ data }: Props) => {
               <Typography size="body1" variant="grey">Игровая нога:</Typography>
               <Typography size="body1"><MainLeg value={data.main_leg} /></Typography>
             </div>
-            {(data.gaming_positions?.length >= 1) && <div className="mb-3">
+            {(data?.gaming_positions?.length >= 1) && <div className="mb-3">
               <Typography size="body1" variant="grey">Игровая позиция 1:</Typography>
               <Typography size="body1"><GamePosition pos={data.gaming_positions[0]} /></Typography>
             </div>}
-            {(data.gaming_positions?.length >= 2) && <div className="mb-3">
+            {(data?.gaming_positions?.length >= 2) && <div className="mb-3">
               <Typography size="body1" variant="grey">Игровая позиция 2:</Typography>
               <Typography size="body1"><GamePosition pos={data.gaming_positions[1]} /></Typography>
             </div>}
-            {(data.gaming_positions?.length >= 3) && <div className="mb-3">
+            {(data?.gaming_positions?.length >= 3) && <div className="mb-3">
               <Typography size="body1" variant="grey">Игровая позиция 3:</Typography>
               <Typography size="body1"><GamePosition pos={data.gaming_positions[2]} /></Typography>
             </div>}
@@ -99,7 +99,7 @@ export const ParticipantDrawer = ({ data }: Props) => {
             </div>
             <div className="mb-3">
               <Typography size="body1" variant="grey">Сильные качества:</Typography>
-              <Typography size="body1">{data.specified_skills.map(((i, index) => (
+              <Typography size="body1">{data?.specified_skills?.map(((i, index) => (
                 <Skill key={index} value={i} />
               )))}</Typography>
             </div>

@@ -37,6 +37,7 @@ type GetParticipantParams = {
   offset?: number
   limit?: number
   only_faves?: boolean
+  numbers?: string
 }
 
 type GetParticipantsListResponse = {
@@ -45,6 +46,7 @@ type GetParticipantsListResponse = {
 }
 
 const getScoutParticipants = (params: GetParticipantParams = {}) => {
+  console.log(`getScoutParticipants /scouts/participants?${qs.stringify(params)}`)
   return request<GetParticipantsListResponse>(`/scouts/participants?${qs.stringify(params)}`)
 
 }

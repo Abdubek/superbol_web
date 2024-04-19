@@ -63,7 +63,8 @@ export type ApplicationStatus =
   'application_submitted' |
   'application_verified' |
   'passed_first_casting' |
-  'came_to_second_casting'
+  'came_to_second_casting' |
+  'came_to_first_casting'
 
 export type Participant = {
   id: number,

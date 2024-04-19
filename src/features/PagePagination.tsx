@@ -9,6 +9,7 @@ import {
 } from "@/shared/ui/Pagination";
 import {parseAsInteger, useQueryState} from "nuqs";
 import {TransitionStartFunction, useEffect, useRef, useState} from "react";
+import {Typography} from "@/shared/ui/Typography";
 
 export const LIMIT = 10
 
