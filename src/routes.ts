@@ -13,8 +13,11 @@ export const Routes = {
   PROFILE_APPLICATION: '/cabinet/participant/application',
   PROFILE_PARTICIPANTS: '/cabinet/participant/participants',
   PROFILE_PARTICIPANTS_PROFILES: '/cabinet/scout/participants',
+  PROFILE_PARTICIPANTS_RATING: '/cabinet/scout/participants-rating',
+  PROFILE_PARTICIPANTS_GROUPS: '/cabinet/scout/groups',
   PROFILE_NOTIFICATIONS: '/cabinet/participant/notifications',
   PROFILE_DOCUMENTS: '/cabinet/participant/documents',
   PROFILE_MODERATOR_PARTICIPANTS: '/cabinet/moder/participants',
-  PROFILE_MODERATOR_STATS: '/cabinet/moder/stats'
+  PROFILE_MODERATOR_STATS: '/cabinet/moder/stats',
+  PROFILE_VOLUNTEER_SCANNER: '/cabinet/volunteer'
 }

@@ -276,7 +276,9 @@
       "notifications": "Notifications",
       "documents": "Documents",
       "participants_profiles": "Participant profiles",
-      "stats": "Statistics"
+      "stats": "Statistics",
+      "rating": "Leaderboard",
+      "casting": "Casting"
     },
     "profile": {
       "title": "Profile",
@@ -355,6 +357,12 @@
   },
   "participants": {
     "title": "List of participants"
+  },
+  "casting": {
+    "title": "Casting"
+  },
+  "rating": {
+    "title": "Leaderboard"
   },
   "notifications": {
     "title": "Notifications"

@@ -40,7 +40,7 @@ export default async function CabinetPage() {
         </div>
       ) : null}
 
-      {profileData?.role !== "moderator" && (
+      {(profileData?.role !== "moderator" && profileData?.role !== "volunteer") && (
         <>
           <Typography size="h3" className="mb-3">
             {t("heading")}

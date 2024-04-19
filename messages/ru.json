@@ -276,7 +276,9 @@
       "notifications": "Уведомления",
       "documents": "Документы",
       "participants_profiles": "Анкеты участников",
-      "stats": "Статистика"
+      "stats": "Статистика",
+      "rating": "Таблица лидеров",
+      "casting": "Кастинг"
     },
     "profile": {
       "title": "Профиль",
@@ -355,6 +357,12 @@
   },
   "participants": {
     "title": "Список участников"
+  },
+  "casting": {
+    "title": "Кастинг"
+  },
+  "rating": {
+    "title": "Таблица лидеров"
   },
   "notifications": {
     "title": "Уведомления"

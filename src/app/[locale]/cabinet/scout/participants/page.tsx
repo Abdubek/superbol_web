@@ -1,15 +1,6 @@
-import {participantApi} from "@/shared/api/participant";
 import {Typography} from "@/shared/ui/Typography";
-import DefaultAvatar from "@/shared/icons/default-avatar-36.svg";
-import {FavoriteButton} from "@/features/FavoriteButton";
-import {RatingInput} from "@/features/RatingInput";
-import {gamingPositionOptions} from "@/entities/participant/options";
-import {cn} from "@/shared/utils/common";
 import {citiesApi} from "@/shared/api/cities";
-import {CastingCityFilter} from "@/features/CastingCityFilter";
 import {SearchParams} from "nuqs/parsers";
-import {FavoriteFilter} from "@/features/FavoriteFilter";
-import {GamePosition} from "@/entities/participant/ui/GamePosition";
 import {scoutApi} from "@/shared/api/scout";
 import {ScoutParticipantsTable} from "@/entities/scout/ui/ParticipantsTable";
 

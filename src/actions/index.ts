@@ -12,6 +12,7 @@ import {uploadAvatar} from "@/actions/upload-avatar";
 import {sendConfirmEmail} from "@/actions/send-confirm-email";
 import {confirmEmail} from "@/actions/confirm-email";
 import {deleteParticipant} from "@/actions/delete-participant";
+import {scan} from "@/actions/scan";
 
 export const actions = {
   signIn,
@@ -29,4 +30,5 @@ export const actions = {
   sendConfirmEmail,
   confirmEmail,
   deleteParticipant,
+  scan
 }

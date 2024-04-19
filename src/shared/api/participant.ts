@@ -94,6 +94,8 @@ type GetParticipantParams = {
   casting_city?: string
   offset?: number
   limit?: number
+  sort_by?: "created_at" | "rating"
+  sort_dir?: "asc" | "desc"
 }
 
 type GetParticipantsListResponse = {
@@ -115,6 +117,12 @@ const numberPdf = () => {
   return request<Blob>('/participants/number')
 }
 
+const scan = (id: string) => {
+  return request(`/participants/${id}/scan`, {
+    method: "POST"
+  })
+}
+
 export const participantApi = {
   register,
   activate,
@@ -123,5 +131,6 @@ export const participantApi = {
   sendConfirmEmail,
   confirmEmail,
   deleteParticipant,
-  numberPdf
+  numberPdf,
+  scan
 }

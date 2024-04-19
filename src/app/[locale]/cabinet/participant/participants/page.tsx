@@ -5,6 +5,8 @@ import { GamePosition } from "@/entities/participant/ui/GamePosition";
 import { getTranslations } from "next-intl/server";
 import {PagePagination} from "@/features/PagePagination";
 import {SearchParams} from "nuqs/parsers";
+import {UserAvatar} from "@/features/Avatar";
+import * as React from "react";
 
 type Props = {
   searchParams: SearchParams;
@@ -50,9 +52,7 @@ export default async function CabinetParticipantsPage({ searchParams }: Props) {
             {data?.map((item, index) => (
               <tr key={index} className="border-b border-border-lightgray">
                 <td className="px-6 py-4 flex items-center gap-4">
-                  <div>
-                    <DefaultAvatar />
-                  </div>
+                  <UserAvatar image_url={item?.image_url || ""} width={36}/>
                   {item.full_name}
                 </td>
                 <td className="px-6 py-4">{item.casting_city}</td>

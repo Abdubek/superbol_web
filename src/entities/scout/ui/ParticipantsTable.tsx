@@ -54,27 +54,31 @@ export const ScoutParticipantsTable = ({ cities, participants, totalCount }: Pro
               <th className="px-6 py-4 text-left">Игровая позиция 1</th>
               <th className="px-6 py-4 text-left">Игровая позиция 2</th>
               <th className="px-6 py-4 text-left">Игровая позиция 3</th>
+              <th className="px-6 py-4"></th>
             </tr>
             </thead>
             <tbody>
             {participants?.map((item, index) =>
               <tr key={index} className="border-b border-border-lightgray">
                 <td className="px-6 py-4">
-                  <FavoriteButton isFavorite={item.is_favorite} participantId={item.id} />
+                  <FavoriteButton isFavorite={item.is_favorite} participantId={item.id}/>
                 </td>
                 <td className="px-6 py-4 flex items-center gap-4">
                   <UserAvatar image_url={item?.image_url || ""} width={36}/>
                   {item.full_name}
                 </td>
                 <td>
-                  <RatingInput defaultValue={item.rating} participantId={item.id} />
+                  <RatingInput defaultValue={item.rating} participantId={item.id}/>
                 </td>
                 <td className="px-6 py-4">{item.casting_city}</td>
                 {item.gaming_positions?.map((pos, posInd) =>
                   <td key={posInd} className="px-6 py-4">
-                    <GamePosition pos={pos} />
+                    <GamePosition pos={pos}/>
                   </td>
                 )}
+                <td className="px-6 py-4 flex gap-2">
+                  <ParticipantDrawer data={item}/>
+                </td>
               </tr>
             )}
             </tbody>

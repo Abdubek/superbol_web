@@ -9,9 +9,10 @@ import {useRouter} from "next/navigation";
 type Props = {
   participantId: number
   defaultValue: number
+  disabled?: boolean
 }
 
-export const RatingInput = ({ participantId, defaultValue }: Props) => {
+export const RatingInput = ({ participantId, defaultValue, disabled = false }: Props) => {
   const router = useRouter()
   const [value, setValue] = useState(defaultValue ? String(defaultValue) : "")
 
@@ -22,9 +23,14 @@ export const RatingInput = ({ participantId, defaultValue }: Props) => {
 
   return (
     <Input type="number"
+           disabled={disabled}
            max={100}
            min={0}
-           className={cn("h-[29px] w-16 bg-bg-platinum pt-1 pr-0", value && "border border-border-primary text-text-primary font-semibold")}
+           className={cn(
+             "h-[29px] w-16 bg-bg-platinum pt-1 pr-0",
+             value && "border border-border-primary text-text-primary font-semibold",
+             disabled && "disabled:opacity-100"
+           )}
            value={value}
            onChange={(e) => setValue(e.target.value)}
            onKeyDown={(e) => {

@@ -4,6 +4,7 @@ import StarIcon from "@/shared/icons/star.svg";
 import PeopleIcon from "@/shared/icons/people.svg";
 import NotificationIcon from "@/shared/icons/notification.svg";
 import InformationIcon from "@/shared/icons/information.svg";
+import ChartIcon from "@/shared/icons/chart.svg";
 import DocIcon from "@/shared/icons/doc.svg";
 import { Typography } from "@/shared/ui/Typography";
 import { Routes } from "@/routes";
@@ -21,13 +22,17 @@ const menu = {
   ],
   scout: [
     Routes.PROFILE,
-    Routes.PROFILE_PARTICIPANTS_PROFILES
+    Routes.PROFILE_PARTICIPANTS_PROFILES,
+    Routes.PROFILE_PARTICIPANTS_RATING,
+    // Routes.PROFILE_PARTICIPANTS_GROUPS,
   ],
   moderator: [
     Routes.PROFILE_MODERATOR_PARTICIPANTS,
     Routes.PROFILE_MODERATOR_STATS,
   ],
-  volunteer: []
+  volunteer: [
+    Routes.PROFILE_VOLUNTEER_SCANNER
+  ]
 }
 
 const menuItems = {
@@ -162,6 +167,57 @@ const menuItems = {
             <NotificationIcon />
           </div>
           {t("menu.stats")}
+        </Link>
+      </Typography>
+    )
+  },
+  [Routes.PROFILE_PARTICIPANTS_RATING]: async () => {
+    const t = await getTranslations("welcome");
+    return (
+      <Typography
+        asChild
+        size="caption1"
+        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+      >
+        <Link href={Routes.PROFILE_PARTICIPANTS_RATING}>
+          <div>
+            <ChartIcon />
+          </div>
+          {t("menu.rating")}
+        </Link>
+      </Typography>
+    )
+  },
+  [Routes.PROFILE_PARTICIPANTS_GROUPS]: async () => {
+    const t = await getTranslations("welcome");
+    return (
+      <Typography
+        asChild
+        size="caption1"
+        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+      >
+        <Link href={Routes.PROFILE_PARTICIPANTS_GROUPS}>
+          <div>
+            <PeopleIcon />
+          </div>
+          {t("menu.casting")}
+        </Link>
+      </Typography>
+    )
+  },
+  [Routes.PROFILE_VOLUNTEER_SCANNER]: async () => {
+    const t = await getTranslations("welcome");
+    return (
+      <Typography
+        asChild
+        size="caption1"
+        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+      >
+        <Link href={Routes.PROFILE_VOLUNTEER_SCANNER}>
+          <div>
+            <PeopleIcon />
+          </div>
+          Сканнер
         </Link>
       </Typography>
     )

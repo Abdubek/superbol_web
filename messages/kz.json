@@ -276,7 +276,9 @@
       "notifications": "Хабарламалар",
       "documents": "Құжаттар",
       "participants_profiles": "Қатысушылардың сауалнамалары",
-      "stats": "Статистика"
+      "stats": "Статистика",
+      "rating": "Көшбасшылар тақтасы",
+      "casting": "Кастинг"
     },
     "profile": {
       "title": "Профиль",
@@ -355,6 +357,12 @@
   },
   "participants": {
     "title": "Қатысушылар тізімі"
+  },
+  "casting": {
+    "title": "Кастинг"
+  },
+  "rating": {
+    "title": "Көшбасшылар тақтасы"
   },
   "notifications": {
     "title": "Хабарламалар"
