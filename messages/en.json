@@ -253,6 +253,9 @@
   },
   "welcome": {
     "heading": "User's Instructions",
+    "download": {
+      "number": "Скачать номер участника"
+    },
     "tabs": {
       "about": {
         "name": "About the project",

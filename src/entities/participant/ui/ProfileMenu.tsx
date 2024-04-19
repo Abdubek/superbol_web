@@ -9,9 +9,7 @@ import { Typography } from "@/shared/ui/Typography";
 import { Routes } from "@/routes";
 import { userApi } from "@/shared/api/user";
 import { getTranslations } from "next-intl/server";
-import {ReactNode} from "react";
 import { Button } from "@/shared/ui/Button";
-import {DownloadNumber} from "@/features/DownloadNumber";
 
 const menu = {
   participant: [
@@ -170,6 +168,8 @@ const menuItems = {
   }
 }
 
+const downloadNumberStatuses = ['application_submitted', 'application_verified', 'passed_first_casting', 'came_to_second_casting']
+
 export const ProfileMenu = async () => {
   const profileData = await userApi.profile();
 
@@ -189,7 +189,13 @@ export const ProfileMenu = async () => {
             {t("warning")}
           </Typography>
         )}
-      <DownloadNumber participant={profileData?.participant} />
+
+      {downloadNumberStatuses.includes(profileData?.participant?.status || "") &&
+        <Button asChild variant="primary">
+        <a href="/ru/api/download/number" download>
+          {t('download.number')} - {profileData?.participant?.number}
+        </a>
+      </Button>}
 
       {profileData?.role && menu[profileData?.role].map(item => menuItems[item]?.())}
     </div>
