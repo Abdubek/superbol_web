@@ -72,7 +72,7 @@ export default async function CabinetDocumentsPage({
                 <ConsentToParticipateIcon/>
               </div>
               <div className="flex-1">
-                Келісім
+                Қатысуға келісім беру
               </div>
               <ArrowDownIcon height={24} width={24}/>
             </a>
@@ -99,6 +99,32 @@ export default async function CabinetDocumentsPage({
               </div>
               <div className="flex-1">
                 Съемкаға келісім
+              </div>
+              <ArrowDownIcon height={24} width={24}/>
+            </a>
+          </Typography>
+          <Typography size="body2" asChild>
+            <a href="/files/SuperBol%202024_Соглашение_Бишкек.pdf"
+               download
+               className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
+              <div>
+                <ConsentToParticipateIcon/>
+              </div>
+              <div className="flex-1">
+                Катышууга макулдук
+              </div>
+              <ArrowDownIcon height={24} width={24}/>
+            </a>
+          </Typography>
+          <Typography size="body2" asChild>
+            <a href="/files/SuperBol%202024_Kelishuv_Tashkent.pdf"
+               download
+               className="p-6 bg-bg-platinum border border-border-primary rounded-md flex items-center gap-4 max-w-[280px]">
+              <div>
+                <ConsentToParticipateIcon/>
+              </div>
+              <div className="flex-1">
+                Ishtirok etishga rozilik
               </div>
               <ArrowDownIcon height={24} width={24}/>
             </a>
