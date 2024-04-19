@@ -1,4 +1,6 @@
 import {request} from "@/shared/api/api";
+import qs from "qs";
+import {ApplicationStatus, Participant} from "@/shared/api/participant";
 
 const addRating = (participantId: number, rating: number): Promise<any> => {
   return request('/scouts/ratings', {
@@ -28,8 +30,28 @@ const deleteFavorite = (participantId: number): Promise<any> => {
   })
 }
 
+type GetParticipantParams = {
+  user_id?: number
+  status?: ApplicationStatus
+  casting_city?: string
+  offset?: number
+  limit?: number
+  only_faves?: boolean
+}
+
+type GetParticipantsListResponse = {
+  participants: Participant[]
+  total_count: number
+}
+
+const getScoutParticipants = (params: GetParticipantParams = {}) => {
+  return request<GetParticipantsListResponse>(`/scouts/participants?${qs.stringify(params)}`)
+
+}
+
 export const scoutApi = {
   addFavorite,
   deleteFavorite,
-  addRating
+  addRating,
+  getScoutParticipants
 }

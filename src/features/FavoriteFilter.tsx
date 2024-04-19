@@ -1,12 +1,19 @@
 "use client"
 
 import {Button} from "@/shared/ui/Button";
-import {useQueryState} from "nuqs";
+import {parseAsString, useQueryState} from "nuqs";
+import {TransitionStartFunction} from "react";
 
-export const FavoriteFilter = () => {
-  const [value, setValue] = useQueryState('by', {
-    defaultValue: "all"
-  })
+type Props = {
+  startTransition?: TransitionStartFunction
+}
+
+export const FavoriteFilter = ({ startTransition }: Props) => {
+  const [value, setValue] = useQueryState(
+    'by',
+    parseAsString
+      .withDefault("all")
+      .withOptions({ startTransition }))
 
   return (
     <div className="flex gap-1 items-center">
