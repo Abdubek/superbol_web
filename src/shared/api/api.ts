@@ -40,6 +40,21 @@ export const request = <T>(module: string, init?: RequestInit) => {
         ?.includes("application/json");
       let responseData: BaseResponse<T> | null = isJson ? await res.json() : null;
 
+      if (!isJson) {
+        const isPdf = res.headers
+          .get("content-type")
+          ?.includes("application/pdf");
+        responseData = {
+          success: true,
+          data: await res.blob() as T,
+          errorMsg: {
+            ru: '',
+            kz: '',
+            en: ''
+          }
+        }
+      }
+
       if (res.status >= 300) {
         responseData = await res.json()
       }

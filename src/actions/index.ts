@@ -28,5 +28,5 @@ export const actions = {
   uploadAvatar,
   sendConfirmEmail,
   confirmEmail,
-  deleteParticipant
+  deleteParticipant,
 }

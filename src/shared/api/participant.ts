@@ -57,7 +57,13 @@ const application = (data: ApplicationDTO) => {
   })
 }
 
-export type ApplicationStatus = 'created' | 'activated' | 'application_submitted' | 'application_verified' | 'passed_first_casting' | 'came_to_second_casting'
+export type ApplicationStatus =
+  'created' |
+  'activated' |
+  'application_submitted' |
+  'application_verified' |
+  'passed_first_casting' |
+  'came_to_second_casting'
 
 export type Participant = {
   id: number,
@@ -100,10 +106,13 @@ const getParticipantsList = (params: GetParticipantParams = {}) => {
 }
 
 const deleteParticipant = (id: number) => {
-  console.log("HEY")
   return request(`/participants/${id}`, {
     method: "DELETE"
   })
+}
+
+const numberPdf = () => {
+  return request<Blob>('/participants/number')
 }
 
 export const participantApi = {
@@ -113,5 +122,6 @@ export const participantApi = {
   getParticipantsList,
   sendConfirmEmail,
   confirmEmail,
-  deleteParticipant
+  deleteParticipant,
+  numberPdf
 }

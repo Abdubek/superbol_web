@@ -10,6 +10,8 @@ import { Routes } from "@/routes";
 import { userApi } from "@/shared/api/user";
 import { getTranslations } from "next-intl/server";
 import {ReactNode} from "react";
+import { Button } from "@/shared/ui/Button";
+import {DownloadNumber} from "@/features/DownloadNumber";
 
 const menu = {
   participant: [
@@ -187,6 +189,7 @@ export const ProfileMenu = async () => {
             {t("warning")}
           </Typography>
         )}
+      <DownloadNumber participant={profileData?.participant} />
 
       {profileData?.role && menu[profileData?.role].map(item => menuItems[item]?.())}
     </div>
