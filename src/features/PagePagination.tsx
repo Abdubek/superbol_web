@@ -18,7 +18,7 @@ type Props = {
 }
 
 export const PagePagination = ({ totalSize, startTransition }: Props) => {
-  const totalPage = totalSize / LIMIT + 1
+  const totalPage = Math.floor(totalSize / LIMIT) + 1
   const [page, setPage] = useQueryState(
     "page",
     parseAsInteger

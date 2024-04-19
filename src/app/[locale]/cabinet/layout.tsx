@@ -6,7 +6,6 @@ import {ProfileMenu} from "@/entities/participant/ui/ProfileMenu";
 import {Footer} from "../_sections/Footer";
 import {LogoutButton} from "@/features/Logout";
 import {ScoutCard} from "@/entities/scout/ui/Card";
-import {userApi} from "@/shared/api/user";
 import {LocaleSwitcherButton} from "@/features/LocaleSwitcher/LocaleSwitcherButton";
 import Link from "next/link";
 

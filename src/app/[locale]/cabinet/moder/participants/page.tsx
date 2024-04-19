@@ -30,8 +30,7 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
   return (
     <main>
       <Typography size="h3" className="mb-10">Список участников</Typography>
-      <CastingCityFilter cities={cities} className="mb-10" />
-      <ParticipantsTable participants={data?.participants || []} totalCount={data?.total_count || 0} />
+      <ParticipantsTable cities={cities} participants={data?.participants || []} totalCount={data?.total_count || 0} />
     </main>
   )
 }
