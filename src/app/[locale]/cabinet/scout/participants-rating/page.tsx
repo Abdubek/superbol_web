@@ -22,7 +22,7 @@ export default async function CabinetParticipantsPage({ searchParams }: Props) {
   const [cities, data] = await Promise.all([
     citiesApi.getCitiesList(),
     participantApi.getParticipantsList({
-      status: "application_verified",
+      status: "came_to_first_casting",
       casting_city: city,
       limit: top15 ? 15 : 10,
       offset: top15 ? 0 : (Number(searchParams?.page) || 0),
