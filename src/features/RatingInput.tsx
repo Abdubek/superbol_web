@@ -15,17 +15,19 @@ type Props = {
 
 export const RatingInput = ({ participantId, defaultValue, disabled = false, startTransition }: Props) => {
   const router = useRouter()
-  const [value, setValue] = useState(defaultValue ? [String(defaultValue)] : [""])
+  const [value, setValue] = useState(defaultValue ? [String(defaultValue[0])] : [""])
 
   useEffect(() => {
     setValue([String(defaultValue)])
   }, [defaultValue])
 
   const handleSetRating = () => {
-    startTransition(async () => {
-      await actions.addRating(participantId, Number(value[0]))
-      router.refresh()
-    })
+    if (value[0] !== String(defaultValue[0])) {
+      startTransition(async () => {
+        await actions.addRating(participantId, Number(value[0]))
+        router.refresh()
+      })
+    }
   }
 
   return (
