@@ -28,9 +28,11 @@ export const request = <T>(module: string, init?: RequestInit) => {
     }
   }
 
+  const startTime = new Date().getTime()
   return fetch(API_URL + module, init).then(
     async (res) => {
-      console.log("request", init?.method || "GET", API_URL + module, res.status)
+      const endTime = new Date().getTime()
+      console.log("request", (endTime - startTime) + "ms", init?.method || "GET", API_URL + module, res.status)
       if (res.status === 401) {
         redirect(Routes.SIGN_IN)
       }

@@ -60,7 +60,12 @@ type ProfileResponse = {
 }
 
 const profile = () => {
-  return request<ProfileResponse>('/users/profile')
+  return request<ProfileResponse>('/users/profile', {
+    cache: "force-cache",
+    next: {
+      revalidate: 60
+    }
+  })
 }
 
 const uploadAvatar = (data: FormData) => {

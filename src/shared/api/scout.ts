@@ -46,7 +46,6 @@ type GetParticipantsListResponse = {
 }
 
 const getScoutParticipants = (params: GetParticipantParams = {}) => {
-  console.log(`getScoutParticipants /scouts/participants?${qs.stringify(params)}`)
   return request<GetParticipantsListResponse>(`/scouts/participants?${qs.stringify(params)}`)
 
 }
