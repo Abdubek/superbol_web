@@ -100,7 +100,7 @@ export const ScoutParticipantsRatingTable = ({ cities, participants, totalCount,
                       {item.full_name}
                     </td>
                     <td>
-                      <RatingInput defaultValue={[item.rating]} participantId={item.id} disabled={true}/>
+                      <RatingInput defaultValue={[item.rating]} participantId={item.id} disabled={true} startTransition={startTransition} />
                     </td>
                     <td className="px-6 py-4">{item.casting_city}</td>
                     <td className="px-6 py-4">

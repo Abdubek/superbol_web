@@ -1,7 +1,7 @@
 "use client"
 
 import {Input} from "@/shared/ui/Input";
-import {useEffect, useState} from "react";
+import {TransitionStartFunction, useEffect, useState} from "react";
 import {actions} from "@/actions";
 import {cn} from "@/shared/utils/common";
 import {useRouter} from "next/navigation";
@@ -10,9 +10,10 @@ type Props = {
   participantId: number
   defaultValue: number[]
   disabled?: boolean
+  startTransition: TransitionStartFunction
 }
 
-export const RatingInput = ({ participantId, defaultValue, disabled = false }: Props) => {
+export const RatingInput = ({ participantId, defaultValue, disabled = false, startTransition }: Props) => {
   const router = useRouter()
   const [value, setValue] = useState(defaultValue ? [String(defaultValue)] : [""])
 
@@ -20,9 +21,11 @@ export const RatingInput = ({ participantId, defaultValue, disabled = false }: P
     setValue([String(defaultValue)])
   }, [defaultValue])
 
-  const handleSetRating = async () => {
-    await actions.addRating(participantId, Number(value[0]))
-    router.refresh()
+  const handleSetRating = () => {
+    startTransition(async () => {
+      await actions.addRating(participantId, Number(value[0]))
+      router.refresh()
+    })
   }
 
   return (

@@ -64,14 +64,14 @@ export const ScoutParticipantsTable = ({ cities, participants, totalCount }: Pro
             {participants?.map((item, index) =>
               <tr key={index} className="border-b border-border-lightgray">
                 <td className="px-6 py-4">
-                  <FavoriteButton isFavorite={item?.is_favorite} participantId={item?.id}/>
+                  <FavoriteButton isFavorite={item?.is_favorite} participantId={item?.id} startTransition={startTransition}/>
                 </td>
                 <td className="px-6 py-4 flex items-center gap-4">
                   <UserAvatar image_url={item?.image_url || ""} width={36}/>
                   {item?.full_name}
                 </td>
                 <td>
-                  <RatingInput defaultValue={item.rating} participantId={item.id}/>
+                  <RatingInput defaultValue={[item.rating]} participantId={item.id} startTransition={startTransition}/>
                 </td>
                 <td className="px-6 py-4">{item.casting_city}</td>
                 {item.gaming_positions?.map((pos, posInd) =>
