@@ -18,6 +18,7 @@ type Props = {
 export default async function CabinetParticipantsPage({ searchParams }: Props) {
   const top15 = searchParams?.rating === "top"
   const city = searchParams.city as string | undefined
+  const page = (Number(searchParams?.page) || 1)
 
   const [cities, data] = await Promise.all([
     citiesApi.getCitiesList(),
@@ -25,7 +26,7 @@ export default async function CabinetParticipantsPage({ searchParams }: Props) {
       status: "came_to_first_casting",
       casting_city: city,
       limit: top15 ? 15 : 10,
-      offset: top15 ? 0 : (Number(searchParams?.page) || 0),
+      offset: top15 ? 0 : page,
       sort_by: "rating",
       sort_dir: "desc"
     })
@@ -42,6 +43,7 @@ export default async function CabinetParticipantsPage({ searchParams }: Props) {
         isTop15={top15}
         cities={cities}
         participants={data?.participants || []}
+        page={page}
         totalCount={data?.total_count || 0} />
     </main>
   );

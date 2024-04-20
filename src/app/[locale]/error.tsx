@@ -21,6 +21,9 @@ export default function Error({
       <Typography size="h3" variant="primary" className="mb-6">
         Что то пошло<br/> не так
       </Typography>
+      <Typography size="body1" variant="primary" className="mb-6">
+        {error?.message}
+      </Typography>
       <Button type="submit" variant="primary" className="" onClick={reset}>
         Попробовать заново
       </Button>

@@ -44,13 +44,15 @@ export const request = <T>(module: string, init?: RequestInit) => {
         const isPdf = res.headers
           .get("content-type")
           ?.includes("application/pdf");
-        responseData = {
-          success: true,
-          data: await res.blob() as T,
-          errorMsg: {
-            ru: '',
-            kz: '',
-            en: ''
+        if (isPdf) {
+          responseData = {
+            success: true,
+            data: await res.blob() as T,
+            errorMsg: {
+              ru: '',
+              kz: '',
+              en: ''
+            }
           }
         }
       }

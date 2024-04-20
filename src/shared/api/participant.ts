@@ -91,7 +91,7 @@ export type Participant = {
 
 type GetParticipantParams = {
   user_id?: number
-  status?: ApplicationStatus
+  status?: ApplicationStatus | ApplicationStatus[]
   casting_city?: string
   offset?: number
   limit?: number
@@ -105,7 +105,7 @@ type GetParticipantsListResponse = {
 }
 
 const getParticipantsList = (params: GetParticipantParams = {}) => {
-  return request<GetParticipantsListResponse>(`/participants?${qs.stringify(params)}`)
+  return request<GetParticipantsListResponse>(`/participants?${qs.stringify(params, { indices: false })}`)
 }
 
 const deleteParticipant = (id: number) => {

@@ -14,7 +14,12 @@ type Props = {
 
 export const Participants = async ({ searchParams }: Props) => {
   const response = await participantApi.getParticipantsList({
-    status: "application_verified",
+    status: [
+      "application_verified",
+      "came_to_first_casting",
+      "passed_first_casting",
+      "came_to_second_casting"
+    ],
     limit: 10,
     offset: (Number(searchParams?.page) || 0)
   });

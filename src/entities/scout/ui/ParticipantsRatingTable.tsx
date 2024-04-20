@@ -24,9 +24,10 @@ type Props = {
   cities: City[]
   totalCount: number
   isTop15?: boolean
+  page: number
 }
 
-export const ScoutParticipantsRatingTable = ({ cities, participants, totalCount, isTop15 }: Props) => {
+export const ScoutParticipantsRatingTable = ({ cities, participants, totalCount, isTop15, page }: Props) => {
   const [isLoading, startTransition] = useTransition()
 
   return (
@@ -83,6 +84,7 @@ export const ScoutParticipantsRatingTable = ({ cities, participants, totalCount,
               <table className="w-full whitespace-nowrap">
                 <thead>
                 <tr className="bg-bg-platinum font-semibold text-text-darkblue">
+                  <th className="px-2 py-4">№</th>
                   <th className="px-6 py-4 text-left">Имя Фамилия</th>
                   <th className="py-4 text-left">Оценка</th>
                   <th className="px-6 py-4 text-left">Город</th>
@@ -92,6 +94,7 @@ export const ScoutParticipantsRatingTable = ({ cities, participants, totalCount,
                 <tbody>
                 {participants?.map((item, index) =>
                   <tr key={index} className="border-b border-border-lightgray">
+                    <td className="px-2">{(index + 1) + ((page - 1) * 10)}</td>
                     <td className="px-6 py-4 flex items-center gap-4">
                       <UserAvatar image_url={item?.image_url || ""} width={36}/>
                       {item.full_name}

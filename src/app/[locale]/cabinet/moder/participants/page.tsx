@@ -20,7 +20,12 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
   const [cities, data] = await Promise.all([
     citiesApi.getCitiesList(),
     participantApi.getParticipantsList({
-      status: "application_verified",
+      status: [
+        "application_verified",
+        "came_to_first_casting",
+        "passed_first_casting",
+        "came_to_second_casting"
+      ],
       casting_city: city,
       limit: 10,
       offset: (Number(searchParams?.page) || 0)
