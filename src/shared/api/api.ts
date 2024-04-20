@@ -30,7 +30,7 @@ export const request = <T>(module: string, init?: RequestInit) => {
 
   return fetch(API_URL + module, init).then(
     async (res) => {
-      console.log("request", init?.method || "GET", module, res.status)
+      console.log("request", init?.method || "GET", API_URL + module, res.status)
       if (res.status === 401) {
         redirect(Routes.SIGN_IN)
       }
