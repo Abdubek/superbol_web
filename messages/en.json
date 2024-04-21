@@ -284,7 +284,7 @@
       "title": "Profile",
       "user_id": "User ID",
       "email": "Email",
-      "full_name": "First Name<br></br> Last Name"
+      "full_name": "First Name <br></br> Last Name"
     }
   },
   "application": {

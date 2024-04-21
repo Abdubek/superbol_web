@@ -33,7 +33,9 @@ export default async function CabinetProfilePage() {
         </div>
         <div className="flex flex-col gap-2 pt-3">
           <Typography size="body1" variant="grey">
-            {t("profile.full_name")}
+            {t.rich("profile.full_name", {
+              br: () => <br />,
+            })}
           </Typography>
           <Typography size="body1">{profileData?.full_name || "-"}</Typography>
         </div>
