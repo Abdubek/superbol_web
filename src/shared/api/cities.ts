@@ -12,9 +12,8 @@ export type City = {
 
 const getCitiesList = async (): Promise<City[]> => {
   const response = await request<City[]>(`/cities`, {
-    cache: "force-cache",
     next: {
-      revalidate: 60
+      revalidate: 5
     }
   })
   // @ts-ignore

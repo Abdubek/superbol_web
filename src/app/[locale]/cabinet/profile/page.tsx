@@ -9,8 +9,6 @@ export default async function CabinetProfilePage() {
   const profileData = await userApi.profile();
   const t = await getTranslations("welcome");
 
-  console.log(profileData)
-
   return (
     <main>
       <Typography size="h3" className="mb-3">

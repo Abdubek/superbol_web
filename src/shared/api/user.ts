@@ -61,9 +61,8 @@ type ProfileResponse = {
 
 const profile = () => {
   return request<ProfileResponse>('/users/profile', {
-    cache: "force-cache",
     next: {
-      revalidate: 60
+      revalidate: 5
     }
   })
 }
