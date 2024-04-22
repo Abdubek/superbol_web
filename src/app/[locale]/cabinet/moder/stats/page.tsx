@@ -9,6 +9,12 @@ export default async function CabinetStatsPage({}: Props) {
 
   console.log(data)
 
+  data?.sort((a, b) => {
+    if (a.city < b.city) return -1
+    if (a.city > b.city) return 1
+    return 0
+  })
+
   return (
     <main>
       <Typography size="h3" className="mb-10">Список участников</Typography>
@@ -19,6 +25,7 @@ export default async function CabinetStatsPage({}: Props) {
             <tr className="bg-bg-platinum font-semibold text-text-darkblue">
               <th className="px-6 py-4 text-left">Город</th>
               <th className="px-6 py-4 text-left">Количество</th>
+              <th className="px-6 py-4 text-left">Статус</th>
             </tr>
             </thead>
             <tbody>
@@ -26,6 +33,7 @@ export default async function CabinetStatsPage({}: Props) {
               <tr key={index}>
                 <td className="px-6 py-4">{item.city}</td>
                 <td className="px-6 py-4">{item.count}</td>
+                <td className="px-6 py-4">{item.status}</td>
               </tr>
             )}
             </tbody>

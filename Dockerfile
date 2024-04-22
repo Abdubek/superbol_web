@@ -57,6 +57,8 @@ ENV PORT 3000
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
+ENV NEXT_SHARP_PATH=/app/node_modules/sharp
+
 LABEL com.centurylinklabs.watchtower.stop-signal="SIGHUP"
 
 CMD ["node", "server.js"]

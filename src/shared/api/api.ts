@@ -5,6 +5,7 @@ import {getLocale} from "next-intl/server";
 import {Routes} from "@/routes";
 
 const API_URL = process.env.API_URL
+// const API_URL = 'https://super-bol.kz/api/v1'
 
 type BaseResponse<T> = {
   data: T

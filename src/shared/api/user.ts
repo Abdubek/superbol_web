@@ -60,11 +60,7 @@ type ProfileResponse = {
 }
 
 const profile = () => {
-  return request<ProfileResponse>('/users/profile', {
-    next: {
-      revalidate: 5
-    }
-  })
+  return request<ProfileResponse>('/users/profile')
 }
 
 const uploadAvatar = (data: FormData) => {
