@@ -9,6 +9,7 @@ import { FormInput } from "@/shared/ui/FormInput";
 import { useTranslations } from "next-intl";
 import {SubmitButton} from "@/features/SubmitButton";
 import CheckSmallIcon from "@/shared/icons/check-small.svg";
+import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
 
 const initialState = {
   email: "",
@@ -73,6 +74,7 @@ export const SignInForm = () => {
           </Typography>
         </Typography>
       </div>
+      <ContactToWhatsapp />
     </form>
   );
 };

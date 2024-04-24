@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import {Typography} from "@/shared/ui/Typography";
 import {Button} from "@/shared/ui/Button";
+import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
 
 export default function Error({
   error,
@@ -24,9 +25,10 @@ export default function Error({
       <Typography size="body1" variant="primary" className="mb-6">
         {error?.message}
       </Typography>
-      <Button type="submit" variant="primary" className="" onClick={reset}>
+      <Button type="submit" variant="primary" className="mb-6" onClick={reset}>
         Попробовать заново
       </Button>
+      <ContactToWhatsapp />
     </div>
   )
 }

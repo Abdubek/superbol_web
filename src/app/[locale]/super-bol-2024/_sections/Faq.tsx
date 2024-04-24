@@ -23,7 +23,7 @@ export const Faq = () => {
                 <Typography size="body1">
                   {t(`faq.${item}.question`)}
                 </Typography>
-                <ChevronDownIcon className="shrink-0 text-muted-foreground transition-transform duration-200" />
+                <ChevronDownIcon className="shrink-0 text-muted-foreground transition-transform duration-200"/>
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -35,18 +35,18 @@ export const Faq = () => {
         ))}
       </Accordion>
 
-      <div className="flex sm:flex-row flex-col gap-4 justify-between items-center bg-bg-lightblue py-4 px-6 rounded-[20px]">
+      <div
+        className="flex sm:flex-row flex-col gap-4 justify-between items-center bg-bg-lightblue py-4 px-6 rounded-[20px]">
         <Typography size="h3" variant="primary">{t('feedback.title')}</Typography>
-        <div className="flex items-center gap-3 rounded-full border border-border-primary px-5 py-2.5">
+        <a href="https://t.me/+KdU3tzpXmRtmYzYy" target="_blank"
+           className="flex items-center gap-3 rounded-full border border-border-primary px-5 py-2.5">
           <div>
-            <TelegramLogo />
+            <TelegramLogo/>
           </div>
-          <Typography asChild size="body1" variant="grey">
-            <a href="https://t.me/+KdU3tzpXmRtmYzYy" target="_blank">
-              {t('feedback.text')}
-            </a>
+          <Typography size="body1" variant="grey">
+            {t('feedback.text')}
           </Typography>
-        </div>
+        </a>
       </div>
     </div>
   )

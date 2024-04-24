@@ -11,6 +11,7 @@ import { Routes } from "@/routes";
 import { userApi } from "@/shared/api/user";
 import { getTranslations } from "next-intl/server";
 import { Button } from "@/shared/ui/Button";
+import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
 
 const menu = {
   participant: [
@@ -224,7 +225,7 @@ const menuItems = {
   }
 }
 
-const downloadNumberStatuses = ['application_submitted', 'application_verified', 'passed_first_casting', 'came_to_second_casting']
+const downloadNumberStatuses = ['application_submitted', 'application_verified', 'passed_first_casting', 'came_to_second_casting', 'came_to_first_casting']
 
 export const ProfileMenu = async () => {
   const profileData = await userApi.profile();
@@ -254,6 +255,8 @@ export const ProfileMenu = async () => {
       </Button>}
 
       {profileData?.role && menu[profileData?.role].map(item => menuItems[item]?.())}
+
+      <ContactToWhatsapp />
     </div>
   );
 };

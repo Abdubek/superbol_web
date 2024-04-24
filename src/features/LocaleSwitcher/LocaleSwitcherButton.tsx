@@ -13,7 +13,7 @@ export const LocaleSwitcherButton = () => {
 
   return (
     <Button size="sm" radius="md" weight="bold" variant="ghost"
-            className="uppercase md:text-base text-xs md:gap-2 gap-1 h-8"
+            className="uppercase md:text-base text-xs md:gap-2 gap-1 md:h-auto h-8"
             onClick={() => router.replace(pathname + `?${CHANGE_LANG_KEY}=true`)}>
       {locale}
       <div className="md:block hidden">

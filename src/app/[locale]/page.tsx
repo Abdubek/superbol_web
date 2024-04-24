@@ -9,7 +9,6 @@ import { Footer } from "./_sections/Footer";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
-
   return (
     <main>
       <Header />

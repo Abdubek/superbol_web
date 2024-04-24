@@ -5,6 +5,7 @@ import ArrowRightIcon from "@/shared/icons/arrow-right.svg";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 import Link from "next/link";
 import {Routes} from "@/routes";
+import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
 
 export const Main = () => {
   const t = useTranslations("landing.main");
@@ -34,6 +35,8 @@ export const Main = () => {
         <Link href={Routes.SIGN_UP}>
           <Button variant="primary">{t("cta")}</Button>
         </Link>
+
+        <ContactToWhatsapp />
       </div>
       <div className="col-span-3 hidden lg:flex flex-col items-start gap-14 pr-14">
         <a
