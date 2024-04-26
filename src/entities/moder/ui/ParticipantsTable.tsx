@@ -42,6 +42,7 @@ export const ParticipantsTable = ({ cities, participants, totalCount }: Props) =
               <th className="px-6 py-4 text-left">Имя Фамилия</th>
               <th className="px-6 py-4 text-left">Email</th>
               <th className="px-6 py-4 text-left">Город</th>
+              <th className="px-6 py-4 text-left">Номер телефона</th>
               <th className="px-6 py-4 text-left">Статус</th>
               <th className="px-6 py-4 text-left"></th>
             </tr>
@@ -57,6 +58,7 @@ export const ParticipantsTable = ({ cities, participants, totalCount }: Props) =
                   {item.email}
                 </td>
                 <td className="px-6 py-4">{item.casting_city}</td>
+                <td className="px-6 py-4">{item.phone_number}</td>
                 <td className="px-6 py-4">{item.status}</td>
                 <td className="px-6 py-4 flex gap-2">
                   <ParticipantDrawer data={item}/>

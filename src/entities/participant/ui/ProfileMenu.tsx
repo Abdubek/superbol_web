@@ -231,7 +231,7 @@ const menuItems = {
     const needApplication = profileData?.role === "participant" && profileData.participant?.status === "activated"
     const needPhone = !needApplication && profileData?.role === "participant" && !profileData.participant?.phone_number
 
-    if (true) {
+    if (needPhone) {
       return (
         <Typography
           asChild
