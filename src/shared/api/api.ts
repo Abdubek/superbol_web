@@ -76,7 +76,7 @@ export const request = <T>(module: string, init?: RequestInit) => {
           setFlash({type: 'error', message: responseData.errorMsg[locale]});
           redirect(fullUrl)
         }
-        return Promise.resolve({ success: false });
+        return Promise.resolve(null);
       }
 
       return responseData?.data;

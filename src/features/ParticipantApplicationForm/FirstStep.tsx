@@ -8,7 +8,7 @@ import {
   specifiedSkillOptions,
 } from "@/entities/participant/options";
 import { Button } from "@/shared/ui/Button";
-import { useFormStore } from "./index";
+import { useFormStore } from "./index"
 import { SecondStepForm } from "@/features/ParticipantApplicationForm/SecondStep";
 import { City } from "@/shared/api/cities";
 import * as React from "react";
