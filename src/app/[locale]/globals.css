@@ -34,6 +34,23 @@ div.select__control {
     border-color: rgb(126 126 126);
 }
 
+/* Phone Input Styles */
+.react-international-phone-input-container .react-international-phone-country-selector button {
+    height: 48px;
+    padding: 0 8px;
+    border: 1px solid #7E7E7E;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+.react-international-phone-input-container input.react-international-phone-input {
+    height: 48px;
+    width: 100%;
+    border: 1px solid #7E7E7E;
+    border-radius: 0 0.375rem 0.375rem 0;
+    color: rgb(126 126 126);
+}
+.react-international-phone-input-container {
+}
+
 @layer base {
     @font-face {
         font-family: 'Involve';

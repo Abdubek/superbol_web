@@ -13,6 +13,7 @@ import {sendConfirmEmail} from "@/actions/send-confirm-email";
 import {confirmEmail} from "@/actions/confirm-email";
 import {deleteParticipant} from "@/actions/delete-participant";
 import {scan} from "@/actions/scan";
+import {setPhone} from "@/actions/set-phone";
 
 export const actions = {
   signIn,
@@ -30,5 +31,6 @@ export const actions = {
   sendConfirmEmail,
   confirmEmail,
   deleteParticipant,
-  scan
+  scan,
+  setPhone
 }

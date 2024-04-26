@@ -80,6 +80,7 @@ export const ParticipantApplicationForm = ({ cities, initialData }: Props) => {
       weight: initialData?.weight,
       origin_city: initialData?.origin_city,
       main_leg: initialData?.main_leg,
+      phone_number: initialData?.phone_number,
       experience_years: initialData?.experience_years,
       specified_skills_1: (initialData?.specified_skills && initialData?.specified_skills?.length >= 1)
         ? initialData?.specified_skills[0] : undefined,

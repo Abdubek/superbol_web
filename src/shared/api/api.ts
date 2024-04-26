@@ -5,7 +5,7 @@ import {getLocale} from "next-intl/server";
 import {Routes} from "@/routes";
 
 // const API_URL = process.env.API_URL
-const API_URL = 'https://super-bol.kz/api/v1'
+const API_URL = 'http://super-bol.kz:9090/api/v1'
 
 type BaseResponse<T> = {
   data: T
@@ -76,7 +76,7 @@ export const request = <T>(module: string, init?: RequestInit) => {
           setFlash({type: 'error', message: responseData.errorMsg[locale]});
           redirect(fullUrl)
         }
-        return Promise.resolve(null);
+        return Promise.resolve({ success: false });
       }
 
       return responseData?.data;

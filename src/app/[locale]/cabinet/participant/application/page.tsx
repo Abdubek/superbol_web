@@ -2,7 +2,6 @@ import { ParticipantApplicationForm } from "@/features/ParticipantApplicationFor
 import { Typography } from "@/shared/ui/Typography";
 import { citiesApi } from "@/shared/api/cities";
 import { userApi } from "@/shared/api/user";
-import { participantApi } from "@/shared/api/participant";
 import { getTranslations } from "next-intl/server";
 
 export default async function CabinetApplicationPage() {
@@ -11,6 +10,7 @@ export default async function CabinetApplicationPage() {
     userApi.profile(),
   ]);
   const t = await getTranslations("application");
+  console.log("profileData", profileData)
   return (
     <main>
       <Typography size="h3" className="mb-10">

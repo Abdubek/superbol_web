@@ -1,4 +1,4 @@
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FormInput } from "@/shared/ui/FormInput";
 import { formErrorText } from "@/shared/utils/common";
 import { FormSelect } from "@/shared/ui/FormSelect";
@@ -11,10 +11,9 @@ import { Button } from "@/shared/ui/Button";
 import { useFormStore } from "./index";
 import { SecondStepForm } from "@/features/ParticipantApplicationForm/SecondStep";
 import { City } from "@/shared/api/cities";
-import { Typography } from "@/shared/ui/Typography";
 import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { subYears } from "date-fns";
+import {FormPhoneInput} from "@/shared/ui/FormPhoneInput";
 
 export type FirstStepForm = {
   full_name?: string;
@@ -23,6 +22,7 @@ export type FirstStepForm = {
   weight?: number;
   origin_city?: string;
   main_leg?: string;
+  phone_number?: string;
   gaming_positions_1?: string;
   gaming_positions_2?: string;
   gaming_positions_3?: string;
@@ -52,6 +52,7 @@ export const FirstStep = ({ cities }: Props) => {
       weight: data?.weight,
       origin_city: data?.origin_city,
       main_leg: data?.main_leg,
+      phone_number: data?.phone_number,
       experience_years: data?.experience_years,
       specified_skills_1: data?.specified_skills_1,
       specified_skills_2: data?.specified_skills_2,
@@ -91,6 +92,13 @@ export const FirstStep = ({ cities }: Props) => {
         placeholder={t("inputs.birth_date.placeholder")}
         error={formErrorText(errors.birth_date)}
         {...register("birth_date", { required: true })}
+      />
+      <FormPhoneInput
+        name="phone_number"
+        label={t("inputs.phone.label")}
+        placeholder={t("inputs.phone.placeholder")}
+        error={formErrorText(errors.phone_number)}
+        control={control}
       />
       <FormInput
         type="number"

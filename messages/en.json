@@ -269,6 +269,7 @@
       "minutes": "minutes"
     },
     "warning": "Do not forget to fill out the application form to participate in the casting",
+    "enter_phone": "You need to enter a phone number",
     "menu": {
       "profile": "Profile",
       "application": "Questionnaire",
@@ -287,6 +288,9 @@
       "full_name": "First Name <br></br> Last Name"
     }
   },
+  "phone": {
+    "title": "Enter your phone number"
+  },
   "application": {
     "title": "Participant Questionnaire",
     "inputs": {
@@ -297,6 +301,10 @@
       "birth_date": {
         "label": "Date of birth",
         "placeholder": "dd.mm.yyyy"
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeholder": "Enter your phone number"
       },
       "height": {
         "label": "Height",
@@ -352,7 +360,8 @@
       }
     },
     "buttons": {
-      "next": "Further"
+      "next": "Further",
+      "save": "Save"
     }
   },
   "participants": {

@@ -12,6 +12,7 @@ export const Routes = {
   PROFILE: '/cabinet/profile',
   PROFILE_APPLICATION: '/cabinet/participant/application',
   PROFILE_PARTICIPANTS: '/cabinet/participant/participants',
+  PROFILE_PARTICIPANTS_PHONE: '/cabinet/participant/phone',
   PROFILE_PARTICIPANTS_PROFILES: '/cabinet/scout/participants',
   PROFILE_PARTICIPANTS_RATING: '/cabinet/scout/participants-rating',
   PROFILE_PARTICIPANTS_GROUPS: '/cabinet/scout/groups',

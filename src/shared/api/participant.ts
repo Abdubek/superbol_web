@@ -80,6 +80,7 @@ export type Participant = {
   origin_city: string,
   casting_city: string,
   main_leg: string,
+  phone_number: string,
   gaming_positions: string[],
   experience_years: number,
   specified_skills: string[],
@@ -124,6 +125,15 @@ const scan = (id: string) => {
   })
 }
 
+const setPhone = (phone: string) => {
+  return request(`/participants/phone-number`, {
+    method: "PUT",
+    body: JSON.stringify({
+      number: phone
+    })
+  })
+}
+
 export const participantApi = {
   register,
   activate,
@@ -133,5 +143,6 @@ export const participantApi = {
   confirmEmail,
   deleteParticipant,
   numberPdf,
-  scan
+  scan,
+  setPhone
 }

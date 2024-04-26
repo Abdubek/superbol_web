@@ -4,6 +4,7 @@ import StarIcon from "@/shared/icons/star.svg";
 import PeopleIcon from "@/shared/icons/people.svg";
 import NotificationIcon from "@/shared/icons/notification.svg";
 import InformationIcon from "@/shared/icons/information.svg";
+import InformationYellowIcon from "@/shared/icons/information-yellow.svg";
 import ChartIcon from "@/shared/icons/chart.svg";
 import DocIcon from "@/shared/icons/doc.svg";
 import { Typography } from "@/shared/ui/Typography";
@@ -15,6 +16,7 @@ import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
 
 const menu = {
   participant: [
+    Routes.PROFILE_PARTICIPANTS_PHONE,
     Routes.PROFILE,
     Routes.PROFILE_APPLICATION,
     Routes.PROFILE_PARTICIPANTS,
@@ -222,6 +224,30 @@ const menuItems = {
         </Link>
       </Typography>
     )
+  },
+  [Routes.PROFILE_PARTICIPANTS_PHONE]: async () => {
+    const profileData = await userApi.profile();
+    const t = await getTranslations("welcome");
+    const needApplication = profileData?.role === "participant" && profileData.participant?.status === "activated"
+    const needPhone = !needApplication && profileData?.role === "participant" && !profileData.participant?.phone_number
+
+    if (true) {
+      return (
+        <Typography
+          asChild
+          size="caption1"
+          className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        >
+          <Link href={Routes.PROFILE_PARTICIPANTS_PHONE}>
+            <div>
+              <DocIcon/>
+            </div>
+            Номер телефона
+          </Link>
+        </Typography>
+      )
+    }
+    return null
   }
 }
 
@@ -232,10 +258,18 @@ export const ProfileMenu = async () => {
 
   const t = await getTranslations("welcome");
 
+  const needApplication = profileData?.role === "participant" && profileData.participant?.status === "activated"
+  const needPhone = !needApplication && profileData?.role === "participant" && !profileData.participant?.phone_number
   return (
     <div className="flex flex-col gap-3">
-      {profileData?.role === "participant" &&
-        profileData.participant?.status === "activated" && (
+      {downloadNumberStatuses.includes(profileData?.participant?.status || "") &&
+        <Button asChild variant="primary">
+          <a href="/ru/api/download/number" download>
+            {t('download.number')} - {profileData?.participant?.number}
+          </a>
+        </Button>}
+
+      {needApplication && (
           <Typography
             size="body3"
             className="flex items-center gap-3 p-2 rounded-lg bg-bg-red/5"
@@ -247,12 +281,17 @@ export const ProfileMenu = async () => {
           </Typography>
         )}
 
-      {downloadNumberStatuses.includes(profileData?.participant?.status || "") &&
-        <Button asChild variant="primary">
-        <a href="/ru/api/download/number" download>
-          {t('download.number')} - {profileData?.participant?.number}
-        </a>
-      </Button>}
+      {needPhone && (
+        <Typography
+          size="body3"
+          className="flex items-center gap-3 p-2 rounded-lg bg-bg-yellow/10"
+        >
+          <div>
+            <InformationYellowIcon />
+          </div>
+          {t("enter_phone")}
+        </Typography>
+      )}
 
       {profileData?.role && menu[profileData?.role].map(item => menuItems[item]?.())}
 
