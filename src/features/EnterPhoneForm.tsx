@@ -34,6 +34,7 @@ export const EnterPhoneForm = () => {
       setLoading(false)
       if (res) {
         router.push(Routes.PROFILE)
+        router.refresh();
       }
     }
   };
