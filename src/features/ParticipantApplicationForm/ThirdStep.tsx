@@ -38,6 +38,7 @@ export const ThirdStep = () => {
       weight: Number(data.weight),
       origin_city: data.origin_city,
       main_leg: data.main_leg,
+      phone_number: data.phone_number,
       experience_years: Number(data.experience_years),
       casting_city: data.casting_city,
       gaming_positions: gamePositions,
@@ -48,6 +49,7 @@ export const ThirdStep = () => {
     setStatus("application_verified")
     window.scrollTo(0, 0)
     router.push(Routes.PROFILE_NOTIFICATIONS)
+    router.refresh()
   }
 
   return (

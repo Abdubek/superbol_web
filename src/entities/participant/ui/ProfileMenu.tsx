@@ -262,7 +262,6 @@ export const ProfileMenu = async () => {
   const needPhone = !needApplication && profileData?.role === "participant" && !profileData.participant?.phone_number
   return (
     <div className="flex flex-col gap-3">
-      {profileData?.participant?.phone_number}
       {downloadNumberStatuses.includes(profileData?.participant?.status || "") &&
         <Button asChild variant="primary">
           <a href="/ru/api/download/number" download>

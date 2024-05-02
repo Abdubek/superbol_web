@@ -6,6 +6,8 @@ import {CastingCities} from "@/app/[locale]/super-bol-2024/_sections/CastingCiti
 import {Participants} from "@/app/[locale]/super-bol-2024/_sections/Participants";
 import {Faq} from "@/app/[locale]/super-bol-2024/_sections/Faq";
 import {SearchParams} from "nuqs/parsers";
+import {Suspense} from "react";
+import {ParticipantsSkeleton} from "@/app/[locale]/super-bol-2024/_sections/ParticipantsSkeleton";
 
 type Props = {
   searchParams: SearchParams
@@ -13,12 +15,14 @@ type Props = {
 
 export default function Home({ searchParams }: Props) {
   return (
-    <main>
+    <main key={Math.random()}>
       <Header />
       <SuperBol2024Banner />
       <Steps />
       <CastingCities />
-      <Participants searchParams={searchParams} />
+      <Suspense fallback={<ParticipantsSkeleton searchParams={searchParams} />}>
+        <Participants searchParams={searchParams} />
+      </Suspense>
       <Faq />
       <Footer />
     </main>

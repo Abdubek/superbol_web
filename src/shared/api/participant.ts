@@ -44,6 +44,7 @@ export type ApplicationDTO = {
   weight?: number
   origin_city?: string
   main_leg?: string
+  phone_number?: string
   gaming_positions?: string[]
   experience_years?: number
   specified_skills?: string[]

@@ -8,27 +8,15 @@ import {PagePagination} from "@/features/PagePagination";
 import {getTranslations} from "next-intl/server";
 import {useTranslations} from "next-intl";
 import {UserAvatar} from "@/features/Avatar";
+import {Skeleton} from "@/shared/ui/Skeleton";
 
 type Props = {
   searchParams: SearchParams;
 }
 
-export const Participants = async ({ searchParams }: Props) => {
+export const ParticipantsSkeleton = async ({ searchParams }: Props) => {
   const page = Number(searchParams?.page) || 1
-  const response = await participantApi.getParticipantsList({
-    status: [
-      "application_verified",
-      "came_to_first_casting",
-      "passed_first_casting",
-      "came_to_second_casting"
-    ],
-    limit: 10,
-    offset: page
-  });
-
   const t = await getTranslations();
-
-  const data = response?.participants || []
 
   return (
     <div className="container mb-16">
@@ -39,7 +27,7 @@ export const Participants = async ({ searchParams }: Props) => {
       <div className="overflow-x-scroll mb-5">
         <table className="w-full ">
           <thead>
-          <tr className="bg-bg-platinum font-semibold text-text-darkblue text-nowrap">
+          <tr className="bg-bg-platinum font-semibold text-text-darkblue">
             <th className="px-6 py-4 min-w-[80px]">№</th>
             <th className="px-6 py-4 text-left min-w-[280px]">
               {t.rich("application.inputs.full_name.label", {
@@ -61,34 +49,40 @@ export const Participants = async ({ searchParams }: Props) => {
           </tr>
           </thead>
           <tbody>
-          {data?.map((item, index) => (
+          {new Array(10).fill(0)?.map((item, index) => (
             <tr key={index} className="border-b border-border-lightgray h-[80px]">
-              <td className="px-6 py-4">{(page - 1) * 10 + (index + 1)}</td>
+              <td className="px-6 py-4">
+                <Skeleton className="w-[30px] h-[24px] rounded-full" />
+              </td>
               <td className="px-6 py-4 flex items-center gap-4 h-[80px]">
                 <div>
-                  <UserAvatar image_url={item?.image_url || ""} width={36}/>
+                  <Skeleton className="w-[36px] h-[36px] rounded-full" />
                 </div>
                 <div>
                   <div className="line-clamp-1 mb-1">
-                    {item.full_name}
+                    <Skeleton className="w-[140px] h-[24px] rounded-full" />
                   </div>
-                  <Typography size="body3" variant="grey">
-                    {item.number}
-                  </Typography>
+                  <Skeleton className="w-[40px] h-[16px] rounded-full" />
                 </div>
               </td>
-              <td className="px-6 py-4">{item.casting_city}</td>
-              {item.gaming_positions?.map((pos, posInd) => (
-                <td key={posInd} className="px-6 py-4">
-                  <GamePosition pos={pos}/>
-                </td>
-              ))}
+              <td className="px-6 py-4">
+                <Skeleton className="w-[100px] h-[24px] rounded-full" />
+              </td>
+              <td className="px-6 py-4">
+                <Skeleton className="w-full h-[24px] rounded-full" />
+              </td>
+              <td className="px-6 py-4">
+                <Skeleton className="w-full h-[24px] rounded-full" />
+              </td>
+              <td className="px-6 py-4">
+                <Skeleton className="w-full h-[24px] rounded-full" />
+              </td>
             </tr>
           ))}
           </tbody>
         </table>
       </div>
-      <PagePagination totalSize={response?.total_count || 0}/>
+      <PagePagination totalSize={1000}/>
     </div>
   )
 }

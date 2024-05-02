@@ -7,6 +7,7 @@ import { Partners } from "./_sections/Partners";
 import { TiktokVideos } from "./_sections/TiktokVideos";
 import { Footer } from "./_sections/Footer";
 import { useTranslations } from "next-intl";
+import {Suspense} from "react";
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
       <SuperBol2024 />
       <PreviousSuperBols />
       <Partners />
-      <TiktokVideos />
+      <Suspense fallback={<div />}>
+        <TiktokVideos />
+      </Suspense>
       <Footer />
     </main>
   );
