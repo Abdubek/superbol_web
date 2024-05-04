@@ -95,12 +95,22 @@ export const ScoutParticipantsRatingTable = ({ cities, participants, totalCount,
                 {participants?.map((item, index) =>
                   <tr key={index} className="border-b border-border-lightgray">
                     <td className="px-2">{(index + 1) + ((page - 1) * 10)}</td>
-                    <td className="px-6 py-4 flex items-center gap-4">
-                      <UserAvatar image_url={item?.image_url || ""} width={36}/>
-                      {item.full_name}
+                    <td className="px-6 py-4 flex items-center gap-4 h-[80px]">
+                      <div>
+                        <UserAvatar image_url={item?.image_url || ""} width={36}/>
+                      </div>
+                      <div>
+                        <div className="line-clamp-1 mb-1">
+                          {item.full_name}
+                        </div>
+                        <Typography size="body3" variant="grey">
+                          {item.number}
+                        </Typography>
+                      </div>
                     </td>
                     <td>
-                      <RatingInput defaultValue={[item.rating]} participantId={item.id} disabled={true} startTransition={startTransition} />
+                      <RatingInput defaultValue={[item.rating]} participantId={item.id} disabled={true}
+                                   startTransition={startTransition}/>
                     </td>
                     <td className="px-6 py-4">{item.casting_city}</td>
                     <td className="px-6 py-4">
@@ -119,7 +129,7 @@ export const ScoutParticipantsRatingTable = ({ cities, participants, totalCount,
   )
 }
 
-const Position = ({ pos }: { pos: string }) => {
+const Position = ({pos}: { pos: string }) => {
   const locale = useLocale()
   const item = gamingPositionOptions.find(i => i.value === pos)
   return (

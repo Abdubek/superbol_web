@@ -25,7 +25,6 @@ type Props = {
 
 export const ScoutParticipantsTable = ({ cities, participants, totalCount }: Props) => {
   const [isLoading, startTransition] = useTransition()
-
   return (
     <>
       <CastingCityFilter cities={cities} className="mb-10" startTransition={startTransition} />
@@ -64,11 +63,21 @@ export const ScoutParticipantsTable = ({ cities, participants, totalCount }: Pro
             {participants?.map((item, index) =>
               <tr key={index} className="border-b border-border-lightgray">
                 <td className="px-6 py-4">
-                  <FavoriteButton isFavorite={item?.is_favorite} participantId={item?.id} startTransition={startTransition}/>
+                  <FavoriteButton isFavorite={item?.is_favorite} participantId={item?.id}
+                                  startTransition={startTransition}/>
                 </td>
-                <td className="px-6 py-4 flex items-center gap-4">
-                  <UserAvatar image_url={item?.image_url || ""} width={36}/>
-                  {item?.full_name}
+                <td className="px-6 py-4 flex items-center gap-4 h-[80px]">
+                  <div>
+                    <UserAvatar image_url={item?.image_url || ""} width={36}/>
+                  </div>
+                  <div>
+                    <div className="line-clamp-1 mb-1">
+                      {item.full_name}
+                    </div>
+                    <Typography size="body3" variant="grey">
+                      {item.number}
+                    </Typography>
+                  </div>
                 </td>
                 <td>
                   <RatingInput defaultValue={[item.rating]} participantId={item.id} startTransition={startTransition}/>

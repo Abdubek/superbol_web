@@ -16,6 +16,7 @@ export const Footer = () => {
             alt="Freedom"
             width={137}
             height={72}
+            className="-ml-3"
           />
         </div>
         <div className="flex flex-col items-end">

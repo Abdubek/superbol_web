@@ -10,6 +10,7 @@ import Image from "next/image";
 import * as React from "react";
 import {CastingCityFilter} from "@/features/CastingCityFilter";
 import {City} from "@/shared/api/cities";
+import {Typography} from "@/shared/ui/Typography";
 
 type Props = {
   participants: Participant[]
@@ -19,7 +20,7 @@ type Props = {
 
 export const ParticipantsTable = ({ cities, participants, totalCount }: Props) => {
   const [isLoading, startTransition] = useTransition()
-
+  console.log(participants)
   return (
     <>
       <CastingCityFilter cities={cities} className="mb-10" startTransition={startTransition} />
@@ -50,9 +51,18 @@ export const ParticipantsTable = ({ cities, participants, totalCount }: Props) =
             <tbody>
             {participants?.map((item, index) =>
               <tr key={index} className="border-b border-border-lightgray">
-                <td className="px-6 py-4 flex items-center gap-4">
-                  <UserAvatar image_url={item?.image_url || ""} width={36}/>
-                  {item.full_name}
+                <td className="px-6 py-4 flex items-center gap-4 h-[80px]">
+                  <div>
+                    <UserAvatar image_url={item?.image_url || ""} width={36}/>
+                  </div>
+                  <div>
+                    <div className="line-clamp-1 mb-1">
+                      {item.full_name}
+                    </div>
+                    <Typography size="body3" variant="grey">
+                      {item.number}
+                    </Typography>
+                  </div>
                 </td>
                 <td>
                   {item.email}
@@ -69,7 +79,7 @@ export const ParticipantsTable = ({ cities, participants, totalCount }: Props) =
             </tbody>
           </table>
         </div>
-        <PagePagination totalSize={totalCount || 0} startTransition={startTransition} />
+        <PagePagination totalSize={totalCount || 0} startTransition={startTransition}/>
       </div>
     </>
   )

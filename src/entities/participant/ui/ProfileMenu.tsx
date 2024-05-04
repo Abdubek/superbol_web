@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import ProfileIcon from "@/shared/icons/profile.svg";
 import StarIcon from "@/shared/icons/star.svg";
@@ -13,6 +15,10 @@ import { userApi } from "@/shared/api/user";
 import { getTranslations } from "next-intl/server";
 import { Button } from "@/shared/ui/Button";
 import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
+import {ApplicationStatus} from "@/shared/api/participant";
+import {useTranslations} from "next-intl";
+import {usePathname} from "@/navigation";
+import {clsx} from "clsx";
 
 const menu = {
   participant: [
@@ -40,32 +46,42 @@ const menu = {
 
 const menuItems = {
   [Routes.PROFILE]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE}>
           <div>
-            <ProfileIcon />
+            <ProfileIcon className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.profile")}
         </Link>
       </Typography>
     )},
   [Routes.PROFILE_APPLICATION]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_APPLICATION
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_APPLICATION}>
           <div>
-            <StarIcon />
+            <StarIcon  className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.application")}
         </Link>
@@ -73,16 +89,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_PARTICIPANTS]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_PARTICIPANTS
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_PARTICIPANTS}>
           <div>
-            <PeopleIcon/>
+            <PeopleIcon className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.participants")}
         </Link>
@@ -90,16 +111,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_NOTIFICATIONS]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_NOTIFICATIONS
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_NOTIFICATIONS}>
           <div>
-            <NotificationIcon/>
+            <NotificationIcon className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.notifications")}
         </Link>
@@ -107,16 +133,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_DOCUMENTS]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_DOCUMENTS
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_DOCUMENTS}>
           <div>
-            <DocIcon/>
+            <DocIcon className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.documents")}
         </Link>
@@ -124,16 +155,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_PARTICIPANTS_PROFILES]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_PARTICIPANTS_PROFILES
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_PARTICIPANTS_PROFILES}>
           <div>
-            <NotificationIcon />
+            <NotificationIcon  className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.participants_profiles")}
         </Link>
@@ -141,16 +177,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_MODERATOR_PARTICIPANTS]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_MODERATOR_PARTICIPANTS
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_MODERATOR_PARTICIPANTS}>
           <div>
-            <NotificationIcon />
+            <NotificationIcon  className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.participants_profiles")}
         </Link>
@@ -158,16 +199,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_MODERATOR_STATS]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_MODERATOR_STATS
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_MODERATOR_STATS}>
           <div>
-            <NotificationIcon />
+            <NotificationIcon  className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.stats")}
         </Link>
@@ -175,16 +221,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_PARTICIPANTS_RATING]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_PARTICIPANTS_RATING
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_PARTICIPANTS_RATING}>
           <div>
-            <ChartIcon />
+            <ChartIcon  className={isActive ? "text-text-white" : "text-text-primary"}/>
           </div>
           {t("menu.rating")}
         </Link>
@@ -192,16 +243,21 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_PARTICIPANTS_GROUPS]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_PARTICIPANTS_GROUPS
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_PARTICIPANTS_GROUPS}>
           <div>
-            <PeopleIcon />
+            <PeopleIcon className={isActive ? "text-text-white" : "text-text-primary"} />
           </div>
           {t("menu.casting")}
         </Link>
@@ -209,38 +265,45 @@ const menuItems = {
     )
   },
   [Routes.PROFILE_VOLUNTEER_SCANNER]: async () => {
-    const t = await getTranslations("welcome");
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_VOLUNTEER_SCANNER
     return (
       <Typography
         asChild
         size="caption1"
-        className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+        className={clsx(
+          "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+          isActive && "bg-bg-primary text-text-white"
+        )}
       >
         <Link href={Routes.PROFILE_VOLUNTEER_SCANNER}>
           <div>
-            <PeopleIcon />
+            <PeopleIcon className={isActive ? "text-text-white" : "text-text-primary"} />
           </div>
           Сканнер
         </Link>
       </Typography>
     )
   },
-  [Routes.PROFILE_PARTICIPANTS_PHONE]: async () => {
-    const profileData = await userApi.profile();
-    const t = await getTranslations("welcome");
-    const needApplication = profileData?.role === "participant" && profileData.participant?.status === "activated"
-    const needPhone = !needApplication && profileData?.role === "participant" && !profileData.participant?.phone_number
+  [Routes.PROFILE_PARTICIPANTS_PHONE]: async (needPhone: boolean) => {
+    const t = useTranslations("welcome");
+    const pathname = usePathname()
+    const isActive = pathname === Routes.PROFILE_PARTICIPANTS_PHONE
 
     if (needPhone) {
       return (
         <Typography
           asChild
           size="caption1"
-          className="flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs"
+          className={clsx(
+            "flex items-center gap-3 p-4 bg-bg-platinum rounded-lg sm:text-lg text-xs",
+            isActive && "bg-bg-primary text-text-white"
+          )}
         >
           <Link href={Routes.PROFILE_PARTICIPANTS_PHONE}>
             <div>
-              <DocIcon/>
+              <DocIcon className={isActive ? "text-text-white" : "text-text-primary"}/>
             </div>
             Номер телефона
           </Link>
@@ -253,19 +316,22 @@ const menuItems = {
 
 const downloadNumberStatuses = ['application_submitted', 'application_verified', 'passed_first_casting', 'came_to_second_casting', 'came_to_first_casting']
 
-export const ProfileMenu = async () => {
-  const profileData = await userApi.profile();
+type Props = {
+  status: ApplicationStatus
+  number: string
+  needApplication: boolean
+  needPhone: boolean
+  role: "participant" | "scout" | "moderator" | "volunteer"
+}
 
-  const t = await getTranslations("welcome");
-
-  const needApplication = profileData?.role === "participant" && profileData.participant?.status === "activated"
-  const needPhone = !needApplication && profileData?.role === "participant" && !profileData.participant?.phone_number
+export const ProfileMenu = async ({ status, number, needApplication, needPhone, role }: Props) => {
+  const t = useTranslations("welcome");
   return (
     <div className="flex flex-col gap-3">
-      {downloadNumberStatuses.includes(profileData?.participant?.status || "") &&
+      {downloadNumberStatuses.includes(status || "") &&
         <Button asChild variant="primary">
           <a href="/ru/api/download/number" download>
-            {t('download.number')} - {profileData?.participant?.number}
+            {t('download.number')} - {number}
           </a>
         </Button>}
 
@@ -293,7 +359,7 @@ export const ProfileMenu = async () => {
         </Typography>
       )}
 
-      {profileData?.role && menu[profileData?.role].map(item => menuItems[item]?.())}
+      {role && menu[role].map(item => menuItems[item]?.(needPhone))}
 
       <ContactToWhatsapp />
     </div>
