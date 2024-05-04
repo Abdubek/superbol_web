@@ -99,6 +99,7 @@ type GetParticipantParams = {
   limit?: number
   sort_by?: "created_at" | "rating"
   sort_dir?: "asc" | "desc"
+  numbers?: string
 }
 
 type GetParticipantsListResponse = {

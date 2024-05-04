@@ -11,6 +11,7 @@ import * as React from "react";
 import {CastingCityFilter} from "@/features/CastingCityFilter";
 import {City} from "@/shared/api/cities";
 import {Typography} from "@/shared/ui/Typography";
+import {SearchByNumber} from "@/features/SearchByNumber";
 
 type Props = {
   participants: Participant[]
@@ -20,10 +21,11 @@ type Props = {
 
 export const ParticipantsTable = ({ cities, participants, totalCount }: Props) => {
   const [isLoading, startTransition] = useTransition()
-  console.log(participants)
+
   return (
     <>
       <CastingCityFilter cities={cities} className="mb-10" startTransition={startTransition} />
+      <SearchByNumber startTransition={startTransition} />
       <div className="relative border border-border-lightgray rounded-md p-4 flex flex-col gap-2">
         {isLoading &&
           <div className="absolute left-0 top-0 right-0 bottom-0 bg-bg-white/80 z-40 w-full h-full flex items-center justify-center">
