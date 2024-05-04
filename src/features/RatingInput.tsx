@@ -22,10 +22,9 @@ export const RatingInput = ({ participantId, defaultValue, disabled = false, sta
   }, [defaultValue])
 
   const handleSetRating = () => {
-    console.log(participantId)
-    if (value[0] !== String(defaultValue[0])) {
+    if ((value[0] !== String(defaultValue[0])) || value[0] === "") {
       startTransition(async () => {
-        await actions.addRating(participantId, Number(value[0]))
+        await actions.addRating(participantId, value[0] === "" ? null : Number(value[0]))
         router.refresh()
       })
     }

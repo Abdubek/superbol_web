@@ -2,7 +2,7 @@ import {request} from "@/shared/api/api";
 import qs from "qs";
 import {ApplicationStatus, Participant} from "@/shared/api/participant";
 
-const addRating = (participantId: number, rating: number): Promise<any> => {
+const addRating = (participantId: number, rating: number | null): Promise<any> => {
   return request('/scouts/ratings', {
     method: "POST",
     body: JSON.stringify({
