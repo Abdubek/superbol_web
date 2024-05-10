@@ -13,7 +13,7 @@ export const SearchByNumber = ({ startTransition }: Props) => {
     'search',
     parseAsString
       .withDefault("")
-      .withOptions({ startTransition })
+      .withOptions({ startTransition, throttleMs: 1000 })
   )
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

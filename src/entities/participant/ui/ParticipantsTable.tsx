@@ -22,19 +22,19 @@ export const ParticipantsTable = ({ participants, totalSize, page }: Props) => {
 
   return (
     <div className="relative border border-border-lightgray rounded-md p-4 flex flex-col gap-2">
-      {isLoading &&
-        <div
-          className="absolute left-0 top-0 right-0 bottom-0 bg-bg-white/80 z-40 w-full h-full flex items-center justify-center">
-          <Image
-            className="animate-spin"
-            alt="loader"
-            src={"/loader.png"}
-            width={32}
-            height={32}
-          />
-        </div>
-      }
-      <div className="overflow-x-scroll mb-5">
+      <div className="relative overflow-x-scroll mb-5">
+        {isLoading &&
+          <div
+            className="absolute left-0 top-0 right-0 bottom-0 bg-bg-white/80 z-40 w-full h-full flex items-center justify-center">
+            <Image
+              className="animate-spin"
+              alt="loader"
+              src={"/loader.png"}
+              width={32}
+              height={32}
+            />
+          </div>
+        }
         <table className="w-full ">
           <thead>
           <tr className="bg-bg-platinum font-semibold text-text-darkblue">
