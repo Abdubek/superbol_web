@@ -38,6 +38,7 @@ type GetParticipantParams = {
   limit?: number
   only_faves?: boolean
   numbers?: string
+  search?: string
 }
 
 type GetParticipantsListResponse = {

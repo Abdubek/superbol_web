@@ -12,7 +12,7 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
 
   const city = searchParams.city as string | undefined
   const by = searchParams.by as string | undefined
-  const byNumber = searchParams.byNumber as string | undefined
+  const search = searchParams.search as string | undefined
 
   const [cities, data] = await Promise.all([
     citiesApi.getCitiesList(),
@@ -20,7 +20,7 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
       status: "came_to_first_casting",
       casting_city: city,
       only_faves: by === "favorite",
-      numbers: byNumber || undefined
+      search: search || undefined
     })
   ])
 

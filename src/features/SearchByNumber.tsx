@@ -10,7 +10,7 @@ type Props = {
 
 export const SearchByNumber = ({ startTransition }: Props) => {
   const [, setValue] = useQueryState(
-    'byNumber',
+    'search',
     parseAsString
       .withDefault("")
       .withOptions({ startTransition })
@@ -24,7 +24,7 @@ export const SearchByNumber = ({ startTransition }: Props) => {
   }
 
   return (
-    <Input placeholder="Поиск по номеру"
+    <Input placeholder="Введите имя или номер участника"
            onChange={handleChange} />
   )
 }

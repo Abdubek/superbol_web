@@ -16,7 +16,7 @@ type Props = {
 export default async function CabinetParticipantProfilesPage({ searchParams }: Props) {
 
   const city = searchParams.city as string | undefined
-  const byNumber = searchParams.byNumber as string | undefined
+  const search = searchParams.search as string | undefined
 
   const [cities, data] = await Promise.all([
     citiesApi.getCitiesList(),
@@ -30,7 +30,7 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
       casting_city: city,
       limit: 10,
       offset: (Number(searchParams?.page) || 0),
-      numbers: byNumber || undefined
+      numbers: search || undefined
     })
   ])
 
