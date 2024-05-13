@@ -30,7 +30,7 @@ export default async function CabinetParticipantProfilesPage({ searchParams }: P
       casting_city: city,
       limit: 10,
       offset: (Number(searchParams?.page) || 0),
-      numbers: search || undefined
+      search: search || undefined
     })
   ])
 
