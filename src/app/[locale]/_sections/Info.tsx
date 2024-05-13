@@ -2,9 +2,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/Tabs";
 import { Typography } from "@/shared/ui/Typography";
 import PlayerPicture from "../../../../public/player.png";
 import PlayersPicture from "../../../../public/players.png";
+import Turlov from "../../../../public/turlov.png";
 import QuotesIcon from "@/shared/icons/quotes.svg";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { TransitionImage } from "@/shared/ui/TransitionImage";
 
 enum TabTypes {
   RULES = "rules",
@@ -65,15 +67,7 @@ const RulesContent = () => {
           <h4>{t("title")}</h4>
         </Typography>
         <div className="relative sm:w-[522px] w-[320px] sm:h-[442px] px-10 mb-6">
-          <Image
-            alt="Player picture"
-            src={PlayerPicture}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-          />
+          <TransitionImage image={PlayerPicture} alt="Player picture" />
           <Typography className="absolute top-[10px] left-8 p-2.5 bg-bg-white text-text-primary border-2 rounded-lg sm:text-lg text-sm text-center">
             {t("badge1")}
           </Typography>
@@ -107,7 +101,12 @@ const GoalsContent = () => {
 
         <div className="flex">
           <div className="mr-8">
-            <Image src="/turlov.png" width={148} height={148} alt="Turlov" />
+            <TransitionImage
+              image={Turlov}
+              width={148}
+              height={148}
+              alt="Turlov"
+            />
           </div>
           <div>
             <QuotesIcon />
@@ -129,15 +128,7 @@ const GoalsContent = () => {
           <h4>{t("title")}</h4>
         </Typography>
         <div className="relative sm:w-[522px] w-[320px] sm:h-[442px] px-10 mb-6 sm:pt-0 pt-8">
-          <Image
-            alt="Player picture"
-            src={PlayersPicture}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-          />
+          <TransitionImage image={PlayersPicture} alt="Player picture" />
           <Typography className="absolute top-0 left-1/2 -translate-x-1/2 p-2.5 bg-bg-primary text-text-white rounded-lg sm:text-lg text-sm font-bold text-center">
             {t.rich("badge1", {
               br: () => <br />,

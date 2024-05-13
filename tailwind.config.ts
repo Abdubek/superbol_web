@@ -18,6 +18,7 @@ const config: Config = {
       },
       button: {
         primary: "#47A3C4",
+        hover: "#36859C",
         secondary: "#F8F8F8",
       },
       text: {
