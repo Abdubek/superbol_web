@@ -10,6 +10,7 @@ const config: Config = {
         platinum: "#F8F8F8",
         darkblue: "#023474",
         lightblue: "#47A3C440",
+        darkerblue: "#C0E3EF",
         yellow: "#FCE531",
         red: "#EA4335",
         success: "#34A85326",

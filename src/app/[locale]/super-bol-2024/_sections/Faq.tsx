@@ -32,7 +32,7 @@ export const Faq = () => {
             value={t(`faq.${item}.question`)}
             className="rounded-md overflow-hidden"
           >
-            <AccordionTrigger className="bg-bg-platinum rounded-t-md">
+            <AccordionTrigger className="bg-bg-platinum rounded-t-md hover:bg-bg-white">
               <div className="flex items-center justify-between px-6 w-full text-left">
                 <Typography size="body1">
                   {t(`faq.${item}.question`)}
@@ -56,7 +56,7 @@ export const Faq = () => {
         <a
           href="https://t.me/+KdU3tzpXmRtmYzYy"
           target="_blank"
-          className="flex items-center gap-3 rounded-full border border-border-primary hover:border-border-white transition duration-400 px-5 py-2.5"
+          className="flex items-center gap-3 rounded-full border border-border-primary hover:bg-bg-darkerblue transition duration-400 px-5 py-2.5"
         >
           <div>
             <TelegramLogo />
