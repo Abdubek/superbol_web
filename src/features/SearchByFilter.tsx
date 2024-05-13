@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/ui/Select";
-import { ChangeEvent, TransitionStartFunction, useRef, useState } from "react";
+import { ChangeEvent, TransitionStartFunction, useState } from "react";
 import { InputMask, MaskEventDetail, Replacement } from "@react-input/mask";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
