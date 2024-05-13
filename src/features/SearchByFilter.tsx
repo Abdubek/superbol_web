@@ -10,13 +10,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/ui/Select";
-import { ChangeEvent, TransitionStartFunction, useState } from "react";
-import { Replacement } from "@react-input/mask";
-import { CustomInputMask } from "@/shared/ui/InputMask";
+import { ChangeEvent, TransitionStartFunction, useRef, useState } from "react";
+import { InputMask, MaskEventDetail, Replacement } from "@react-input/mask";
 import { PhoneInput } from "react-international-phone";
-import { useTranslations } from "next-intl";
 import "react-international-phone/style.css";
-import { usePathname } from "next/navigation";
 
 type Props = {
   startTransition: TransitionStartFunction;
@@ -69,6 +66,8 @@ export const SearchByFilter = ({ startTransition }: Props) => {
       .withOptions({ startTransition, throttleMs: 1000 })
   );
 
+  const [detail, setDetail] = useState<MaskEventDetail | null>(null);
+
   const [selectedFilter, setSelectedFilter] = useState<TSearchTypes>(
     ESearchType.NAME
   );
@@ -87,7 +86,8 @@ export const SearchByFilter = ({ startTransition }: Props) => {
 
   const handleFilterChange = (value: TSearchTypes) => {
     setSelectedFilter(value);
-    setValue(null, {
+    setDetail(null);
+    setValue("", {
       shallow: false,
       throttleMs: 1000,
     });
@@ -116,21 +116,23 @@ export const SearchByFilter = ({ startTransition }: Props) => {
         </Select>
       </div>
       <div className="grow shrink-0">
-        {selectedFilter === ESearchType.PHONE ? (
+        {selectedFilter === ESearchType.PHONE && (
           <PhoneInput
             defaultCountry="kz"
             onChange={(phone) => handlePhoneChange(phone)}
           />
-        ) : (
-          selectedFilter && (
-            <CustomInputMask
-              component={Input}
-              mask={maskVariants[selectedFilter].mask}
-              replacement={maskVariants[selectedFilter].replacement}
-              placeholder={maskVariants[selectedFilter].placeholder}
-              onChange={handleChange}
-            />
-          )
+        )}
+        {selectedFilter !== ESearchType.PHONE && (
+          <InputMask
+            onMask={(event) => setDetail(event.detail)}
+            component={Input}
+            key={selectedFilter}
+            value={detail?.value ?? ""}
+            mask={maskVariants[selectedFilter].mask}
+            replacement={maskVariants[selectedFilter].replacement}
+            placeholder={maskVariants[selectedFilter].placeholder}
+            onChange={handleChange}
+          />
         )}
       </div>
     </div>
