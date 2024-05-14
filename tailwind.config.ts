@@ -10,14 +10,16 @@ const config: Config = {
         platinum: "#F8F8F8",
         darkblue: "#023474",
         lightblue: "#47A3C440",
+        darkerblue: "#C0E3EF",
         yellow: "#FCE531",
         red: "#EA4335",
         success: "#34A85326",
         warn: "#FAED88",
-        black: "#000000"
+        black: "#000000",
       },
       button: {
         primary: "#47A3C4",
+        hover: "#36859C",
         secondary: "#F8F8F8",
       },
       text: {
@@ -34,6 +36,7 @@ const config: Config = {
         primary: "#47A3C4",
         secondary: "#FCE531",
         grey: "#7E7E7E",
+        white: "#FFFFFF",
         lightgray: "#EAEAEA",
       },
     },
@@ -53,14 +56,14 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       padding: {
-        15: "60px"
+        15: "60px",
       },
       borderRadius: {
-        '3xl': '20px'
+        "3xl": "20px",
       },
       gap: {
-        15: "60px"
-      }
+        15: "60px",
+      },
     },
   },
   plugins: [],
