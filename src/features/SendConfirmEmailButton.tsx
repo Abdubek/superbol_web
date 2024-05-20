@@ -36,7 +36,7 @@ export const SendConfirmEmailButton = ({ isVerified }: Props) => {
   }
 
   return (
-    <Button variant="primary" size="sm" onClick={handleClick} disabled={isSent}>{!isSent ? "Подтвердить" : "Письмо отправлено"}</Button>
+    <Button variant="primary" size="sm" onClick={handleClick} disabled={true}>{!isSent ? "Подтвердить" : "Письмо отправлено"}</Button>
 
   )
 }

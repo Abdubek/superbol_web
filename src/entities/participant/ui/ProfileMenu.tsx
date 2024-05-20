@@ -1,4 +1,5 @@
 "use client";
+
 import { Link } from "@/navigation";
 import ProfileIcon from "@/shared/icons/profile.svg";
 import StarIcon from "@/shared/icons/star.svg";
@@ -40,7 +41,7 @@ const menu = {
 };
 
 const menuItems = {
-  [Routes.PROFILE]: async () => {
+  [Routes.PROFILE]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE;
@@ -64,7 +65,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_APPLICATION]: async () => {
+  [Routes.PROFILE_APPLICATION]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_APPLICATION;
@@ -88,7 +89,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_PARTICIPANTS]: async () => {
+  [Routes.PROFILE_PARTICIPANTS]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_PARTICIPANTS;
@@ -112,7 +113,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_NOTIFICATIONS]: async () => {
+  [Routes.PROFILE_NOTIFICATIONS]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_NOTIFICATIONS;
@@ -136,7 +137,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_DOCUMENTS]: async () => {
+  [Routes.PROFILE_DOCUMENTS]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_DOCUMENTS;
@@ -160,7 +161,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_PARTICIPANTS_PROFILES]: async () => {
+  [Routes.PROFILE_PARTICIPANTS_PROFILES]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_PARTICIPANTS_PROFILES;
@@ -184,7 +185,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_MODERATOR_PARTICIPANTS]: async () => {
+  [Routes.PROFILE_MODERATOR_PARTICIPANTS]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_MODERATOR_PARTICIPANTS;
@@ -208,7 +209,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_MODERATOR_STATS]: async () => {
+  [Routes.PROFILE_MODERATOR_STATS]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_MODERATOR_STATS;
@@ -232,7 +233,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_PARTICIPANTS_RATING]: async () => {
+  [Routes.PROFILE_PARTICIPANTS_RATING]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_PARTICIPANTS_RATING;
@@ -256,7 +257,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_PARTICIPANTS_GROUPS]: async () => {
+  [Routes.PROFILE_PARTICIPANTS_GROUPS]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_PARTICIPANTS_GROUPS;
@@ -280,7 +281,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_VOLUNTEER_SCANNER]: async () => {
+  [Routes.PROFILE_VOLUNTEER_SCANNER]: () => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_VOLUNTEER_SCANNER;
@@ -304,7 +305,7 @@ const menuItems = {
       </Typography>
     );
   },
-  [Routes.PROFILE_PARTICIPANTS_PHONE]: async (needPhone: boolean) => {
+  [Routes.PROFILE_PARTICIPANTS_PHONE]: (needPhone: boolean) => {
     const t = useTranslations("welcome");
     const pathname = usePathname();
     const isActive = pathname === Routes.PROFILE_PARTICIPANTS_PHONE;
@@ -350,7 +351,7 @@ type Props = {
   role: "participant" | "scout" | "moderator" | "volunteer";
 };
 
-export const ProfileMenu = async ({
+export const ProfileMenu = ({
   status,
   number,
   needApplication,

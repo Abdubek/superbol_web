@@ -38,7 +38,7 @@ export const ForgotPasswordForm = () => {
         error={state?.email}
       />
 
-      <SubmitButton type="submit" variant="primary" className="w-full">
+      <SubmitButton type="submit" variant="primary" className="w-full" disabled={true}>
         {t("buttons.next")}
       </SubmitButton>
     </form>
