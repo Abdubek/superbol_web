@@ -7,9 +7,9 @@ import Link from "next/link";
 import { Routes } from "@/routes";
 import { FormInput } from "@/shared/ui/FormInput";
 import { useTranslations } from "next-intl";
-import {SubmitButton} from "@/features/SubmitButton";
+import { SubmitButton } from "@/features/SubmitButton";
 import CheckSmallIcon from "@/shared/icons/check-small.svg";
-import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
+import { ContactToWhatsapp } from "@/features/ContactToWhatsapp";
 
 const initialState = {
   email: "",
@@ -27,7 +27,7 @@ export const SignInForm = () => {
     >
       <Typography size="h3" variant="primary">
         {t.rich("signIn.title", {
-          br: () => <br/>,
+          br: () => <br />,
         })}
       </Typography>
 
@@ -49,7 +49,7 @@ export const SignInForm = () => {
         />
 
         <div className="flex items-center gap-2">
-          <CheckSmallIcon/>
+          <CheckSmallIcon />
           <Typography size="body3">{t("setPassword.required.1")}</Typography>
         </div>
       </div>
@@ -65,16 +65,18 @@ export const SignInForm = () => {
         {/*    <Link href={Routes.SIGN_UP}>{t("signIn.routes.register.cta")}</Link>*/}
         {/*  </Typography>*/}
         {/*</Typography>*/}
-        <Typography size="body3">
-          {t("signIn.routes.forgotPassword.title")}{" "}
-          <Typography asChild variant="primary">
-            <Link href={Routes.FORGOT_PASSWORD}>
-              {t("signIn.routes.forgotPassword.cta")}
-            </Link>
+        {process.env.NEXT_PUBLIC_IS_ACTIVE === "true" && (
+          <Typography size="body3">
+            {t("signIn.routes.forgotPassword.title")}{" "}
+            <Typography asChild variant="primary">
+              <Link href={Routes.FORGOT_PASSWORD}>
+                {t("signIn.routes.forgotPassword.cta")}
+              </Link>
+            </Typography>
           </Typography>
-        </Typography>
+        )}
       </div>
-      <ContactToWhatsapp />
+      {process.env.NEXT_PUBLIC_IS_ACTIVE === "true" && <ContactToWhatsapp />}
     </form>
   );
 };

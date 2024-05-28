@@ -4,19 +4,19 @@ import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import {ConfirmEmailButton} from "@/features/ConfirmEmailButton";
-import {redirect} from "next/navigation";
-import {Routes} from "@/routes";
+import { ConfirmEmailButton } from "@/features/ConfirmEmailButton";
+import { redirect } from "next/navigation";
+import { Routes } from "@/routes";
 
 type Props = {
-  searchParams?: { email?: string, token?: string }
-}
+  searchParams?: { email?: string; token?: string };
+};
 
 export default function ConfirmPage({ searchParams }: Props) {
   const t = useTranslations("auth");
 
   if (!searchParams?.token) {
-    return redirect(Routes.HOME)
+    return redirect(Routes.HOME);
   }
 
   return (
@@ -30,7 +30,9 @@ export default function ConfirmPage({ searchParams }: Props) {
           })}
         </Typography>
 
-        <ConfirmEmailButton token={searchParams?.token} />
+        {process.env.NEXT_PUBLIC_IS_ACTIVE === "true" && (
+          <ConfirmEmailButton token={searchParams?.token} />
+        )}
       </div>
 
       <div />

@@ -3,7 +3,7 @@ import { userApi } from "@/shared/api/user";
 import { ChangePasswordButton } from "@/features/ChangePasswordButton";
 import { UploadAvatar } from "@/features/UploadAvatar";
 import { getTranslations } from "next-intl/server";
-import {SendConfirmEmailButton} from "@/features/SendConfirmEmailButton";
+import { SendConfirmEmailButton } from "@/features/SendConfirmEmailButton";
 
 export default async function CabinetProfilePage() {
   const profileData = await userApi.profile();
@@ -28,7 +28,15 @@ export default async function CabinetProfilePage() {
           </Typography>
           <div className="flex gap-4 items-center">
             <Typography size="body1">{profileData?.email}</Typography>
-            <SendConfirmEmailButton isVerified={profileData?.participant ? profileData.participant.email_verified : true} />
+            {process.env.NEXT_PUBLIC_IS_ACTIVE === "true" && (
+              <SendConfirmEmailButton
+                isVerified={
+                  profileData?.participant
+                    ? profileData.participant.email_verified
+                    : true
+                }
+              />
+            )}
           </div>
         </div>
         <div className="flex flex-col gap-2 pt-3">
