@@ -4,8 +4,8 @@ import { useTranslations } from "next-intl";
 import ArrowRightIcon from "@/shared/icons/arrow-right.svg";
 import PrimaryPattern from "@/shared/images/primary_pattern.svg";
 import Link from "next/link";
-import {Routes} from "@/routes";
-import {ContactToWhatsapp} from "@/features/ContactToWhatsapp";
+import { Routes } from "@/routes";
+import { ContactToWhatsapp } from "@/features/ContactToWhatsapp";
 
 export const Main = () => {
   const t = useTranslations("landing.main");
@@ -36,7 +36,7 @@ export const Main = () => {
           <Button variant="primary">{t("cta")}</Button>
         </Link>
 
-        <ContactToWhatsapp />
+        {process.env.NEXT_PUBLIC_IS_ACTIVE === "true" && <ContactToWhatsapp />}
       </div>
       <div className="col-span-3 hidden lg:flex flex-col items-start gap-14 pr-14">
         <a

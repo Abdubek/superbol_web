@@ -395,7 +395,7 @@ export const ProfileMenu = ({
 
       {role && menu[role].map((item) => menuItems[item]?.(needPhone))}
 
-      <ContactToWhatsapp />
+      {process.env.NEXT_PUBLIC_IS_ACTIVE === "true" && <ContactToWhatsapp />}
     </div>
   );
 };
